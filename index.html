@@ -114,156 +114,86 @@
     box-shadow: 0 0 80px rgba(255, 210, 48, 0.15), 0 0 30px rgba(255, 210, 48, 0.1);
   }
 
-  /* ━━━━━━━━ FUNNEL KV — Visual Funnel ━━━━━━━━ */
-  .funnel-kv { position: relative; padding: 30px 0; }
-
-  .funnel-stage {
+  /* ━━━━━━━━ FUNNEL KV — 3D Illustrated Funnel ━━━━━━━━ */
+  .funnel-kv { position: relative; padding: 10px 0; }
+  .funnel-svg-wrap {
     position: relative;
+    max-width: 700px;
     margin: 0 auto;
-    padding: 20px 28px;
-    border-radius: 32px;
-    display: flex;
-    align-items: center;
-    gap: 24px;
-    backdrop-filter: blur(8px);
-    transition: transform 1.2s cubic-bezier(0.16,1,0.3,1), opacity 1s ease;
-    opacity: 0;
-    transform: translateY(40px) scale(0.95);
   }
-  .funnel-kv.animate .funnel-stage-1 { opacity: 1; transform: translateY(0) scale(1); transition-delay: 0.1s; }
-  .funnel-kv.animate .funnel-stage-2 { opacity: 1; transform: translateY(0) scale(1); transition-delay: 0.7s; }
-  .funnel-kv.animate .funnel-stage-3 { opacity: 1; transform: translateY(0) scale(1); transition-delay: 1.3s; }
-
-  /* Stage 1: widest, faint */
-  .funnel-stage-1 {
+  .funnel-svg {
     width: 100%;
-    background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,210,48,0.04));
-    border: 1px solid rgba(255,255,255,0.1);
-  }
-  /* Stage 2: ~75%, warming */
-  .funnel-stage-2 {
-    width: 75%;
-    background: linear-gradient(180deg, rgba(255,210,48,0.06), rgba(255,210,48,0.12));
-    border: 1px solid rgba(255,210,48,0.35);
-  }
-  /* Stage 3: ~45%, hottest */
-  .funnel-stage-3 {
-    width: 45%;
-    background: linear-gradient(180deg, rgba(255,210,48,0.25), rgba(255,210,48,0.5));
-    border: 1.5px solid rgba(255,210,48,0.9);
-    box-shadow: 0 0 60px rgba(255,210,48,0.25), 0 0 20px rgba(255,210,48,0.15) inset;
+    height: auto;
+    overflow: visible;
   }
 
-  .stage-badge { display: flex; flex-direction: column; min-width: 100px; }
-  .stage-num {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 28px; font-weight: 700;
-    color: rgba(255,210,48,0.7);
-    line-height: 1;
-  }
-  .funnel-stage-3 .stage-num { color: #0A0A0A; }
-  .stage-name {
-    font-size: 10px; font-weight: 700;
-    letter-spacing: 0.3em;
-    color: rgba(255,255,255,0.6);
-    margin-top: 6px;
-  }
-  .funnel-stage-3 .stage-name { color: rgba(10,10,10,0.7); }
-
-  .stage-body { flex: 1; }
-  .dot-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(10px, 1fr));
-    gap: 5px;
-    padding: 6px 0;
-  }
-  .dot {
-    width: 7px; height: 7px;
-    border-radius: 50%;
+  /* Per-tier entrance animations */
+  .tier, .tier-drip, .funnel-labels > * {
     opacity: 0;
-    transform: scale(0);
+    transform: translateY(-40px) scale(0.85);
+    transform-origin: 50% 50%;
+    transform-box: fill-box;
+    transition: transform 0.9s cubic-bezier(0.16,1,0.3,1), opacity 0.7s ease;
   }
-  .funnel-kv.animate .dot { animation: dotIn 0.5s cubic-bezier(0.16,1,0.3,1) forwards; }
-  /* dot colors per temperature */
-  .dot.cold { background: rgba(255,255,255,0.18); }
-  .dot.warm { background: rgba(255,210,48,0.55); box-shadow: 0 0 4px rgba(255,210,48,0.3); }
-  .dot.hot  { background: #FFD230; box-shadow: 0 0 8px rgba(255,210,48,0.8), 0 0 4px #fff; animation-name: dotInHot !important; }
+  .funnel-kv.animate .tier-1     { opacity: 1; transform: translateY(0) scale(1); transition-delay: 0.1s; }
+  .funnel-kv.animate .tier-2     { opacity: 1; transform: translateY(0) scale(1); transition-delay: 0.5s; }
+  .funnel-kv.animate .tier-3     { opacity: 1; transform: translateY(0) scale(1); transition-delay: 0.9s; }
+  .funnel-kv.animate .tier-drip  { opacity: 1; transform: translateY(0) scale(1); transition-delay: 1.3s; }
+  .funnel-kv.animate .funnel-labels > * { opacity: 1; transform: translateY(0) scale(1); transition: opacity 0.6s ease; }
+  .funnel-kv.animate .funnel-labels > *:nth-child(1),
+  .funnel-kv.animate .funnel-labels > *:nth-child(2),
+  .funnel-kv.animate .funnel-labels > *:nth-child(3) { transition-delay: 0.4s; }
+  .funnel-kv.animate .funnel-labels > *:nth-child(4),
+  .funnel-kv.animate .funnel-labels > *:nth-child(5),
+  .funnel-kv.animate .funnel-labels > *:nth-child(6) { transition-delay: 0.8s; }
+  .funnel-kv.animate .funnel-labels > *:nth-child(7),
+  .funnel-kv.animate .funnel-labels > *:nth-child(8),
+  .funnel-kv.animate .funnel-labels > *:nth-child(9) { transition-delay: 1.2s; }
 
-  @keyframes dotIn {
-    from { opacity: 0; transform: scale(0); }
-    to   { opacity: 1; transform: scale(1); }
-  }
-  @keyframes dotInHot {
-    0%   { opacity: 0; transform: scale(0); }
-    60%  { opacity: 1; transform: scale(1.4); }
-    100% { opacity: 1; transform: scale(1); }
+  /* Avatars inside funnel — circular crop + subtle bounce */
+  .funnel-svg image {
+    clip-path: circle(50%);
+    transform-origin: center;
   }
 
-  /* Subtle pulse on hot dots */
-  .funnel-kv.animate .dot.hot { animation: dotInHot 0.6s cubic-bezier(0.16,1,0.3,1) forwards, hotPulse 2.4s ease-in-out infinite; }
-  @keyframes hotPulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.55; }
+  /* Subtle floating motion for the whole funnel */
+  .funnel-kv.animate .funnel-illustration {
+    animation: funnelFloat 6s ease-in-out infinite;
+    animation-delay: 1.5s;
+  }
+  @keyframes funnelFloat {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-8px); }
   }
 
-  .stage-meta { text-align: right; min-width: 90px; }
-  .meta-num {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 22px; font-weight: 700;
+  /* Hot tier pulse — adds subtle attention to conversion */
+  .funnel-kv.animate .tier-3 {
+    animation: tierPulse 3s ease-in-out infinite;
+    animation-delay: 2s;
+  }
+  @keyframes tierPulse {
+    0%, 100% { filter: url(#hotGlow) drop-shadow(0 0 0 rgba(255,210,48,0)); }
+    50%      { filter: url(#hotGlow) drop-shadow(0 0 18px rgba(255,210,48,0.6)); }
+  }
+
+  /* Funnel tagline */
+  .funnel-tagline {
+    text-align: center;
+    margin-top: 32px;
+    font-family: 'Anuphan', 'Inter', sans-serif;
+    color: rgba(255,255,255,0.55);
+    font-size: 15px;
+    letter-spacing: 0.02em;
+  }
+  .funnel-tagline .t-y {
     color: #FFD230;
-    line-height: 1;
+    font-weight: 600;
   }
-  .funnel-stage-3 .meta-num { color: #0A0A0A; font-size: 28px; }
-  .meta-label {
-    font-size: 10px; letter-spacing: 0.15em;
-    color: rgba(255,255,255,0.45);
-    text-transform: uppercase;
-    margin-top: 4px;
-  }
-  .funnel-stage-3 .meta-label { color: rgba(10,10,10,0.6); }
-
-  /* Flow connector between stages */
-  .funnel-flow {
-    position: relative;
-    height: 50px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-    opacity: 0;
-    transition: opacity 0.6s ease;
-  }
-  .funnel-kv.animate .funnel-flow-1 { opacity: 1; transition-delay: 0.5s; }
-  .funnel-kv.animate .funnel-flow-2 { opacity: 1; transition-delay: 1.1s; }
-  .flow-dot {
-    width: 4px; height: 4px;
-    border-radius: 50%;
-    background: #FFD230;
-    box-shadow: 0 0 6px rgba(255,210,48,0.6);
-    animation: flowDown 1.6s ease-in-out infinite;
-  }
-  .funnel-flow .flow-dot:nth-child(1) { animation-delay: 0s; }
-  .funnel-flow .flow-dot:nth-child(2) { animation-delay: 0.2s; }
-  .funnel-flow .flow-dot:nth-child(3) { animation-delay: 0.4s; }
-  @keyframes flowDown {
-    0%   { opacity: 0; transform: translateY(-16px) scale(0.5); }
-    20%  { opacity: 1; transform: translateY(-8px) scale(1); }
-    80%  { opacity: 1; transform: translateY(24px) scale(1); }
-    100% { opacity: 0; transform: translateY(32px) scale(0.5); }
-  }
-
-  /* Hover lift effect */
-  .funnel-stage:hover { transform: translateY(-4px) scale(1.01) !important; transition-delay: 0s !important; }
 
   /* Mobile responsive */
   @media (max-width: 768px) {
-    .funnel-stage-2 { width: 88%; }
-    .funnel-stage-3 { width: 65%; }
-    .stage-badge { min-width: 70px; }
-    .stage-num { font-size: 22px; }
-    .stage-meta { min-width: 60px; }
-    .meta-num { font-size: 18px; }
+    .funnel-svg-wrap { padding: 0 8px; }
+    .funnel-tagline { font-size: 13px; }
   }
 
   /* Custom cursor on hero */
@@ -677,68 +607,138 @@
       </p>
     </div>
 
-    <!-- ── KV: Visual Funnel ── -->
-    <div id="funnel-kv" class="funnel-kv max-w-5xl mx-auto mb-24 reveal">
+    <!-- ── KV: 3D Illustrated Funnel ── -->
+    <div id="funnel-kv" class="funnel-kv max-w-3xl mx-auto mb-16 reveal">
+      <div class="funnel-svg-wrap">
+        <svg viewBox="0 0 700 760" class="funnel-svg" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <!-- Per-tier gradients for 3D shading -->
+            <linearGradient id="tierGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#FFEC9A"/>
+              <stop offset="100%" stop-color="#FFD230"/>
+            </linearGradient>
+            <linearGradient id="tierGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#FFD230"/>
+              <stop offset="100%" stop-color="#E8B917"/>
+            </linearGradient>
+            <linearGradient id="tierGrad3" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#FFB800"/>
+              <stop offset="100%" stop-color="#D49A00"/>
+            </linearGradient>
+            <linearGradient id="tipGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#D49A00"/>
+              <stop offset="100%" stop-color="#8B6500"/>
+            </linearGradient>
 
-      <!-- Stage 01: Upper · cold + many -->
-      <div class="funnel-stage funnel-stage-1">
-        <div class="stage-badge">
-          <span class="stage-num">01</span>
-          <span class="stage-name">AWARENESS</span>
-        </div>
-        <div class="stage-body">
-          <div class="dot-grid" data-count="160" data-temp="cold"></div>
-        </div>
-        <div class="stage-meta">
-          <div class="meta-num">10M+</div>
-          <div class="meta-label">people</div>
-        </div>
+            <!-- Drop shadow for funnel -->
+            <filter id="funnelShadow" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur in="SourceAlpha" stdDeviation="6"/>
+              <feOffset dx="0" dy="6"/>
+              <feComponentTransfer><feFuncA type="linear" slope="0.4"/></feComponentTransfer>
+              <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+
+            <!-- Glow for hot tier -->
+            <filter id="hotGlow" x="-30%" y="-30%" width="160%" height="160%">
+              <feGaussianBlur stdDeviation="8" result="b"/>
+              <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+
+            <!-- Clip paths so avatars stay inside their tier -->
+            <clipPath id="clipTier1"><path d="M 30 60 L 670 60 L 580 240 L 120 240 Z"/></clipPath>
+            <clipPath id="clipTier2"><path d="M 120 260 L 580 260 L 500 420 L 200 420 Z"/></clipPath>
+            <clipPath id="clipTier3"><path d="M 200 440 L 500 440 L 430 600 L 270 600 Z"/></clipPath>
+          </defs>
+
+          <g class="funnel-illustration" filter="url(#funnelShadow)">
+
+            <!-- ═══ TIER 1 · Awareness (widest) ═══ -->
+            <g class="tier tier-1">
+              <!-- Top rim ellipse -->
+              <ellipse cx="350" cy="60" rx="320" ry="34" fill="#FFEC9A" stroke="#FFD230" stroke-width="2"/>
+              <!-- Side body (slanted) -->
+              <path d="M 30 60 L 670 60 L 580 240 L 120 240 Z" fill="url(#tierGrad1)"/>
+              <!-- Bottom rim (where next tier sits) -->
+              <ellipse cx="350" cy="240" rx="230" ry="26" fill="#FFC700"/>
+              <ellipse cx="350" cy="240" rx="230" ry="20" fill="#FFD230" opacity="0.5"/>
+
+              <!-- Avatars inside Tier 1 (7 people, spread wide) -->
+              <g clip-path="url(#clipTier1)">
+                <image href="avatars/alex.svg"   x="95"  y="105" width="68" height="68"/>
+                <image href="avatars/jamie.svg"  x="190" y="115" width="68" height="68"/>
+                <image href="avatars/morgan.svg" x="285" y="100" width="68" height="68"/>
+                <image href="avatars/sam.svg"    x="380" y="118" width="68" height="68"/>
+                <image href="avatars/taylor.svg" x="475" y="108" width="68" height="68"/>
+                <image href="avatars/casey.svg"  x="555" y="118" width="60" height="60"/>
+              </g>
+            </g>
+
+            <!-- ═══ TIER 2 · Interest ═══ -->
+            <g class="tier tier-2">
+              <path d="M 120 260 L 580 260 L 500 420 L 200 420 Z" fill="url(#tierGrad2)"/>
+              <ellipse cx="350" cy="420" rx="150" ry="22" fill="#C9A015"/>
+              <ellipse cx="350" cy="420" rx="150" ry="17" fill="#FFD230" opacity="0.45"/>
+
+              <!-- Avatars Tier 2 (4 people) -->
+              <g clip-path="url(#clipTier2)">
+                <image href="avatars/riley.svg"  x="180" y="305" width="62" height="62"/>
+                <image href="avatars/jordan.svg" x="265" y="300" width="62" height="62"/>
+                <image href="avatars/kim.svg"    x="355" y="305" width="62" height="62"/>
+                <image href="avatars/max.svg"    x="445" y="300" width="62" height="62"/>
+              </g>
+            </g>
+
+            <!-- ═══ TIER 3 · Conversion (narrowest, glowing) ═══ -->
+            <g class="tier tier-3" filter="url(#hotGlow)">
+              <path d="M 200 440 L 500 440 L 430 600 L 270 600 Z" fill="url(#tierGrad3)"/>
+              <ellipse cx="350" cy="600" rx="80" ry="16" fill="#9E7400"/>
+              <ellipse cx="350" cy="600" rx="80" ry="12" fill="#FFD230" opacity="0.5"/>
+
+              <!-- Avatars Tier 3 (2 people, the buyers) -->
+              <g clip-path="url(#clipTier3)">
+                <image href="avatars/noa.svg" x="265" y="490" width="58" height="58"/>
+                <image href="avatars/lee.svg" x="378" y="490" width="58" height="58"/>
+              </g>
+            </g>
+
+            <!-- ═══ DRIP · the conversion drop ═══ -->
+            <g class="tier-drip">
+              <path d="M 270 600 L 430 600 L 380 700 L 320 700 Z" fill="url(#tipGrad)"/>
+              <ellipse cx="350" cy="700" rx="30" ry="6" fill="#6B4F00"/>
+              <!-- Money drip drop (yellow circle below) -->
+              <circle cx="350" cy="735" r="14" fill="#FFD230">
+                <animate attributeName="cy" values="725;740;725" dur="2s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="1;0.6;1" dur="2s" repeatCount="indefinite"/>
+              </circle>
+              <text x="350" y="741" text-anchor="middle" font-size="14" font-weight="900" fill="#0A0A0A" font-family="'Space Grotesk', sans-serif">$</text>
+            </g>
+
+          </g>
+
+          <!-- ═══ Right-side labels (minimal text) ═══ -->
+          <g class="funnel-labels" font-family="'Space Grotesk', sans-serif">
+            <!-- Tier 1 label -->
+            <line x1="630" y1="150" x2="690" y2="150" stroke="#FFD230" stroke-width="2"/>
+            <text x="700" y="146" font-size="22" font-weight="700" fill="#FFD230">1</text>
+            <text x="700" y="172" font-size="14" font-weight="500" fill="rgba(255,255,255,0.85)" font-style="italic">Awareness</text>
+
+            <!-- Tier 2 label -->
+            <line x1="560" y1="340" x2="690" y2="340" stroke="#FFD230" stroke-width="2"/>
+            <text x="700" y="336" font-size="22" font-weight="700" fill="#FFD230">2</text>
+            <text x="700" y="362" font-size="14" font-weight="500" fill="rgba(255,255,255,0.85)" font-style="italic">Interest</text>
+
+            <!-- Tier 3 label -->
+            <line x1="490" y1="520" x2="690" y2="520" stroke="#FFD230" stroke-width="2"/>
+            <text x="700" y="516" font-size="22" font-weight="700" fill="#FFD230">3</text>
+            <text x="700" y="542" font-size="14" font-weight="500" fill="rgba(255,255,255,0.85)" font-style="italic">Decision</text>
+          </g>
+        </svg>
       </div>
 
-      <!-- Flow connector 1→2 -->
-      <div class="funnel-flow funnel-flow-1">
-        <span class="flow-dot"></span>
-        <span class="flow-dot"></span>
-        <span class="flow-dot"></span>
-      </div>
-
-      <!-- Stage 02: Mid · warming + fewer -->
-      <div class="funnel-stage funnel-stage-2">
-        <div class="stage-badge">
-          <span class="stage-num">02</span>
-          <span class="stage-name">INTEREST</span>
-        </div>
-        <div class="stage-body">
-          <div class="dot-grid" data-count="64" data-temp="warm"></div>
-        </div>
-        <div class="stage-meta">
-          <div class="meta-num">500K</div>
-          <div class="meta-label">engaged</div>
-        </div>
-      </div>
-
-      <!-- Flow connector 2→3 -->
-      <div class="funnel-flow funnel-flow-2">
-        <span class="flow-dot"></span>
-        <span class="flow-dot"></span>
-        <span class="flow-dot"></span>
-      </div>
-
-      <!-- Stage 03: Lower · hot + few -->
-      <div class="funnel-stage funnel-stage-3">
-        <div class="stage-badge">
-          <span class="stage-num">03</span>
-          <span class="stage-name">BUY</span>
-        </div>
-        <div class="stage-body">
-          <div class="dot-grid" data-count="18" data-temp="hot"></div>
-        </div>
-        <div class="stage-meta">
-          <div class="meta-num">★</div>
-          <div class="meta-label">buyers</div>
-        </div>
-      </div>
-
+      <!-- Tiny tagline under the funnel — covers full coverage -->
+      <p class="funnel-tagline">
+        ★ ครบทุก Stage — เราดูแลคุณตั้งแต่ <span class="t-y">Awareness</span> · <span class="t-y">Interest</span> · <span class="t-y">Decision</span>
+      </p>
     </div>
 
     <!-- ── Detailed Stage Cards ── -->
@@ -1328,27 +1328,10 @@
   }, { threshold: 0.5 });
   document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
 
-  // ━━━━━━━━ FUNNEL KV — Generate dots + trigger reveal ━━━━━━━━
+  // ━━━━━━━━ FUNNEL KV — Trigger reveal animation on scroll ━━━━━━━━
   (function initFunnelKV() {
     const kv = document.getElementById('funnel-kv');
     if (!kv) return;
-
-    // Populate each stage with its dot count
-    kv.querySelectorAll('.dot-grid').forEach((grid) => {
-      const count = parseInt(grid.dataset.count, 10) || 0;
-      const temp = grid.dataset.temp || 'cold';
-      const frag = document.createDocumentFragment();
-      for (let i = 0; i < count; i++) {
-        const d = document.createElement('span');
-        d.className = `dot ${temp}`;
-        // Stagger delay across the grid (max 1.6s) + small randomness
-        d.style.animationDelay = (i * 0.012 + Math.random() * 0.4).toFixed(2) + 's';
-        frag.appendChild(d);
-      }
-      grid.appendChild(frag);
-    });
-
-    // Trigger animation when funnel KV scrolls into view
     const kvObserver = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
         kv.classList.add('animate');
@@ -1356,7 +1339,6 @@
       }
     }, { threshold: 0.25 });
     kvObserver.observe(kv);
-
   })();
 </script>
 
