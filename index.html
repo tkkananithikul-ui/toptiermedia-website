@@ -114,160 +114,6 @@
     box-shadow: 0 0 80px rgba(255, 210, 48, 0.15), 0 0 30px rgba(255, 210, 48, 0.1);
   }
 
-  /* ━━━━━━━━ FUNNEL KV — Monitor + Team Funnel ━━━━━━━━ */
-  .funnel-kv { position: relative; padding: 10px 0; }
-  .funnel-svg-wrap { position: relative; max-width: 1100px; margin: 0 auto; }
-  .funnel-svg { width: 100%; height: auto; overflow: visible; }
-  .funnel-svg image { transform-origin: center; }
-
-  /* Monitor entrance — scale up from center */
-  .monitor, .monitor-stand {
-    opacity: 0;
-    transform: scale(0.85);
-    transform-box: fill-box;
-    transform-origin: 50% 50%;
-    transition: transform 0.9s cubic-bezier(0.5, 1.6, 0.5, 1), opacity 0.7s ease;
-  }
-  .funnel-kv.animate .monitor       { opacity: 1; transform: none; transition-delay: 0.1s; }
-  .funnel-kv.animate .monitor-stand { opacity: 1; transform: none; transition-delay: 0.4s; }
-
-  /* Funnel inside monitor */
-  .funnel-3d {
-    opacity: 0;
-    transform: translateY(-30px) scale(0.85);
-    transform-box: fill-box;
-    transform-origin: 50% 50%;
-    transition: transform 0.9s cubic-bezier(0.16,1,0.3,1), opacity 0.7s ease;
-  }
-  .funnel-kv.animate .funnel-3d { opacity: 1; transform: none; transition-delay: 0.55s; }
-  .funnel-kv.animate .funnel-3d { animation: funnelBob 4s ease-in-out 2s infinite; }
-  @keyframes funnelBob {
-    0%, 100% { transform: translateY(0); }
-    50%      { transform: translateY(-4px); }
-  }
-
-  /* Background gears — rotate continuously */
-  .bg-gears g { opacity: 0; transition: opacity 0.8s ease 0.7s; }
-  .funnel-kv.animate .bg-gears g { opacity: 1; }
-  .funnel-kv.animate .gear-spin-1 { animation: spin 14s linear infinite; transform-origin: 280px 320px; transform-box: view-box; }
-  .funnel-kv.animate .gear-spin-2 { animation: spin 18s linear infinite reverse; transform-origin: 720px 280px; transform-box: view-box; }
-  .funnel-kv.animate .gear-spin-3 { animation: spin 12s linear infinite reverse; transform-origin: 260px 430px; transform-box: view-box; }
-  .funnel-kv.animate .gear-spin-4 { animation: spin 16s linear infinite; transform-origin: 740px 410px; transform-box: view-box; }
-  @keyframes spin {
-    from { transform: rotate(0deg); }
-    to   { transform: rotate(360deg); }
-  }
-
-  /* People falling into funnel — looping */
-  .ppl-falling > * {
-    opacity: 0;
-    transform-box: fill-box;
-    transform-origin: center;
-  }
-  .funnel-kv.animate .ppl-falling > * {
-    animation: fallIntoFunnel 4s cubic-bezier(0.55, 0, 0.55, 1) infinite;
-  }
-  .funnel-kv.animate .ppl-1 { animation-delay: 1.2s; }
-  .funnel-kv.animate .ppl-2 { animation-delay: 1.6s; }
-  .funnel-kv.animate .ppl-3 { animation-delay: 2.0s; }
-  .funnel-kv.animate .ppl-4 { animation-delay: 2.4s; }
-  .funnel-kv.animate .ppl-5 { animation-delay: 2.8s; }
-  .funnel-kv.animate .ppl-6 { animation-delay: 3.2s; }
-  .funnel-kv.animate .ppl-7 { animation-delay: 3.6s; }
-  @keyframes fallIntoFunnel {
-    0%   { opacity: 0; transform: translateY(-50px) scale(0.5); }
-    15%  { opacity: 1; transform: translateY(0)    scale(1); }
-    70%  { opacity: 1; transform: translateY(45px) scale(0.85); }
-    90%  { opacity: 0.3; transform: translateY(60px) scale(0.5); }
-    100% { opacity: 0; transform: translateY(70px) scale(0.3); }
-  }
-
-  /* Coins flowing out — looping bounce */
-  .coins-out > * {
-    opacity: 0;
-    transform-box: fill-box;
-    transform-origin: center;
-  }
-  .funnel-kv.animate .coins-out > * {
-    animation: coinOut 3.6s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
-  }
-  .funnel-kv.animate .coin-1 { animation-delay: 1.8s; }
-  .funnel-kv.animate .coin-2 { animation-delay: 2.4s; }
-  .funnel-kv.animate .coin-3 { animation-delay: 3.0s; }
-  .funnel-kv.animate .coin-4 { animation-delay: 3.6s; }
-  .funnel-kv.animate .coin-5 { animation-delay: 4.2s; }
-  @keyframes coinOut {
-    0%   { opacity: 0; transform: translateY(-30px) scale(0.4); }
-    20%  { opacity: 1; transform: translateY(0)    scale(1)   rotate(0); }
-    70%  { opacity: 1; transform: translateY(70px) scale(0.95) rotate(15deg); }
-    100% { opacity: 0; transform: translateY(95px) scale(0.7) rotate(25deg); }
-  }
-
-  /* Team members — slide-in entrance */
-  .team {
-    opacity: 0;
-    transition: transform 1s cubic-bezier(0.16,1,0.3,1), opacity 0.8s ease;
-    transform-box: fill-box;
-    transform-origin: center;
-  }
-  .team-megaphone { transform: translateX(-50px) translateY(20px); }
-  .team-pointing  { transform: translateY(40px); }
-  .team-ladder    { transform: translateX(50px) translateY(20px); }
-  .team-coins     { transform: translateY(40px); }
-  .funnel-kv.animate .team-megaphone { opacity: 1; transform: none; transition-delay: 1.0s; }
-  .funnel-kv.animate .team-pointing  { opacity: 1; transform: none; transition-delay: 1.15s; }
-  .funnel-kv.animate .team-ladder    { opacity: 1; transform: none; transition-delay: 1.3s; }
-  .funnel-kv.animate .team-coins     { opacity: 1; transform: none; transition-delay: 1.45s; }
-
-  /* Megaphone subtle shake */
-  .funnel-kv.animate .megaphone { animation: megaShake 1.4s ease-in-out 2s infinite; transform-origin: center; transform-box: fill-box; }
-  @keyframes megaShake {
-    0%, 100% { transform: rotate(0); }
-    25% { transform: rotate(-3deg); }
-    75% { transform: rotate(3deg); }
-  }
-
-  /* Connectors — draw on scroll */
-  .connectors path {
-    stroke-dasharray: 1000;
-    stroke-dashoffset: 1000;
-    transition: stroke-dashoffset 1.6s ease 1.4s;
-  }
-  .funnel-kv.animate .connectors path { stroke-dashoffset: 0; }
-
-  /* Tagline */
-  .funnel-tagline {
-    text-align: center;
-    margin-top: 28px;
-    font-family: 'Anuphan', 'Inter', sans-serif;
-    color: rgba(255,255,255,0.55);
-    font-size: 15px;
-    letter-spacing: 0.02em;
-  }
-  .funnel-tagline .t-y { color: #FFD230; font-weight: 600; }
-
-  /* Mobile responsive */
-  @media (max-width: 768px) {
-    .funnel-svg-wrap { padding: 0 8px; }
-    .funnel-tagline { font-size: 13px; }
-  }
-
-  /* Tagline */
-  .funnel-tagline {
-    text-align: center;
-    margin-top: 28px;
-    font-family: 'Anuphan', 'Inter', sans-serif;
-    color: rgba(255,255,255,0.55);
-    font-size: 15px;
-    letter-spacing: 0.02em;
-  }
-  .funnel-tagline .t-y { color: #FFD230; font-weight: 600; }
-
-  /* Mobile responsive */
-  @media (max-width: 768px) {
-    .funnel-svg-wrap { padding: 0 8px; }
-    .funnel-tagline { font-size: 13px; }
-  }
 
   /* Custom cursor on hero */
   .hero-bg {
@@ -656,263 +502,52 @@
   </div>
 </section>
 
+
 <!-- ============ FUNNEL APPROACH ============ -->
-<section class="py-32 bg-brand-gray border-y border-white/10 relative overflow-hidden">
-  <!-- Background glow -->
-  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-brand-yellow/[0.03] blur-3xl pointer-events-none"></div>
-
-  <div class="max-w-7xl mx-auto px-6 lg:px-10 relative z-10">
-
-    <!-- ── Header ── -->
+<section class="py-32 bg-brand-gray border-y border-white/10">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
     <div class="text-center mb-16">
       <div class="text-brand-yellow text-sm font-semibold tracking-[0.3em] mb-6 reveal">04 · OUR APPROACH</div>
-      <div class="inline-block bg-brand-yellow/10 border border-brand-yellow/30 text-brand-yellow text-xs font-semibold tracking-[0.2em] px-4 py-1.5 rounded-full mb-6 reveal">★ OUR BIGGEST STRENGTH</div>
-      <h2 class="font-display text-4xl lg:text-7xl font-bold leading-[1.05] reveal">
-        Full-Funnel<br/><span class="text-brand-yellow italic">Thinking.</span>
+      <h2 class="font-display text-4xl lg:text-6xl font-bold leading-tight reveal">
+        Full-Funnel <span class="text-brand-yellow">Thinking.</span>
       </h2>
-      <p class="font-thai text-white/70 mt-8 max-w-3xl mx-auto reveal text-lg leading-relaxed">
-        ไม่ใช่ทุก agency จะเข้าใจ Funnel — <span class="text-white font-semibold">เราเข้าใจ</span>
-        และเลือก <span class="text-brand-yellow">กลยุทธ์</span> ·
-        <span class="text-brand-yellow">กลุ่มเป้าหมาย</span> ·
-        <span class="text-brand-yellow">เครื่องมือ</span> ·
-        <span class="text-brand-yellow">สื่อ</span>
-        ให้ตรงกับแต่ละ Stage เพื่อให้ทุกบาทของคุณทำงานเต็มประสิทธิภาพ
+      <p class="text-white/60 mt-6 max-w-2xl mx-auto reveal">
+        เราไม่ใช่แค่ "ยิงแอด" — เราเข้าใจ Customer Journey ตั้งแต่ Awareness จนถึง Sales
+        และจัดสรรงบให้ตอบโจทย์แต่ละจุดของ Funnel
       </p>
     </div>
 
-    <!-- ── KV: Monitor + Team Funnel ── -->
-    <div id="funnel-kv" class="funnel-kv max-w-6xl mx-auto mb-16 reveal">
-      <div class="funnel-svg-wrap">
-        <svg viewBox="0 0 1000 720" class="funnel-svg" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <!-- 3D Funnel gradients -->
-            <linearGradient id="funBody" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stop-color="#FFEC9A"/>
-              <stop offset="40%" stop-color="#FFD230"/>
-              <stop offset="100%" stop-color="#C49500"/>
-            </linearGradient>
-            <linearGradient id="funFrontShade" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="rgba(255,255,255,0.4)"/>
-              <stop offset="30%" stop-color="rgba(255,255,255,0)"/>
-              <stop offset="70%" stop-color="rgba(0,0,0,0)"/>
-              <stop offset="100%" stop-color="rgba(0,0,0,0.35)"/>
-            </linearGradient>
-            <radialGradient id="topOpen" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stop-color="#A37700"/>
-              <stop offset="60%" stop-color="#D49A00"/>
-              <stop offset="100%" stop-color="#FFEC9A"/>
-            </radialGradient>
-
-            <!-- Monitor screen gradient (subtle) -->
-            <linearGradient id="screenGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stop-color="#161616"/>
-              <stop offset="100%" stop-color="#0F0F0F"/>
-            </linearGradient>
-
-            <!-- Reusable icon: person circle (audience) -->
-            <g id="pcircle">
-              <circle r="22" fill="#FFD230" stroke="#0A0A0A" stroke-width="1.8"/>
-              <circle cy="-6" r="6" fill="#0A0A0A"/>
-              <path d="M -11 13 Q 0 1, 11 13 L 11 16 L -11 16 Z" fill="#0A0A0A"/>
-            </g>
-
-            <!-- Reusable icon: coin -->
-            <g id="coin">
-              <circle r="22" fill="#FFD230" stroke="#A37700" stroke-width="2.5"/>
-              <circle r="15" fill="none" stroke="#A37700" stroke-width="1.5" stroke-dasharray="2,2"/>
-              <text y="7" text-anchor="middle" font-size="22" font-weight="900" fill="#0A0A0A" font-family="serif">$</text>
-            </g>
-
-            <!-- Reusable icon: gear -->
-            <g id="gear">
-              <circle r="34" fill="none" stroke="#FFD230" stroke-width="3" stroke-dasharray="5,3" opacity="0.5"/>
-              <circle r="22" fill="none" stroke="#FFD230" stroke-width="2" opacity="0.4"/>
-              <circle r="8"  fill="#FFD230" opacity="0.4"/>
-            </g>
-
-            <!-- Glow filter for funnel -->
-            <filter id="funGlow" x="-20%" y="-20%" width="140%" height="140%">
-              <feGaussianBlur stdDeviation="6" result="b"/>
-              <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-            </filter>
-
-            <!-- Clip to inside monitor screen -->
-            <clipPath id="screenClip">
-              <rect x="195" y="80" width="610" height="420" rx="10"/>
-            </clipPath>
-          </defs>
-
-          <!-- ═══ Background dots & decorations ═══ -->
-          <g class="bg-dots" opacity="0.5">
-            <circle cx="60"  cy="120" r="3" fill="#FFD230"/>
-            <circle cx="100" cy="60"  r="2" fill="#FFD230"/>
-            <circle cx="940" cy="100" r="3" fill="#FFD230"/>
-            <circle cx="900" cy="50"  r="2" fill="#FFD230"/>
-            <circle cx="50"  cy="650" r="2" fill="#FFD230"/>
-            <circle cx="960" cy="660" r="3" fill="#FFD230"/>
-          </g>
-
-          <!-- ═══ Dotted curved arrows (showing flow between team & monitor) ═══ -->
-          <g class="connectors" fill="none" stroke="rgba(255,210,48,0.45)" stroke-width="2" stroke-dasharray="4,6" stroke-linecap="round">
-            <path d="M 180 470 Q 100 350, 180 200"/>
-            <path d="M 820 450 Q 900 320, 820 200"/>
-          </g>
-
-          <!-- ═══ MONITOR FRAME ═══ -->
-          <g class="monitor">
-            <!-- Outer frame -->
-            <rect x="170" y="50" width="660" height="470" rx="22" fill="#0A0A0A" stroke="#FFD230" stroke-width="4"/>
-            <!-- Inner screen -->
-            <rect x="190" y="70" width="620" height="430" rx="14" fill="url(#screenGrad)" stroke="rgba(255,210,48,0.25)" stroke-width="1"/>
-            <!-- Subtle screen highlight (top reflection) -->
-            <path d="M 200 88 Q 500 78, 800 88 L 800 110 Q 500 100, 200 110 Z" fill="rgba(255,210,48,0.04)"/>
-          </g>
-
-          <!-- ═══ MONITOR CONTENTS (clipped) ═══ -->
-          <g clip-path="url(#screenClip)">
-
-            <!-- Background gears -->
-            <g class="bg-gears">
-              <g class="gear-spin-1" transform="translate(280, 320)"><use href="#gear"/></g>
-              <g class="gear-spin-2" transform="translate(720, 280)"><use href="#gear"/></g>
-              <g class="gear-spin-3" transform="translate(260, 430)"><use href="#gear" transform="scale(0.7)"/></g>
-              <g class="gear-spin-4" transform="translate(740, 410)"><use href="#gear" transform="scale(0.8)"/></g>
-            </g>
-
-            <!-- People circles falling INTO funnel -->
-            <g class="ppl-falling">
-              <use href="#pcircle" x="370" y="115" class="ppl-1"/>
-              <use href="#pcircle" x="430" y="100" class="ppl-2"/>
-              <use href="#pcircle" x="500" y="90"  class="ppl-3"/>
-              <use href="#pcircle" x="570" y="100" class="ppl-4"/>
-              <use href="#pcircle" x="630" y="115" class="ppl-5"/>
-              <use href="#pcircle" x="470" y="130" class="ppl-6"/>
-              <use href="#pcircle" x="540" y="130" class="ppl-7"/>
-            </g>
-
-            <!-- ▼ THE 3D YELLOW FUNNEL ▼ -->
-            <g class="funnel-3d" filter="url(#funGlow)">
-              <!-- Funnel body (trapezoid converging) -->
-              <path d="M 360 170 L 640 170 L 540 380 L 460 380 Z" fill="url(#funBody)"/>
-              <!-- 3D shading overlay -->
-              <path d="M 360 170 L 640 170 L 540 380 L 460 380 Z" fill="url(#funFrontShade)"/>
-              <!-- Inside hole on top -->
-              <ellipse cx="500" cy="170" rx="140" ry="22" fill="url(#topOpen)"/>
-              <!-- Top rim highlight -->
-              <ellipse cx="500" cy="166" rx="140" ry="20" fill="none" stroke="#FFEC9A" stroke-width="2.5"/>
-              <!-- Left edge highlight (3D effect) -->
-              <path d="M 363 173 L 463 377" stroke="#FFEC9A" stroke-width="2.5" opacity="0.7" stroke-linecap="round"/>
-              <!-- Bottom hole (where coins exit) -->
-              <ellipse cx="500" cy="380" rx="40" ry="9" fill="#0A0A0A"/>
-              <ellipse cx="500" cy="378" rx="40" ry="6" fill="#5C4300"/>
-            </g>
-
-            <!-- ▼ COINS FLOWING OUT ▼ -->
-            <g class="coins-out">
-              <use href="#coin" x="500" y="420" class="coin-1" transform-origin="500 420"/>
-              <use href="#coin" x="455" y="440" class="coin-2" transform-origin="455 440"/>
-              <use href="#coin" x="545" y="445" class="coin-3" transform-origin="545 445"/>
-              <use href="#coin" x="420" y="465" class="coin-4" transform-origin="420 465"/>
-              <use href="#coin" x="580" y="465" class="coin-5" transform-origin="580 465"/>
-            </g>
-
-          </g>
-
-          <!-- ═══ MONITOR STAND ═══ -->
-          <g class="monitor-stand">
-            <path d="M 470 520 L 530 520 L 540 555 L 460 555 Z" fill="#0A0A0A" stroke="#FFD230" stroke-width="3"/>
-            <ellipse cx="500" cy="565" rx="110" ry="12" fill="#161616" stroke="#FFD230" stroke-width="3"/>
-          </g>
-
-          <!-- ═══ TEAM MEMBER 1 · MEGAPHONE (bottom-left, looking right) ═══ -->
-          <g class="team team-megaphone">
-            <image href="team/marketer.svg" x="10" y="395" width="180" height="180"/>
-            <!-- Megaphone in hand -->
-            <g transform="translate(160, 470)" class="megaphone">
-              <path d="M 0 -14 L 22 -22 L 22 22 L 0 14 Z" fill="#FFD230" stroke="#0A0A0A" stroke-width="2.5" stroke-linejoin="round"/>
-              <rect x="-12" y="-9" width="14" height="18" rx="2" fill="#FFD230" stroke="#0A0A0A" stroke-width="2.5"/>
-              <!-- Sound waves -->
-              <path d="M 30 -16 Q 38 0, 30 16" stroke="#FFD230" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-              <path d="M 40 -20 Q 50 0, 40 20" stroke="#FFD230" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-              <path d="M 50 -24 Q 62 0, 50 24" stroke="#FFD230" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.7"/>
-            </g>
-            <!-- Role label -->
-            <g transform="translate(95, 595)">
-              <rect x="-60" y="-13" width="120" height="26" rx="13" fill="rgba(255,210,48,0.15)" stroke="#FFD230" stroke-width="1.5"/>
-              <text x="0" y="5" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="11" font-weight="700" fill="#FFD230" letter-spacing="2">CAMPAIGN</text>
-            </g>
-          </g>
-
-          <!-- ═══ TEAM MEMBER 2 · POINTING (front-left, explaining) ═══ -->
-          <g class="team team-pointing">
-            <image href="team/strategist.svg" x="195" y="430" width="170" height="170"/>
-            <!-- Pointing arrow toward monitor -->
-            <g transform="translate(360, 510)" class="pointer">
-              <path d="M -8 0 L 16 -6 L 11 0 L 16 6 Z" fill="#FFD230"/>
-            </g>
-            <g transform="translate(280, 615)">
-              <rect x="-60" y="-13" width="120" height="26" rx="13" fill="rgba(255,210,48,0.15)" stroke="#FFD230" stroke-width="1.5"/>
-              <text x="0" y="5" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="11" font-weight="700" fill="#FFD230" letter-spacing="2">STRATEGY</text>
-            </g>
-          </g>
-
-          <!-- ═══ TEAM MEMBER 3 · LADDER (right, climbing) ═══ -->
-          <g class="team team-ladder">
-            <!-- Ladder -->
-            <g class="ladder" transform="translate(815, 220)">
-              <rect x="0" y="0"   width="3" height="320" fill="#A37700"/>
-              <rect x="38" y="0"  width="3" height="320" fill="#A37700"/>
-              <rect x="0" y="45"  width="41" height="3" fill="#A37700"/>
-              <rect x="0" y="100" width="41" height="3" fill="#A37700"/>
-              <rect x="0" y="155" width="41" height="3" fill="#A37700"/>
-              <rect x="0" y="210" width="41" height="3" fill="#A37700"/>
-              <rect x="0" y="265" width="41" height="3" fill="#A37700"/>
-              <rect x="0" y="315" width="41" height="3" fill="#A37700"/>
-            </g>
-            <!-- Climber figure -->
-            <image href="team/optimizer.svg" x="780" y="240" width="170" height="170"/>
-            <g transform="translate(865, 595)">
-              <rect x="-60" y="-13" width="120" height="26" rx="13" fill="rgba(255,210,48,0.15)" stroke="#FFD230" stroke-width="1.5"/>
-              <text x="0" y="5" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="11" font-weight="700" fill="#FFD230" letter-spacing="2">GROWTH</text>
-            </g>
-          </g>
-
-          <!-- ═══ TEAM MEMBER 4 · CATCHING COINS (front-right) ═══ -->
-          <g class="team team-coins">
-            <image href="team/manager.svg" x="610" y="450" width="170" height="170"/>
-            <!-- Coins in hand -->
-            <g transform="translate(620, 530)" class="catch-coins">
-              <use href="#coin" transform="scale(0.65)" class="catch-c1"/>
-              <use href="#coin" x="42" y="14" transform="scale(0.55)" class="catch-c2"/>
-              <use href="#coin" x="-8" y="36" transform="scale(0.5)" class="catch-c3"/>
-            </g>
-            <g transform="translate(695, 635)">
-              <rect x="-60" y="-13" width="120" height="26" rx="13" fill="rgba(255,210,48,0.15)" stroke="#FFD230" stroke-width="1.5"/>
-              <text x="0" y="5" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="11" font-weight="700" fill="#FFD230" letter-spacing="2">CONVERSION</text>
-            </g>
-          </g>
-
-        </svg>
+    <div class="max-w-4xl mx-auto space-y-4">
+      <!-- Upper -->
+      <div class="reveal bg-gradient-to-r from-brand-yellow/20 to-brand-yellow/5 border border-brand-yellow/30 rounded-2xl p-8 flex flex-col md:flex-row md:items-center gap-6">
+        <div class="text-6xl">📢</div>
+        <div class="flex-1">
+          <div class="text-brand-yellow text-xs font-semibold tracking-widest mb-2">UPPER FUNNEL</div>
+          <h3 class="font-display text-2xl font-bold mb-2">Awareness &amp; Reach</h3>
+          <p class="font-thai text-white/70 text-sm">สร้างการรับรู้ เข้าถึงกลุ่มคนจำนวนมาก และสร้างการมีส่วนร่วมบนแบรนด์ผ่าน Display, Video, Social Reach</p>
+        </div>
       </div>
 
-      <!-- Caption under funnel -->
-      <p class="funnel-tagline">
-        ★ <span class="t-y">ทีม Top Tier</span> ดูแลทุก Stage — ตั้งแต่
-        <span class="t-y">Attention</span> ·
-        <span class="t-y">Interest</span> ·
-        <span class="t-y">Desire</span> ·
-        <span class="t-y">Action</span>
-      </p>
-    </div>
+      <!-- Mid -->
+      <div class="reveal bg-gradient-to-r from-brand-yellow/30 to-brand-yellow/10 border border-brand-yellow/40 rounded-2xl p-8 mx-4 md:mx-12 flex flex-col md:flex-row md:items-center gap-6">
+        <div class="text-6xl">🎯</div>
+        <div class="flex-1">
+          <div class="text-brand-yellow text-xs font-semibold tracking-widest mb-2">MID FUNNEL</div>
+          <h3 class="font-display text-2xl font-bold mb-2">Consideration &amp; Engagement</h3>
+          <p class="font-thai text-white/70 text-sm">กระตุ้นความสนใจ สร้าง Engagement ผ่าน Content, Influencer Seeding และ Retargeting</p>
+        </div>
+      </div>
 
-    <!-- ── Closing Stat ── -->
-    <div class="mt-16 text-center max-w-3xl mx-auto reveal">
-      <p class="font-thai text-white/50 text-sm leading-relaxed">
-        ★ ทีม Top Tier มีประสบการณ์ <span class="text-brand-yellow font-semibold">3,000+ campaigns/year</span>
-        ครอบคลุมทุก Funnel — ตั้งแต่ Brand Building จนถึง Performance Marketing
-      </p>
+      <!-- Lower -->
+      <div class="reveal bg-gradient-to-r from-brand-yellow/50 to-brand-yellow/20 border-2 border-brand-yellow rounded-2xl p-8 mx-8 md:mx-24 flex flex-col md:flex-row md:items-center gap-6">
+        <div class="text-6xl">💰</div>
+        <div class="flex-1">
+          <div class="text-brand-yellow text-xs font-bold tracking-widest mb-2">LOWER FUNNEL</div>
+          <h3 class="font-display text-2xl font-bold mb-2">Sales &amp; Conversion</h3>
+          <p class="font-thai text-white/70 text-sm">ปิดการขาย วัดผล ROAS — Search Ads, Performance Campaigns และ Marketplace Conversion</p>
+        </div>
+      </div>
     </div>
-
   </div>
 </section>
 
@@ -1265,19 +900,6 @@
     });
   }, { threshold: 0.5 });
   document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
-
-  // ━━━━━━━━ FUNNEL KV — Trigger reveal animation on scroll ━━━━━━━━
-  (function initFunnelKV() {
-    const kv = document.getElementById('funnel-kv');
-    if (!kv) return;
-    const kvObserver = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        kv.classList.add('animate');
-        kvObserver.unobserve(kv);
-      }
-    }, { threshold: 0.25 });
-    kvObserver.observe(kv);
-  })();
 </script>
 
 </body>
