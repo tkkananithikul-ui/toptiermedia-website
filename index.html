@@ -114,6 +114,158 @@
     box-shadow: 0 0 80px rgba(255, 210, 48, 0.15), 0 0 30px rgba(255, 210, 48, 0.1);
   }
 
+  /* ━━━━━━━━ FUNNEL KV — Visual Funnel ━━━━━━━━ */
+  .funnel-kv { position: relative; padding: 30px 0; }
+
+  .funnel-stage {
+    position: relative;
+    margin: 0 auto;
+    padding: 20px 28px;
+    border-radius: 32px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    backdrop-filter: blur(8px);
+    transition: transform 1.2s cubic-bezier(0.16,1,0.3,1), opacity 1s ease;
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+  .funnel-kv.animate .funnel-stage-1 { opacity: 1; transform: translateY(0) scale(1); transition-delay: 0.1s; }
+  .funnel-kv.animate .funnel-stage-2 { opacity: 1; transform: translateY(0) scale(1); transition-delay: 0.7s; }
+  .funnel-kv.animate .funnel-stage-3 { opacity: 1; transform: translateY(0) scale(1); transition-delay: 1.3s; }
+
+  /* Stage 1: widest, faint */
+  .funnel-stage-1 {
+    width: 100%;
+    background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,210,48,0.04));
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  /* Stage 2: ~75%, warming */
+  .funnel-stage-2 {
+    width: 75%;
+    background: linear-gradient(180deg, rgba(255,210,48,0.06), rgba(255,210,48,0.12));
+    border: 1px solid rgba(255,210,48,0.35);
+  }
+  /* Stage 3: ~45%, hottest */
+  .funnel-stage-3 {
+    width: 45%;
+    background: linear-gradient(180deg, rgba(255,210,48,0.25), rgba(255,210,48,0.5));
+    border: 1.5px solid rgba(255,210,48,0.9);
+    box-shadow: 0 0 60px rgba(255,210,48,0.25), 0 0 20px rgba(255,210,48,0.15) inset;
+  }
+
+  .stage-badge { display: flex; flex-direction: column; min-width: 100px; }
+  .stage-num {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 28px; font-weight: 700;
+    color: rgba(255,210,48,0.7);
+    line-height: 1;
+  }
+  .funnel-stage-3 .stage-num { color: #0A0A0A; }
+  .stage-name {
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 0.3em;
+    color: rgba(255,255,255,0.6);
+    margin-top: 6px;
+  }
+  .funnel-stage-3 .stage-name { color: rgba(10,10,10,0.7); }
+
+  .stage-body { flex: 1; }
+  .dot-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(10px, 1fr));
+    gap: 5px;
+    padding: 6px 0;
+  }
+  .dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    opacity: 0;
+    transform: scale(0);
+  }
+  .funnel-kv.animate .dot { animation: dotIn 0.5s cubic-bezier(0.16,1,0.3,1) forwards; }
+  /* dot colors per temperature */
+  .dot.cold { background: rgba(255,255,255,0.18); }
+  .dot.warm { background: rgba(255,210,48,0.55); box-shadow: 0 0 4px rgba(255,210,48,0.3); }
+  .dot.hot  { background: #FFD230; box-shadow: 0 0 8px rgba(255,210,48,0.8), 0 0 4px #fff; animation-name: dotInHot !important; }
+
+  @keyframes dotIn {
+    from { opacity: 0; transform: scale(0); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+  @keyframes dotInHot {
+    0%   { opacity: 0; transform: scale(0); }
+    60%  { opacity: 1; transform: scale(1.4); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+
+  /* Subtle pulse on hot dots */
+  .funnel-kv.animate .dot.hot { animation: dotInHot 0.6s cubic-bezier(0.16,1,0.3,1) forwards, hotPulse 2.4s ease-in-out infinite; }
+  @keyframes hotPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.55; }
+  }
+
+  .stage-meta { text-align: right; min-width: 90px; }
+  .meta-num {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 22px; font-weight: 700;
+    color: #FFD230;
+    line-height: 1;
+  }
+  .funnel-stage-3 .meta-num { color: #0A0A0A; font-size: 28px; }
+  .meta-label {
+    font-size: 10px; letter-spacing: 0.15em;
+    color: rgba(255,255,255,0.45);
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+  .funnel-stage-3 .meta-label { color: rgba(10,10,10,0.6); }
+
+  /* Flow connector between stages */
+  .funnel-flow {
+    position: relative;
+    height: 50px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+  }
+  .funnel-kv.animate .funnel-flow-1 { opacity: 1; transition-delay: 0.5s; }
+  .funnel-kv.animate .funnel-flow-2 { opacity: 1; transition-delay: 1.1s; }
+  .flow-dot {
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: #FFD230;
+    box-shadow: 0 0 6px rgba(255,210,48,0.6);
+    animation: flowDown 1.6s ease-in-out infinite;
+  }
+  .funnel-flow .flow-dot:nth-child(1) { animation-delay: 0s; }
+  .funnel-flow .flow-dot:nth-child(2) { animation-delay: 0.2s; }
+  .funnel-flow .flow-dot:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes flowDown {
+    0%   { opacity: 0; transform: translateY(-16px) scale(0.5); }
+    20%  { opacity: 1; transform: translateY(-8px) scale(1); }
+    80%  { opacity: 1; transform: translateY(24px) scale(1); }
+    100% { opacity: 0; transform: translateY(32px) scale(0.5); }
+  }
+
+  /* Hover lift effect */
+  .funnel-stage:hover { transform: translateY(-4px) scale(1.01) !important; transition-delay: 0s !important; }
+
+  /* Mobile responsive */
+  @media (max-width: 768px) {
+    .funnel-stage-2 { width: 88%; }
+    .funnel-stage-3 { width: 65%; }
+    .stage-badge { min-width: 70px; }
+    .stage-num { font-size: 22px; }
+    .stage-meta { min-width: 60px; }
+    .meta-num { font-size: 18px; }
+  }
+
   /* Custom cursor on hero */
   .hero-bg {
     background:
@@ -525,63 +677,68 @@
       </p>
     </div>
 
-    <!-- ── KV: Funnel Visualization ── -->
-    <div class="max-w-5xl mx-auto mb-24 reveal">
-      <svg viewBox="0 0 1000 420" class="w-full h-auto">
-        <defs>
-          <linearGradient id="upperGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="#FFD230" stop-opacity="0.08"/>
-            <stop offset="50%" stop-color="#FFD230" stop-opacity="0.15"/>
-            <stop offset="100%" stop-color="#FFD230" stop-opacity="0.08"/>
-          </linearGradient>
-          <linearGradient id="midGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="#FFD230" stop-opacity="0.18"/>
-            <stop offset="50%" stop-color="#FFD230" stop-opacity="0.28"/>
-            <stop offset="100%" stop-color="#FFD230" stop-opacity="0.18"/>
-          </linearGradient>
-          <linearGradient id="lowerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="#FFD230" stop-opacity="0.55"/>
-            <stop offset="50%" stop-color="#FFD230" stop-opacity="0.75"/>
-            <stop offset="100%" stop-color="#FFD230" stop-opacity="0.55"/>
-          </linearGradient>
-        </defs>
+    <!-- ── KV: Visual Funnel ── -->
+    <div id="funnel-kv" class="funnel-kv max-w-5xl mx-auto mb-24 reveal">
 
-        <!-- Connector lines (dashed) -->
-        <path d="M 200 130 Q 220 145, 240 160" stroke="rgba(255,210,48,0.25)" stroke-width="1" stroke-dasharray="3,4" fill="none"/>
-        <path d="M 800 130 Q 780 145, 760 160" stroke="rgba(255,210,48,0.25)" stroke-width="1" stroke-dasharray="3,4" fill="none"/>
-        <path d="M 300 250 Q 330 265, 370 280" stroke="rgba(255,210,48,0.35)" stroke-width="1" stroke-dasharray="3,4" fill="none"/>
-        <path d="M 700 250 Q 670 265, 630 280" stroke="rgba(255,210,48,0.35)" stroke-width="1" stroke-dasharray="3,4" fill="none"/>
+      <!-- Stage 01: Upper · cold + many -->
+      <div class="funnel-stage funnel-stage-1">
+        <div class="stage-badge">
+          <span class="stage-num">01</span>
+          <span class="stage-name">AWARENESS</span>
+        </div>
+        <div class="stage-body">
+          <div class="dot-grid" data-count="160" data-temp="cold"></div>
+        </div>
+        <div class="stage-meta">
+          <div class="meta-num">10M+</div>
+          <div class="meta-label">people</div>
+        </div>
+      </div>
 
-        <!-- Upper Funnel Bar -->
-        <rect x="50" y="40" width="900" height="90" rx="45" fill="url(#upperGrad)" stroke="rgba(255,210,48,0.3)" stroke-width="1"/>
-        <text x="500" y="75" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="11" letter-spacing="4" font-weight="bold" font-family="'Inter', sans-serif">UPPER FUNNEL</text>
-        <text x="500" y="108" text-anchor="middle" fill="#FFD230" font-size="24" font-weight="bold" font-family="'Space Grotesk', sans-serif">Awareness &amp; Reach</text>
+      <!-- Flow connector 1→2 -->
+      <div class="funnel-flow funnel-flow-1">
+        <span class="flow-dot"></span>
+        <span class="flow-dot"></span>
+        <span class="flow-dot"></span>
+      </div>
 
-        <!-- Mid Funnel Bar -->
-        <rect x="240" y="160" width="520" height="90" rx="45" fill="url(#midGrad)" stroke="rgba(255,210,48,0.5)" stroke-width="1"/>
-        <text x="500" y="195" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="11" letter-spacing="4" font-weight="bold" font-family="'Inter', sans-serif">MID FUNNEL</text>
-        <text x="500" y="228" text-anchor="middle" fill="#FFD230" font-size="24" font-weight="bold" font-family="'Space Grotesk', sans-serif">Consideration &amp; Engagement</text>
+      <!-- Stage 02: Mid · warming + fewer -->
+      <div class="funnel-stage funnel-stage-2">
+        <div class="stage-badge">
+          <span class="stage-num">02</span>
+          <span class="stage-name">INTEREST</span>
+        </div>
+        <div class="stage-body">
+          <div class="dot-grid" data-count="64" data-temp="warm"></div>
+        </div>
+        <div class="stage-meta">
+          <div class="meta-num">500K</div>
+          <div class="meta-label">engaged</div>
+        </div>
+      </div>
 
-        <!-- Lower Funnel Bar -->
-        <rect x="370" y="280" width="260" height="90" rx="45" fill="url(#lowerGrad)" stroke="rgba(255,210,48,0.9)" stroke-width="1.5"/>
-        <text x="500" y="315" text-anchor="middle" fill="rgba(10,10,10,0.7)" font-size="11" letter-spacing="4" font-weight="bold" font-family="'Inter', sans-serif">LOWER FUNNEL</text>
-        <text x="500" y="348" text-anchor="middle" fill="#0A0A0A" font-size="24" font-weight="bold" font-family="'Space Grotesk', sans-serif">Sales &amp; Conversion</text>
+      <!-- Flow connector 2→3 -->
+      <div class="funnel-flow funnel-flow-2">
+        <span class="flow-dot"></span>
+        <span class="flow-dot"></span>
+        <span class="flow-dot"></span>
+      </div>
 
-        <!-- Audience size annotations on RIGHT -->
-        <text x="990" y="85" text-anchor="end" fill="rgba(255,210,48,0.7)" font-size="11" font-weight="bold" letter-spacing="2">10M+ REACH</text>
-        <text x="990" y="100" text-anchor="end" fill="rgba(255,255,255,0.35)" font-size="10">Broad / Cold</text>
+      <!-- Stage 03: Lower · hot + few -->
+      <div class="funnel-stage funnel-stage-3">
+        <div class="stage-badge">
+          <span class="stage-num">03</span>
+          <span class="stage-name">BUY</span>
+        </div>
+        <div class="stage-body">
+          <div class="dot-grid" data-count="18" data-temp="hot"></div>
+        </div>
+        <div class="stage-meta">
+          <div class="meta-num">★</div>
+          <div class="meta-label">buyers</div>
+        </div>
+      </div>
 
-        <text x="990" y="205" text-anchor="end" fill="rgba(255,210,48,0.7)" font-size="11" font-weight="bold" letter-spacing="2">500K ENGAGED</text>
-        <text x="990" y="220" text-anchor="end" fill="rgba(255,255,255,0.35)" font-size="10">Warm</text>
-
-        <text x="990" y="325" text-anchor="end" fill="rgba(255,210,48,0.9)" font-size="11" font-weight="bold" letter-spacing="2">HIGH ROAS</text>
-        <text x="990" y="340" text-anchor="end" fill="rgba(255,255,255,0.45)" font-size="10">Hot / Buyer</text>
-
-        <!-- Left side stage indicators -->
-        <text x="10" y="85" fill="rgba(255,210,48,0.5)" font-size="13" font-weight="bold" font-family="'Space Grotesk', sans-serif">01</text>
-        <text x="10" y="205" fill="rgba(255,210,48,0.7)" font-size="13" font-weight="bold" font-family="'Space Grotesk', sans-serif">02</text>
-        <text x="10" y="325" fill="rgba(255,210,48,0.95)" font-size="13" font-weight="bold" font-family="'Space Grotesk', sans-serif">03</text>
-      </svg>
     </div>
 
     <!-- ── Detailed Stage Cards ── -->
@@ -1170,6 +1327,37 @@
     });
   }, { threshold: 0.5 });
   document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
+
+  // ━━━━━━━━ FUNNEL KV — Generate dots + trigger reveal ━━━━━━━━
+  (function initFunnelKV() {
+    const kv = document.getElementById('funnel-kv');
+    if (!kv) return;
+
+    // Populate each stage with its dot count
+    kv.querySelectorAll('.dot-grid').forEach((grid) => {
+      const count = parseInt(grid.dataset.count, 10) || 0;
+      const temp = grid.dataset.temp || 'cold';
+      const frag = document.createDocumentFragment();
+      for (let i = 0; i < count; i++) {
+        const d = document.createElement('span');
+        d.className = `dot ${temp}`;
+        // Stagger delay across the grid (max 1.6s) + small randomness
+        d.style.animationDelay = (i * 0.012 + Math.random() * 0.4).toFixed(2) + 's';
+        frag.appendChild(d);
+      }
+      grid.appendChild(frag);
+    });
+
+    // Trigger animation when funnel KV scrolls into view
+    const kvObserver = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        kv.classList.add('animate');
+        kvObserver.unobserve(kv);
+      }
+    }, { threshold: 0.25 });
+    kvObserver.observe(kv);
+
+  })();
 </script>
 
 </body>
