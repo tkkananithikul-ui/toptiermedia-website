@@ -31,3 +31,6 @@ desktop.ini
 # iCloud
 .icloud
 *.icloud
+
+# Local Netlify folder
+.netlify
