@@ -114,81 +114,109 @@
     box-shadow: 0 0 80px rgba(255, 210, 48, 0.15), 0 0 30px rgba(255, 210, 48, 0.1);
   }
 
-  /* ━━━━━━━━ FUNNEL KV — 3D Illustrated Funnel ━━━━━━━━ */
+  /* ━━━━━━━━ FUNNEL KV — Team-Powered Funnel ━━━━━━━━ */
   .funnel-kv { position: relative; padding: 10px 0; }
-  .funnel-svg-wrap {
-    position: relative;
-    max-width: 700px;
-    margin: 0 auto;
-  }
-  .funnel-svg {
-    width: 100%;
-    height: auto;
-    overflow: visible;
-  }
+  .funnel-svg-wrap { position: relative; max-width: 1100px; margin: 0 auto; }
+  .funnel-svg { width: 100%; height: auto; overflow: visible; }
 
-  /* Per-tier entrance animations */
-  .tier, .tier-drip, .funnel-labels > * {
+  /* Funnel tier entrance — slide from top */
+  .tier, .tier-drip {
     opacity: 0;
-    transform: translateY(-40px) scale(0.85);
-    transform-origin: 50% 50%;
+    transform: translateY(-50px) scale(0.92);
     transform-box: fill-box;
+    transform-origin: 50% 50%;
     transition: transform 0.9s cubic-bezier(0.16,1,0.3,1), opacity 0.7s ease;
   }
-  .funnel-kv.animate .tier-1     { opacity: 1; transform: translateY(0) scale(1); transition-delay: 0.1s; }
-  .funnel-kv.animate .tier-2     { opacity: 1; transform: translateY(0) scale(1); transition-delay: 0.5s; }
-  .funnel-kv.animate .tier-3     { opacity: 1; transform: translateY(0) scale(1); transition-delay: 0.9s; }
-  .funnel-kv.animate .tier-drip  { opacity: 1; transform: translateY(0) scale(1); transition-delay: 1.3s; }
-  .funnel-kv.animate .funnel-labels > * { opacity: 1; transform: translateY(0) scale(1); transition: opacity 0.6s ease; }
-  .funnel-kv.animate .funnel-labels > *:nth-child(1),
-  .funnel-kv.animate .funnel-labels > *:nth-child(2),
-  .funnel-kv.animate .funnel-labels > *:nth-child(3) { transition-delay: 0.4s; }
-  .funnel-kv.animate .funnel-labels > *:nth-child(4),
-  .funnel-kv.animate .funnel-labels > *:nth-child(5),
-  .funnel-kv.animate .funnel-labels > *:nth-child(6) { transition-delay: 0.8s; }
-  .funnel-kv.animate .funnel-labels > *:nth-child(7),
-  .funnel-kv.animate .funnel-labels > *:nth-child(8),
-  .funnel-kv.animate .funnel-labels > *:nth-child(9) { transition-delay: 1.2s; }
+  .funnel-kv.animate .tier-1    { opacity: 1; transform: none; transition-delay: 0.2s; }
+  .funnel-kv.animate .tier-2    { opacity: 1; transform: none; transition-delay: 0.45s; }
+  .funnel-kv.animate .tier-3    { opacity: 1; transform: none; transition-delay: 0.7s; }
+  .funnel-kv.animate .tier-4    { opacity: 1; transform: none; transition-delay: 0.95s; }
+  .funnel-kv.animate .tier-drip { opacity: 1; transform: none; transition-delay: 1.2s; }
 
-  /* Avatars inside funnel — circular crop + subtle bounce */
-  .funnel-svg image {
-    clip-path: circle(50%);
+  /* Team members entrance — slide from sides */
+  .team-member { opacity: 0; transition: transform 1s cubic-bezier(0.16,1,0.3,1), opacity 0.8s ease; }
+  .team-left  { transform: translateX(-60px); }
+  .team-right { transform: translateX( 60px); }
+  .funnel-kv.animate .team-left  { opacity: 1; transform: none; transition-delay: 1.4s; }
+  .funnel-kv.animate .team-right { opacity: 1; transform: none; transition-delay: 1.5s; }
+
+  /* Money output entrance with bounce */
+  .money-out { opacity: 0; transform: translateY(-20px) scale(0.5); transition: transform 0.8s cubic-bezier(0.5, 1.6, 0.5, 1), opacity 0.6s ease; }
+  .funnel-kv.animate .money-out { opacity: 1; transform: none; transition-delay: 1.6s; }
+
+  /* Coin pop loop after entrance */
+  .funnel-kv.animate .coin-pop { animation: coinPop 2.4s ease-in-out 2.4s infinite; transform-origin: center; transform-box: fill-box; }
+  @keyframes coinPop {
+    0%, 100% { transform: translateY(0) rotate(0); }
+    50%      { transform: translateY(-6px) rotate(-3deg); }
+  }
+  .funnel-kv.animate .coin-accent { animation: coinAccent 2.4s ease-in-out 2.6s infinite; transform-origin: center; transform-box: fill-box; }
+  @keyframes coinAccent {
+    0%, 100% { opacity: 0.6; transform: translateY(0); }
+    50%      { opacity: 1;   transform: translateY(-3px); }
+  }
+
+  /* Decorative floating elements */
+  .deco-float-1, .deco-float-2, .deco-float-3, .deco-float-4 {
+    opacity: 0;
+    transition: opacity 1s ease;
     transform-origin: center;
+    transform-box: fill-box;
   }
-
-  /* Subtle floating motion for the whole funnel */
-  .funnel-kv.animate .funnel-illustration {
-    animation: funnelFloat 6s ease-in-out infinite;
-    animation-delay: 1.5s;
-  }
-  @keyframes funnelFloat {
+  .funnel-kv.animate .deco-float-1,
+  .funnel-kv.animate .deco-float-2,
+  .funnel-kv.animate .deco-float-3,
+  .funnel-kv.animate .deco-float-4 { opacity: 1; transition-delay: 1.8s; }
+  .funnel-kv.animate .deco-float-1 { animation: floaty 4s ease-in-out 2s infinite; }
+  .funnel-kv.animate .deco-float-2 { animation: floaty 5s ease-in-out 2.3s infinite; }
+  .funnel-kv.animate .deco-float-3 { animation: floaty 4.5s ease-in-out 2.1s infinite; }
+  .funnel-kv.animate .deco-float-4 { animation: floaty 5.5s ease-in-out 2.4s infinite; }
+  @keyframes floaty {
     0%, 100% { transform: translateY(0); }
-    50%      { transform: translateY(-8px); }
+    50%      { transform: translateY(-10px); }
   }
 
-  /* Hot tier pulse — adds subtle attention to conversion */
-  .funnel-kv.animate .tier-3 {
-    animation: tierPulse 3s ease-in-out infinite;
-    animation-delay: 2s;
+  /* Falling people animation — perpetual loop */
+  .falling-people image {
+    opacity: 0;
   }
+  .funnel-kv.animate .falling-people image {
+    animation: fallIntoFunnel 3.6s cubic-bezier(0.55, 0, 0.55, 1) infinite;
+  }
+  .funnel-kv.animate .drop-1 { animation-delay: 1.8s; }
+  .funnel-kv.animate .drop-2 { animation-delay: 2.2s; }
+  .funnel-kv.animate .drop-3 { animation-delay: 2.6s; }
+  .funnel-kv.animate .drop-4 { animation-delay: 3.0s; }
+  .funnel-kv.animate .drop-5 { animation-delay: 3.4s; }
+  .funnel-kv.animate .drop-6 { animation-delay: 3.8s; }
+  @keyframes fallIntoFunnel {
+    0%   { opacity: 0; transform: translateY(-40px) scale(0.6); }
+    15%  { opacity: 1; transform: translateY(0) scale(1); }
+    75%  { opacity: 1; transform: translateY(110px) scale(0.95); }
+    95%  { opacity: 0.2; transform: translateY(135px) scale(0.6); }
+    100% { opacity: 0; transform: translateY(140px) scale(0.4); }
+  }
+
+  /* Action tier subtle pulse — calls attention to the conversion tier */
+  .funnel-kv.animate .tier-4 { animation: tierPulse 3s ease-in-out 2s infinite; transform-origin: center; transform-box: fill-box; }
   @keyframes tierPulse {
-    0%, 100% { filter: url(#hotGlow) drop-shadow(0 0 0 rgba(255,210,48,0)); }
-    50%      { filter: url(#hotGlow) drop-shadow(0 0 18px rgba(255,210,48,0.6)); }
+    0%, 100% { filter: url(#fGlow); }
+    50%      { filter: url(#fGlow) drop-shadow(0 0 16px rgba(255,210,48,0.5)); }
   }
 
-  /* Funnel tagline */
+  /* Funnel image elements have transparent backgrounds */
+  .funnel-svg image { transform-origin: center; }
+
+  /* Tagline */
   .funnel-tagline {
     text-align: center;
-    margin-top: 32px;
+    margin-top: 28px;
     font-family: 'Anuphan', 'Inter', sans-serif;
     color: rgba(255,255,255,0.55);
     font-size: 15px;
     letter-spacing: 0.02em;
   }
-  .funnel-tagline .t-y {
-    color: #FFD230;
-    font-weight: 600;
-  }
+  .funnel-tagline .t-y { color: #FFD230; font-weight: 600; }
 
   /* Mobile responsive */
   @media (max-width: 768px) {
@@ -607,137 +635,162 @@
       </p>
     </div>
 
-    <!-- ── KV: 3D Illustrated Funnel ── -->
-    <div id="funnel-kv" class="funnel-kv max-w-3xl mx-auto mb-16 reveal">
+    <!-- ── KV: Team-Powered Funnel ── -->
+    <div id="funnel-kv" class="funnel-kv max-w-6xl mx-auto mb-16 reveal">
       <div class="funnel-svg-wrap">
-        <svg viewBox="0 0 700 760" class="funnel-svg" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 1000 760" class="funnel-svg" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <!-- Per-tier gradients for 3D shading -->
-            <linearGradient id="tierGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stop-color="#FFEC9A"/>
-              <stop offset="100%" stop-color="#FFD230"/>
+            <linearGradient id="tG1" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#FFEC9A"/><stop offset="100%" stop-color="#FFD230"/>
             </linearGradient>
-            <linearGradient id="tierGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stop-color="#FFD230"/>
-              <stop offset="100%" stop-color="#E8B917"/>
+            <linearGradient id="tG2" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#FFD230"/><stop offset="100%" stop-color="#F0BE1A"/>
             </linearGradient>
-            <linearGradient id="tierGrad3" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stop-color="#FFB800"/>
-              <stop offset="100%" stop-color="#D49A00"/>
+            <linearGradient id="tG3" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#F0BE1A"/><stop offset="100%" stop-color="#D49A00"/>
             </linearGradient>
-            <linearGradient id="tipGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stop-color="#D49A00"/>
-              <stop offset="100%" stop-color="#8B6500"/>
+            <linearGradient id="tG4" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#D49A00"/><stop offset="100%" stop-color="#A37700"/>
+            </linearGradient>
+            <linearGradient id="dripG" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#A37700"/><stop offset="100%" stop-color="#6B4F00"/>
             </linearGradient>
 
-            <!-- Drop shadow for funnel -->
-            <filter id="funnelShadow" x="-20%" y="-20%" width="140%" height="140%">
-              <feGaussianBlur in="SourceAlpha" stdDeviation="6"/>
-              <feOffset dx="0" dy="6"/>
-              <feComponentTransfer><feFuncA type="linear" slope="0.4"/></feComponentTransfer>
-              <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
-            </filter>
-
-            <!-- Glow for hot tier -->
-            <filter id="hotGlow" x="-30%" y="-30%" width="160%" height="160%">
-              <feGaussianBlur stdDeviation="8" result="b"/>
+            <filter id="fGlow" x="-30%" y="-30%" width="160%" height="160%">
+              <feGaussianBlur stdDeviation="10" result="b"/>
               <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
             </filter>
 
-            <!-- Clip paths so avatars stay inside their tier -->
-            <clipPath id="clipTier1"><path d="M 30 60 L 670 60 L 580 240 L 120 240 Z"/></clipPath>
-            <clipPath id="clipTier2"><path d="M 120 260 L 580 260 L 500 420 L 200 420 Z"/></clipPath>
-            <clipPath id="clipTier3"><path d="M 200 440 L 500 440 L 430 600 L 270 600 Z"/></clipPath>
+            <!-- Clip-path so falling people disappear when they hit the funnel -->
+            <clipPath id="dropZone"><rect x="280" y="0" width="440" height="148"/></clipPath>
           </defs>
 
-          <g class="funnel-illustration" filter="url(#funnelShadow)">
+          <!-- ═══ Background decorative dots ═══ -->
+          <g class="deco-bg" opacity="0.4">
+            <circle cx="80" cy="120" r="3" fill="#FFD230"/>
+            <circle cx="930" cy="180" r="3" fill="#FFD230"/>
+            <circle cx="120" cy="600" r="3" fill="#FFD230"/>
+            <circle cx="900" cy="640" r="3" fill="#FFD230"/>
+            <circle cx="180" cy="80" r="2" fill="#FFD230"/>
+            <circle cx="850" cy="100" r="2" fill="#FFD230"/>
+          </g>
 
-            <!-- ═══ TIER 1 · Awareness (widest) ═══ -->
+          <!-- ═══ Top decorations: floating $ % chart icons ═══ -->
+          <g class="deco-top">
+            <!-- % symbol left -->
+            <g transform="translate(110, 230)" class="deco-float-1">
+              <circle cx="0" cy="0" r="22" fill="rgba(255,210,48,0.12)" stroke="rgba(255,210,48,0.4)" stroke-width="1.5"/>
+              <text x="0" y="6" text-anchor="middle" font-size="20" font-weight="700" fill="#FFD230" font-family="'Space Grotesk',sans-serif">%</text>
+            </g>
+            <!-- Mini bar chart left -->
+            <g transform="translate(90, 410)" class="deco-float-2">
+              <rect x="-20" y="-4" width="6" height="14" rx="1.5" fill="#FFD230" opacity="0.5"/>
+              <rect x="-11" y="-12" width="6" height="22" rx="1.5" fill="#FFD230" opacity="0.7"/>
+              <rect x="-2"  y="-18" width="6" height="28" rx="1.5" fill="#FFD230"/>
+              <rect x="7"   y="-22" width="6" height="32" rx="1.5" fill="#FFD230"/>
+            </g>
+            <!-- $ symbol right -->
+            <g transform="translate(890, 230)" class="deco-float-3">
+              <circle cx="0" cy="0" r="22" fill="rgba(255,210,48,0.12)" stroke="rgba(255,210,48,0.4)" stroke-width="1.5"/>
+              <text x="0" y="7" text-anchor="middle" font-size="22" font-weight="800" fill="#FFD230" font-family="'Space Grotesk',sans-serif">$</text>
+            </g>
+            <!-- Trending arrow right -->
+            <g transform="translate(900, 410)" class="deco-float-4">
+              <path d="M -20 10 L -8 0 L 2 6 L 18 -14" stroke="#FFD230" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M 12 -14 L 18 -14 L 18 -8" stroke="#FFD230" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+          </g>
+
+          <!-- ═══ FALLING PEOPLE (audience flowing into funnel) ═══ -->
+          <g class="falling-people" clip-path="url(#dropZone)">
+            <image href="avatars/student.svg"      x="295" y="0"   width="42" height="42" class="drop-1"/>
+            <image href="avatars/office-woman.svg" x="370" y="-20" width="42" height="42" class="drop-2"/>
+            <image href="avatars/farmer-woman.svg" x="450" y="-40" width="42" height="42" class="drop-3"/>
+            <image href="avatars/singer-man.svg"   x="530" y="-15" width="42" height="42" class="drop-4"/>
+            <image href="avatars/chef-man.svg"     x="610" y="-30" width="42" height="42" class="drop-5"/>
+            <image href="avatars/office-man.svg"   x="670" y="-10" width="40" height="40" class="drop-6"/>
+          </g>
+
+          <!-- ═══ THE FUNNEL — 4 tiers (AIDA) ═══ -->
+          <g class="funnel-tiers">
+            <!-- Tier 1 · ATTENTION (widest) -->
             <g class="tier tier-1">
-              <!-- Top rim ellipse -->
-              <ellipse cx="350" cy="60" rx="320" ry="34" fill="#FFEC9A" stroke="#FFD230" stroke-width="2"/>
-              <!-- Side body (slanted) -->
-              <path d="M 30 60 L 670 60 L 580 240 L 120 240 Z" fill="url(#tierGrad1)"/>
-              <!-- Bottom rim (where next tier sits) -->
-              <ellipse cx="350" cy="240" rx="230" ry="26" fill="#FFC700"/>
-              <ellipse cx="350" cy="240" rx="230" ry="20" fill="#FFD230" opacity="0.5"/>
-
-              <!-- Avatars inside Tier 1 (broad mix of professions = awareness audience) -->
-              <g clip-path="url(#clipTier1)">
-                <image href="avatars/student.svg"      x="95"  y="105" width="72" height="72"/>
-                <image href="avatars/office-woman.svg" x="185" y="115" width="72" height="72"/>
-                <image href="avatars/farmer-woman.svg" x="275" y="100" width="72" height="72"/>
-                <image href="avatars/singer-man.svg"   x="365" y="118" width="72" height="72"/>
-                <image href="avatars/chef-man.svg"     x="455" y="108" width="72" height="72"/>
-                <image href="avatars/office-man.svg"   x="545" y="118" width="64" height="64"/>
-              </g>
+              <path d="M 250 150 L 750 150 L 730 230 L 270 230 Z" fill="url(#tG1)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+              <text x="500" y="195" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="22" font-weight="800" fill="#0A0A0A" letter-spacing="3">ATTENTION</text>
             </g>
-
-            <!-- ═══ TIER 2 · Interest ═══ -->
+            <!-- Tier 2 · INTEREST -->
             <g class="tier tier-2">
-              <path d="M 120 260 L 580 260 L 500 420 L 200 420 Z" fill="url(#tierGrad2)"/>
-              <ellipse cx="350" cy="420" rx="150" ry="22" fill="#C9A015"/>
-              <ellipse cx="350" cy="420" rx="150" ry="17" fill="#FFD230" opacity="0.45"/>
-
-              <!-- Avatars Tier 2 (engaged professionals — interested) -->
-              <g clip-path="url(#clipTier2)">
-                <image href="avatars/tech-woman.svg"   x="175" y="305" width="68" height="68"/>
-                <image href="avatars/artist-woman.svg" x="260" y="300" width="68" height="68"/>
-                <image href="avatars/teacher-man.svg"  x="350" y="305" width="68" height="68"/>
-                <image href="avatars/doctor-woman.svg" x="440" y="300" width="68" height="68"/>
-              </g>
+              <path d="M 270 232 L 730 232 L 705 312 L 295 312 Z" fill="url(#tG2)"/>
+              <text x="500" y="277" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="22" font-weight="800" fill="#0A0A0A" letter-spacing="3">INTEREST</text>
             </g>
-
-            <!-- ═══ TIER 3 · Conversion (narrowest, glowing) ═══ -->
-            <g class="tier tier-3" filter="url(#hotGlow)">
-              <path d="M 200 440 L 500 440 L 430 600 L 270 600 Z" fill="url(#tierGrad3)"/>
-              <ellipse cx="350" cy="600" rx="80" ry="16" fill="#9E7400"/>
-              <ellipse cx="350" cy="600" rx="80" ry="12" fill="#FFD230" opacity="0.5"/>
-
-              <!-- Avatars Tier 3 (decisive buyers) -->
-              <g clip-path="url(#clipTier3)">
-                <image href="avatars/scientist-woman.svg" x="260" y="490" width="64" height="64"/>
-                <image href="avatars/tech-man.svg"        x="375" y="490" width="64" height="64"/>
-              </g>
+            <!-- Tier 3 · DESIRE -->
+            <g class="tier tier-3">
+              <path d="M 295 314 L 705 314 L 675 394 L 325 394 Z" fill="url(#tG3)"/>
+              <text x="500" y="359" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="22" font-weight="800" fill="#0A0A0A" letter-spacing="3">DESIRE</text>
             </g>
-
-            <!-- ═══ DRIP · the conversion drop ═══ -->
+            <!-- Tier 4 · ACTION (narrowest, glowing) -->
+            <g class="tier tier-4" filter="url(#fGlow)">
+              <path d="M 325 396 L 675 396 L 635 476 L 365 476 Z" fill="url(#tG4)" stroke="rgba(255,210,48,0.6)" stroke-width="1"/>
+              <text x="500" y="441" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="22" font-weight="800" fill="#FFEC9A" letter-spacing="3">ACTION</text>
+            </g>
+            <!-- Drip neck -->
             <g class="tier-drip">
-              <path d="M 270 600 L 430 600 L 380 700 L 320 700 Z" fill="url(#tipGrad)"/>
-              <ellipse cx="350" cy="700" rx="30" ry="6" fill="#6B4F00"/>
-              <!-- Money drip drop (yellow circle below) -->
-              <circle cx="350" cy="735" r="14" fill="#FFD230">
-                <animate attributeName="cy" values="725;740;725" dur="2s" repeatCount="indefinite"/>
-                <animate attributeName="opacity" values="1;0.6;1" dur="2s" repeatCount="indefinite"/>
-              </circle>
-              <text x="350" y="741" text-anchor="middle" font-size="14" font-weight="900" fill="#0A0A0A" font-family="'Space Grotesk', sans-serif">$</text>
+              <path d="M 365 478 L 635 478 L 580 540 L 420 540 Z" fill="url(#dripG)"/>
+              <path d="M 420 542 L 580 542 L 545 580 L 455 580 Z" fill="url(#dripG)"/>
             </g>
-
           </g>
 
-          <!-- ═══ Right-side labels (minimal text) ═══ -->
-          <g class="funnel-labels" font-family="'Space Grotesk', sans-serif">
-            <!-- Tier 1 label -->
-            <line x1="630" y1="150" x2="690" y2="150" stroke="#FFD230" stroke-width="2"/>
-            <text x="700" y="146" font-size="22" font-weight="700" fill="#FFD230">1</text>
-            <text x="700" y="172" font-size="14" font-weight="500" fill="rgba(255,255,255,0.85)" font-style="italic">Awareness</text>
-
-            <!-- Tier 2 label -->
-            <line x1="560" y1="340" x2="690" y2="340" stroke="#FFD230" stroke-width="2"/>
-            <text x="700" y="336" font-size="22" font-weight="700" fill="#FFD230">2</text>
-            <text x="700" y="362" font-size="14" font-weight="500" fill="rgba(255,255,255,0.85)" font-style="italic">Interest</text>
-
-            <!-- Tier 3 label -->
-            <line x1="490" y1="520" x2="690" y2="520" stroke="#FFD230" stroke-width="2"/>
-            <text x="700" y="516" font-size="22" font-weight="700" fill="#FFD230">3</text>
-            <text x="700" y="542" font-size="14" font-weight="500" fill="rgba(255,255,255,0.85)" font-style="italic">Decision</text>
+          <!-- ═══ MONEY OUTPUT ═══ -->
+          <g class="money-out" transform="translate(500, 645)">
+            <!-- soft yellow glow disk -->
+            <ellipse cx="0" cy="40" rx="80" ry="14" fill="#FFD230" opacity="0.18"/>
+            <!-- Coin -->
+            <g class="coin-pop">
+              <circle cx="0" cy="0" r="32" fill="#FFD230" stroke="#A37700" stroke-width="3"/>
+              <circle cx="0" cy="0" r="24" fill="none" stroke="#A37700" stroke-width="1.5" stroke-dasharray="2,3"/>
+              <text x="0" y="11" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="32" font-weight="900" fill="#0A0A0A">$</text>
+            </g>
+            <!-- Small accent coins -->
+            <circle cx="-50" cy="30" r="10" fill="#FFD230" stroke="#A37700" stroke-width="2" class="coin-accent" opacity="0.8"/>
+            <circle cx="52"  cy="30" r="10" fill="#FFD230" stroke="#A37700" stroke-width="2" class="coin-accent" opacity="0.8"/>
+            <text x="-50" y="35" text-anchor="middle" font-size="11" font-weight="900" fill="#0A0A0A" font-family="'Space Grotesk',sans-serif">$</text>
+            <text x="52"  y="35" text-anchor="middle" font-size="11" font-weight="900" fill="#0A0A0A" font-family="'Space Grotesk',sans-serif">$</text>
           </g>
+
+          <!-- ═══ TEAM MEMBER · LEFT (Strategy/Analyst) ═══ -->
+          <g class="team-member team-left">
+            <image href="team/analyst.svg" x="20" y="270" width="240" height="240"/>
+            <!-- Role badge -->
+            <g transform="translate(140, 540)">
+              <rect x="-78" y="-16" width="156" height="32" rx="16" fill="rgba(255,210,48,0.15)" stroke="#FFD230" stroke-width="1.5"/>
+              <text x="0" y="5" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="12" font-weight="700" fill="#FFD230" letter-spacing="2">STRATEGY</text>
+            </g>
+            <!-- Decorative line connecting to funnel -->
+            <path d="M 250 320 Q 260 290, 290 280" stroke="rgba(255,210,48,0.4)" stroke-width="1.5" stroke-dasharray="3,4" fill="none"/>
+          </g>
+
+          <!-- ═══ TEAM MEMBER · RIGHT (Performance/Optimizer) — mirrored ═══ -->
+          <g class="team-member team-right">
+            <g transform="translate(740,270)">
+              <image href="team/marketer.svg" x="0" y="0" width="240" height="240" transform="scale(-1,1) translate(-240,0)"/>
+            </g>
+            <g transform="translate(860, 540)">
+              <rect x="-78" y="-16" width="156" height="32" rx="16" fill="rgba(255,210,48,0.15)" stroke="#FFD230" stroke-width="1.5"/>
+              <text x="0" y="5" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="12" font-weight="700" fill="#FFD230" letter-spacing="2">OPTIMIZE</text>
+            </g>
+            <path d="M 750 320 Q 740 290, 710 280" stroke="rgba(255,210,48,0.4)" stroke-width="1.5" stroke-dasharray="3,4" fill="none"/>
+          </g>
+
         </svg>
       </div>
 
-      <!-- Tiny tagline under the funnel — covers full coverage -->
+      <!-- Caption under funnel -->
       <p class="funnel-tagline">
-        ★ ครบทุก Stage — เราดูแลคุณตั้งแต่ <span class="t-y">Awareness</span> · <span class="t-y">Interest</span> · <span class="t-y">Decision</span>
+        ★ <span class="t-y">ทีม Top Tier</span> ดูแลทุก Stage — ตั้งแต่
+        <span class="t-y">Attention</span> ·
+        <span class="t-y">Interest</span> ·
+        <span class="t-y">Desire</span> ·
+        <span class="t-y">Action</span>
       </p>
     </div>
 
