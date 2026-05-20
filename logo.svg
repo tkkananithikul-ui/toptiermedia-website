@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
+  <!-- Yellow circle background -->
+  <circle cx="250" cy="250" r="245" fill="#FFD230"/>
+
+  <!-- ============ TOP row ============ -->
+  <!-- T -->
+  <g fill="#0A0A0A" font-family="'Arial Black', 'Helvetica Black', Impact, sans-serif" font-weight="900">
+    <text x="100" y="225" font-size="155" letter-spacing="-8">T</text>
+  </g>
+
+  <!-- O as thick donut ring -->
+  <g transform="translate(220, 165)">
+    <!-- outer ring -->
+    <circle cx="0" cy="0" r="60" fill="#0A0A0A"/>
+    <!-- inner hole (yellow background) -->
+    <circle cx="0" cy="0" r="22" fill="#FFD230"/>
+    <!-- center dot -->
+    <circle cx="0" cy="0" r="9" fill="#0A0A0A"/>
+
+    <!-- Sparkle rays around O -->
+    <g stroke="#0A0A0A" stroke-width="7" stroke-linecap="round" fill="none">
+      <line x1="0" y1="-78" x2="0" y2="-95"/>
+      <line x1="55" y1="-55" x2="68" y2="-68"/>
+      <line x1="-55" y1="-55" x2="-68" y2="-68"/>
+      <line x1="78" y1="0" x2="95" y2="0"/>
+      <line x1="-78" y1="0" x2="-95" y2="0"/>
+    </g>
+  </g>
+
+  <!-- P -->
+  <g fill="#0A0A0A" font-family="'Arial Black', 'Helvetica Black', Impact, sans-serif" font-weight="900">
+    <text x="295" y="225" font-size="155" letter-spacing="-8">P</text>
+  </g>
+
+  <!-- ============ Crown above tieR ============ -->
+  <g fill="#0A0A0A" transform="translate(250, 248)">
+    <!-- Crown body -->
+    <path d="M -42 0 L -32 -28 L -16 -10 L 0 -32 L 16 -10 L 32 -28 L 42 0 L 38 6 L -38 6 Z"/>
+    <!-- Crown gem dots -->
+    <circle cx="-32" cy="-30" r="3" fill="#FFD230"/>
+    <circle cx="0" cy="-34" r="3.5" fill="#FFD230"/>
+    <circle cx="32" cy="-30" r="3" fill="#FFD230"/>
+  </g>
+
+  <!-- ============ tieR row (mixed case) ============ -->
+  <g fill="#0A0A0A" font-family="'Arial Black', 'Helvetica Black', Impact, sans-serif" font-weight="900">
+    <!-- lowercase t -->
+    <text x="90" y="380" font-size="140" letter-spacing="-4">t</text>
+    <!-- lowercase i -->
+    <text x="148" y="380" font-size="140" letter-spacing="-4">i</text>
+    <!-- lowercase e -->
+    <text x="188" y="380" font-size="140" letter-spacing="-4">e</text>
+    <!-- uppercase R (taller) -->
+    <text x="278" y="380" font-size="155" letter-spacing="-4">R</text>
+  </g>
+
+  <!-- ============ GROUP curved text on right ============ -->
+  <defs>
+    <path id="groupCurve" d="M 420 145 A 145 145 0 0 1 460 275" fill="none"/>
+  </defs>
+  <text font-family="'Helvetica', Arial, sans-serif" font-weight="800" font-size="26" fill="#FFFFFF" letter-spacing="6">
+    <textPath href="#groupCurve" startOffset="2">GROUP</textPath>
+  </text>
+
+  <!-- ============ Bottom text ============ -->
+  <text x="250" y="430" font-family="'Helvetica', Arial, sans-serif" font-weight="800" font-size="19"
+        fill="#0A0A0A" text-anchor="middle" letter-spacing="2.5">TOP TIER GROUP</text>
+  <text x="250" y="456" font-family="'Helvetica', Arial, sans-serif" font-weight="700" font-size="16"
+        fill="#0A0A0A" text-anchor="middle" letter-spacing="2.5">COMPANY LIMITED</text>
+</svg>

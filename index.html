@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Top Tier Group — Full-Service Marketing Agency</title>
+<meta name="description" content="Top Tier Group — Full-service marketing agency. Strategy, Creative, Media, Influencer & PR. Trusted by 500+ brands across Thailand." />
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+<!-- Tailwind CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          brand: {
+            yellow: '#FFD230',
+            yellowDark: '#F5C419',
+            black: '#0A0A0A',
+            gray: '#1A1A1A',
+          }
+        },
+        fontFamily: {
+          sans: ['Inter', 'Anuphan', 'system-ui', 'sans-serif'],
+          display: ['Space Grotesk', 'Inter', 'sans-serif'],
+          thai: ['Anuphan', 'Inter', 'sans-serif'],
+        }
+      }
+    }
+  }
+</script>
+
+<style>
+  html { scroll-behavior: smooth; }
+  body {
+    background: #0A0A0A;
+    color: #fff;
+    font-family: 'Inter', 'Anuphan', sans-serif;
+    overflow-x: hidden;
+  }
+  .font-display { font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.02em; }
+  .font-thai { font-family: 'Anuphan', sans-serif; }
+
+  /* Hero animated text */
+  @keyframes slideUp {
+    from { transform: translateY(100%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  .slide-up { animation: slideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) both; }
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.3s; }
+  .delay-3 { animation-delay: 0.5s; }
+  .delay-4 { animation-delay: 0.7s; }
+
+  /* Marquee */
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .marquee { animation: marquee 30s linear infinite; }
+
+  /* Scroll reveal */
+  .reveal { opacity: 0; transform: translateY(40px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
+  .reveal.show { opacity: 1; transform: translateY(0); }
+
+  /* Service card hover */
+  .service-card {
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    background: linear-gradient(180deg, #161616 0%, #0F0F0F 100%);
+  }
+  .service-card:hover {
+    background: linear-gradient(180deg, #FFD230 0%, #F5C419 100%);
+    color: #0A0A0A;
+    transform: translateY(-8px);
+  }
+  .service-card:hover .service-chip,
+  .service-card:hover .service-desc,
+  .service-card:hover .service-title,
+  .service-card:hover .service-benefit,
+  .service-card:hover .service-accent {
+    color: #0A0A0A;
+  }
+  .service-card:hover .service-chip {
+    border-color: rgba(10,10,10,0.6);
+    background: rgba(10,10,10,0.08);
+  }
+  .service-card:hover .service-divider {
+    background: rgba(10,10,10,0.25);
+  }
+  .service-card:hover .service-arrow {
+    transform: translateX(8px);
+    color: #0A0A0A;
+  }
+  .service-card:hover .service-accent {
+    transform: translate(4px, -4px);
+  }
+  .service-arrow, .service-accent { transition: transform 0.4s ease, color 0.5s ease; }
+  .service-chip { transition: all 0.5s ease; }
+  .service-divider { transition: background 0.5s ease; }
+
+  /* Funnel */
+  .funnel-step {
+    clip-path: polygon(10% 0, 90% 0, 80% 100%, 20% 100%);
+    transition: all 0.5s ease;
+  }
+
+  /* Glow */
+  .glow-yellow {
+    box-shadow: 0 0 80px rgba(255, 210, 48, 0.15), 0 0 30px rgba(255, 210, 48, 0.1);
+  }
+
+  /* Custom cursor on hero */
+  .hero-bg {
+    background:
+      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(255, 210, 48, 0.25), transparent 70%),
+      radial-gradient(ellipse 60% 40% at 90% 80%, rgba(255, 210, 48, 0.08), transparent 70%),
+      #0A0A0A;
+  }
+
+  /* Number counter */
+  .counter { font-variant-numeric: tabular-nums; }
+
+  /* Nav backdrop */
+  .nav-blur { backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); }
+
+  /* Logo placeholder */
+  .logo-circle {
+    background: radial-gradient(circle at 30% 30%, #FFD230, #F5C419);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    color: #0A0A0A;
+    letter-spacing: -0.05em;
+    line-height: 0.85;
+    font-family: 'Space Grotesk', sans-serif;
+    text-align: center;
+    flex-direction: column;
+  }
+
+  /* Pill button */
+  .btn-pill {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-pill::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.1);
+    transition: left 0.5s ease;
+  }
+  .btn-pill:hover::after { left: 0; }
+
+  /* Case study card */
+  .case-card { transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+  .case-card:hover { transform: translateY(-6px); }
+  .case-card:hover .case-img { transform: scale(1.05); }
+  .case-img { transition: transform 0.7s ease; }
+
+  /* Marquee container */
+  .marquee-container { overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); }
+</style>
+</head>
+<body class="bg-brand-black text-white">
+
+<!-- ============ NAV ============ -->
+<nav class="fixed top-0 left-0 right-0 z-50 nav-blur bg-black/40 border-b border-white/5">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 h-20 flex items-center justify-between">
+    <a href="#home" class="flex items-center gap-3">
+      <img src="logo.png" alt="Top Tier Group" class="w-12 h-12 rounded-full object-cover" />
+      <div class="hidden sm:block">
+        <div class="font-display font-bold text-lg leading-none">Top Tier Group</div>
+        <div class="text-[10px] tracking-[0.2em] text-brand-yellow font-medium">COMPANY LIMITED</div>
+      </div>
+    </a>
+
+    <div class="hidden lg:flex items-center gap-10 text-sm font-medium">
+      <a href="#solutions" class="hover:text-brand-yellow transition">Solutions</a>
+      <a href="#work" class="hover:text-brand-yellow transition">Work</a>
+      <a href="#process" class="hover:text-brand-yellow transition">Process</a>
+      <a href="#clients" class="hover:text-brand-yellow transition">Clients</a>
+      <a href="#insights" class="hover:text-brand-yellow transition">Insights</a>
+    </div>
+
+    <a href="#contact" class="bg-brand-yellow text-brand-black px-5 py-2.5 rounded-full font-semibold text-sm hover:bg-white transition btn-pill">
+      Start a Project →
+    </a>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section id="home" class="hero-bg min-h-screen flex items-center pt-32 pb-20 relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 w-full">
+
+    <div class="flex items-center gap-3 mb-8 slide-up delay-1">
+      <span class="w-2 h-2 rounded-full bg-brand-yellow animate-pulse"></span>
+      <span class="text-sm font-medium text-white/70 tracking-wide">Full-Service Marketing Agency · Bangkok</span>
+    </div>
+
+    <h1 class="font-display font-bold text-5xl sm:text-7xl lg:text-[8rem] leading-[0.95] tracking-tight mb-8 overflow-hidden">
+      <div class="slide-up delay-1">We <span class="text-brand-yellow">Connect</span></div>
+      <div class="slide-up delay-2">Your <span class="italic font-light">Brand</span></div>
+      <div class="slide-up delay-3">to <span class="text-brand-yellow">Consumers.</span></div>
+    </h1>
+
+    <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 slide-up delay-4">
+      <p class="font-thai text-lg lg:text-xl text-white/70 max-w-xl leading-relaxed">
+        <span class="text-white font-medium">เบื้องหลังแบรนด์ที่คุณรู้จัก</span> — กลยุทธ์ · Content · Media · Influencer · PR
+        <span class="block mt-2 text-white/50 text-base">ครบในทีมเดียว ตั้งแต่ Insight จนถึง ROI ที่วัดผลได้จริง</span>
+      </p>
+
+      <div class="flex flex-wrap gap-3">
+        <a href="#work" class="bg-brand-yellow text-brand-black px-7 py-4 rounded-full font-semibold flex items-center gap-2 hover:bg-white transition btn-pill">
+          View Our Work
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#contact" class="border border-white/20 px-7 py-4 rounded-full font-semibold hover:border-brand-yellow hover:text-brand-yellow transition">
+          Start a Project
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Showreel hint -->
+  <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/40 text-xs tracking-[0.3em] flex flex-col items-center gap-2 animate-bounce">
+    SCROLL
+    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  </div>
+</section>
+
+<!-- ============ TRUST BAR / NUMBERS ============ -->
+<section class="border-y border-white/10 py-16 bg-brand-gray">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-10">
+      <div class="reveal">
+        <div class="font-display text-5xl lg:text-7xl font-bold text-brand-yellow counter" data-target="200" data-suffix="+">0</div>
+        <div class="text-white/60 mt-2 text-sm tracking-wider uppercase">Brands Served</div>
+      </div>
+      <div class="reveal">
+        <div class="font-display text-5xl lg:text-7xl font-bold text-brand-yellow counter" data-target="3000" data-suffix="+">0</div>
+        <div class="text-white/60 mt-2 text-sm tracking-wider uppercase">Campaigns / Year</div>
+      </div>
+      <div class="reveal">
+        <div class="font-display text-5xl lg:text-7xl font-bold text-brand-yellow counter" data-target="10" data-suffix="">0</div>
+        <div class="text-white/60 mt-2 text-sm tracking-wider uppercase">Years Experience</div>
+      </div>
+      <div class="reveal">
+        <div class="font-display text-5xl lg:text-7xl font-bold text-brand-yellow counter" data-target="6" data-suffix="">0</div>
+        <div class="text-white/60 mt-2 text-sm tracking-wider uppercase">Service Pillars</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHO WE ARE ============ -->
+<section class="py-32">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <div class="reveal">
+        <div class="text-brand-yellow text-sm font-semibold tracking-[0.3em] mb-6">01 · GET TO KNOW US</div>
+        <h2 class="font-display text-4xl lg:text-6xl font-bold leading-tight mb-8">
+          Crafted <span class="text-brand-yellow italic">creative</span>.<br/>Strategic <span class="text-brand-yellow italic">media</span>.
+        </h2>
+        <p class="font-thai text-white/80 text-lg leading-relaxed mb-6">
+          <span class="text-white font-semibold">Top Tier Group</span> —
+          ทีมที่ผสาน <span class="text-brand-yellow font-semibold">Creative</span>
+          กับ <span class="text-brand-yellow font-semibold">Media Strategy</span>
+          ให้เป็นเนื้อเดียวกัน
+        </p>
+        <p class="font-thai text-white/60 text-base leading-relaxed mb-10">
+          เพราะแคมเปญที่ดี ไม่ได้แค่ดูดี — แต่ต้องทำงานได้จริง
+        </p>
+        <a href="#contact" class="inline-flex items-center gap-3 text-brand-yellow font-semibold border-b-2 border-brand-yellow pb-1 hover:gap-5 transition-all">
+          Let's work together
+          <span>→</span>
+        </a>
+      </div>
+
+      <div class="reveal relative">
+        <div class="aspect-square rounded-3xl bg-gradient-to-br from-brand-yellow to-brand-yellowDark p-1 glow-yellow">
+          <div class="w-full h-full rounded-3xl bg-brand-gray flex items-center justify-center p-8">
+            <div class="text-center">
+              <img src="logo.png" alt="Top Tier Group Company Limited" class="w-full max-w-sm mx-auto rounded-2xl" />
+              <div class="text-brand-yellow tracking-[0.3em] text-xs mt-6">EST. — BANGKOK, THAILAND</div>
+            </div>
+          </div>
+        </div>
+        <!-- Floating badges -->
+        <div class="absolute -top-6 -right-6 bg-brand-yellow text-brand-black px-5 py-3 rounded-full font-bold text-sm rotate-6">
+          🚀 3,000+ Campaigns a Year
+        </div>
+        <div class="absolute -bottom-6 -left-6 bg-white text-brand-black px-5 py-3 rounded-full font-bold text-sm -rotate-6">
+          ✨ 200+ Brands
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOLUTIONS / 6 PILLARS ============ -->
+<section id="solutions" class="py-32 bg-brand-gray border-y border-white/10">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-6">
+      <div class="reveal">
+        <div class="text-brand-yellow text-sm font-semibold tracking-[0.3em] mb-6">02 · OUR SOLUTIONS</div>
+        <h2 class="font-display text-4xl lg:text-6xl font-bold leading-tight">
+          Everything you need<br/>under <span class="text-brand-yellow">one roof.</span>
+        </h2>
+      </div>
+      <p class="font-thai text-white/60 text-lg max-w-md reveal">
+        ครบถ้วนในทุกมิติด้านการตลาด เชื่อมต่อแบรนด์ของคุณกับผู้บริโภค
+        ผ่านการคิดแบบ 360°
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <!-- Card 1 — Strategy -->
+      <div class="service-card rounded-2xl p-8 border border-white/5 reveal cursor-pointer">
+        <div class="flex items-start justify-between mb-10">
+          <span class="service-chip inline-block text-[10px] font-bold tracking-[0.3em] uppercase text-brand-yellow border border-brand-yellow/40 px-3 py-1.5 rounded-full">Strategy</span>
+          <svg class="service-accent w-7 h-7 text-white/25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
+        </div>
+        <h3 class="service-title font-display font-bold text-2xl mb-4 leading-tight">Marketing Strategy</h3>
+        <div class="service-divider h-px w-12 bg-white/10 mb-5"></div>
+        <p class="service-desc font-thai text-white/70 text-[15px] leading-relaxed mb-4">
+          วางกลยุทธ์แบรนด์แบบ 360° จาก Insight ผู้บริโภค สู่ Roadmap ที่ใช้จริงได้
+        </p>
+        <p class="service-benefit font-thai text-brand-yellow text-xs italic mb-8">
+          → ทุกการตัดสินใจมีทิศทาง ไม่ใช่ยิงสุ่ม
+        </p>
+        <div class="service-arrow text-brand-yellow font-semibold inline-flex items-center gap-2 text-sm">Learn more →</div>
+      </div>
+
+      <!-- Card 2 — Creative -->
+      <div class="service-card rounded-2xl p-8 border border-white/5 reveal cursor-pointer">
+        <div class="flex items-start justify-between mb-10">
+          <span class="service-chip inline-block text-[10px] font-bold tracking-[0.3em] uppercase text-brand-yellow border border-brand-yellow/40 px-3 py-1.5 rounded-full">Creative</span>
+          <svg class="service-accent w-7 h-7 text-white/25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
+        </div>
+        <h3 class="service-title font-display font-bold text-2xl mb-4 leading-tight">Creative Production</h3>
+        <div class="service-divider h-px w-12 bg-white/10 mb-5"></div>
+        <p class="service-desc font-thai text-white/70 text-[15px] leading-relaxed mb-4">
+          งานครีเอทีฟครบวงจร — Content, Video, Photo, Website — ที่ทำให้แบรนด์ดูแตกต่าง
+        </p>
+        <p class="service-benefit font-thai text-brand-yellow text-xs italic mb-8">
+          → งานที่คนหยุดดู ไม่ใช่งานที่คนเลื่อนผ่าน
+        </p>
+        <div class="service-arrow text-brand-yellow font-semibold inline-flex items-center gap-2 text-sm">Learn more →</div>
+      </div>
+
+      <!-- Card 3 — Commerce -->
+      <div class="service-card rounded-2xl p-8 border border-white/5 reveal cursor-pointer">
+        <div class="flex items-start justify-between mb-10">
+          <span class="service-chip inline-block text-[10px] font-bold tracking-[0.3em] uppercase text-brand-yellow border border-brand-yellow/40 px-3 py-1.5 rounded-full">Commerce</span>
+          <svg class="service-accent w-7 h-7 text-white/25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
+        </div>
+        <h3 class="service-title font-display font-bold text-2xl mb-4 leading-tight">Marketplace Management</h3>
+        <div class="service-divider h-px w-12 bg-white/10 mb-5"></div>
+        <p class="service-desc font-thai text-white/70 text-[15px] leading-relaxed mb-4">
+          ดูแลร้านบน Shopee · Lazada · TikTok Shop ปรับโครงสร้าง เพิ่มคะแนน คุมแคมเปญ
+        </p>
+        <p class="service-benefit font-thai text-brand-yellow text-xs italic mb-8">
+          → ร้านที่ขายได้จริง ไม่ใช่แค่ร้านที่มี
+        </p>
+        <div class="service-arrow text-brand-yellow font-semibold inline-flex items-center gap-2 text-sm">Learn more →</div>
+      </div>
+
+      <!-- Card 4 — Media -->
+      <div class="service-card rounded-2xl p-8 border border-white/5 reveal cursor-pointer">
+        <div class="flex items-start justify-between mb-10">
+          <span class="service-chip inline-block text-[10px] font-bold tracking-[0.3em] uppercase text-brand-yellow border border-brand-yellow/40 px-3 py-1.5 rounded-full">Media</span>
+          <svg class="service-accent w-7 h-7 text-white/25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
+        </div>
+        <h3 class="service-title font-display font-bold text-2xl mb-4 leading-tight">Performance Media</h3>
+        <div class="service-divider h-px w-12 bg-white/10 mb-5"></div>
+        <p class="service-desc font-thai text-white/70 text-[15px] leading-relaxed mb-4">
+          วางแผนและรัน Ads ทุกแพลตฟอร์ม — Meta, Google, TikTok, LINE, YouTube
+        </p>
+        <p class="service-benefit font-thai text-brand-yellow text-xs italic mb-8">
+          → ROAS ที่วัดได้ ไม่ใช่ตัวเลขที่หลอกตัวเอง
+        </p>
+        <div class="service-arrow text-brand-yellow font-semibold inline-flex items-center gap-2 text-sm">Learn more →</div>
+      </div>
+
+      <!-- Card 5 — Influence -->
+      <div class="service-card rounded-2xl p-8 border border-white/5 reveal cursor-pointer">
+        <div class="flex items-start justify-between mb-10">
+          <span class="service-chip inline-block text-[10px] font-bold tracking-[0.3em] uppercase text-brand-yellow border border-brand-yellow/40 px-3 py-1.5 rounded-full">Influence</span>
+          <svg class="service-accent w-7 h-7 text-white/25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
+        </div>
+        <h3 class="service-title font-display font-bold text-2xl mb-4 leading-tight">Influencer & KOLs</h3>
+        <div class="service-divider h-px w-12 bg-white/10 mb-5"></div>
+        <p class="service-desc font-thai text-white/70 text-[15px] leading-relaxed mb-4">
+          เครือข่าย KOL ตั้งแต่ Nano ถึง Celebrity — เลือกคนที่ใช่ ในจังหวะที่ใช่
+        </p>
+        <p class="service-benefit font-thai text-brand-yellow text-xs italic mb-8">
+          → ความเชื่อใจที่ Ads ทำไม่ได้
+        </p>
+        <div class="service-arrow text-brand-yellow font-semibold inline-flex items-center gap-2 text-sm">Learn more →</div>
+      </div>
+
+      <!-- Card 6 — PR -->
+      <div class="service-card rounded-2xl p-8 border border-white/5 reveal cursor-pointer">
+        <div class="flex items-start justify-between mb-10">
+          <span class="service-chip inline-block text-[10px] font-bold tracking-[0.3em] uppercase text-brand-yellow border border-brand-yellow/40 px-3 py-1.5 rounded-full">PR</span>
+          <svg class="service-accent w-7 h-7 text-white/25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
+        </div>
+        <h3 class="service-title font-display font-bold text-2xl mb-4 leading-tight">PR & Press Release</h3>
+        <div class="service-divider h-px w-12 bg-white/10 mb-5"></div>
+        <p class="service-desc font-thai text-white/70 text-[15px] leading-relaxed mb-4">
+          งาน PR ครบวงจร — Press Release, Press Conference, สื่อ TV / Offline / Online
+        </p>
+        <p class="service-benefit font-thai text-brand-yellow text-xs italic mb-8">
+          → พื้นที่ข่าวที่ซื้อไม่ได้ และเครดิตที่สื่อให้
+        </p>
+        <div class="service-arrow text-brand-yellow font-semibold inline-flex items-center gap-2 text-sm">Learn more →</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHANNELS WE MASTER ============ -->
+<section class="py-28">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 text-center">
+    <div class="text-brand-yellow text-sm font-semibold tracking-[0.3em] mb-6 reveal">03 · CHANNELS WE MASTER</div>
+    <h2 class="font-display text-4xl lg:text-5xl font-bold mb-4 reveal">Certified Partners</h2>
+    <p class="text-white/60 mb-16 reveal max-w-2xl mx-auto">Official Partner กับแพลตฟอร์มชั้นนำ — รวมถึง <span class="text-brand-yellow font-semibold">Meta Business Partner</span> และ <span class="text-brand-yellow font-semibold">Google Premier Partner</span></p>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 reveal">
+
+      <!-- Meta (Exclusive) -->
+      <div class="channel-card group bg-gradient-to-br from-brand-yellow to-brand-yellowDark text-brand-black border-2 border-brand-yellow rounded-2xl py-10 px-4 relative glow-yellow">
+        <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-black text-brand-yellow text-[9px] font-bold px-3 py-1.5 rounded-full tracking-[0.2em] whitespace-nowrap">★ EXCLUSIVE</div>
+        <div class="h-12 flex items-center justify-center mb-6">
+          <img src="logos/meta.svg" alt="Meta" class="h-9 group-hover:scale-110 transition-transform duration-500" style="filter: brightness(0)" />
+        </div>
+        <div class="text-xs font-bold tracking-[0.25em]">META</div>
+        <div class="text-[10px] mt-2 tracking-wider font-bold">Business Partner</div>
+      </div>
+
+      <!-- Google (Exclusive) -->
+      <div class="channel-card group bg-gradient-to-br from-brand-yellow to-brand-yellowDark text-brand-black border-2 border-brand-yellow rounded-2xl py-10 px-4 relative glow-yellow">
+        <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-black text-brand-yellow text-[9px] font-bold px-3 py-1.5 rounded-full tracking-[0.2em] whitespace-nowrap">★ EXCLUSIVE</div>
+        <div class="h-12 flex items-center justify-center mb-6">
+          <img src="logos/google.svg" alt="Google" class="h-9 group-hover:scale-110 transition-transform duration-500" />
+        </div>
+        <div class="text-xs font-bold tracking-[0.25em]">GOOGLE</div>
+        <div class="text-[10px] mt-2 tracking-wider font-bold">Premier Partner</div>
+      </div>
+
+      <!-- TikTok -->
+      <div class="channel-card group bg-gradient-to-br from-white/[0.04] to-transparent border border-white/8 rounded-2xl py-10 px-4 hover:border-brand-yellow/40 hover:bg-white/[0.06] transition-all duration-500">
+        <div class="h-12 flex items-center justify-center mb-6">
+          <img src="logos/tiktok.svg" alt="TikTok" class="h-9 group-hover:scale-110 transition-transform duration-500" style="filter: invert(1)" />
+        </div>
+        <div class="text-xs font-bold tracking-[0.25em] text-white">TIKTOK</div>
+        <div class="text-[10px] text-brand-yellow mt-2 tracking-wider font-medium">Official Partner</div>
+      </div>
+
+      <!-- LINE -->
+      <div class="channel-card group bg-gradient-to-br from-white/[0.04] to-transparent border border-white/8 rounded-2xl py-10 px-4 hover:border-brand-yellow/40 hover:bg-white/[0.06] transition-all duration-500">
+        <div class="h-12 flex items-center justify-center mb-6">
+          <img src="logos/line.svg" alt="LINE" class="h-9 group-hover:scale-110 transition-transform duration-500" />
+        </div>
+        <div class="text-xs font-bold tracking-[0.25em] text-white">LINE</div>
+        <div class="text-[10px] text-brand-yellow mt-2 tracking-wider font-medium">Ads Partner</div>
+      </div>
+
+      <!-- Shopee -->
+      <div class="channel-card group bg-gradient-to-br from-white/[0.04] to-transparent border border-white/8 rounded-2xl py-10 px-4 hover:border-brand-yellow/40 hover:bg-white/[0.06] transition-all duration-500">
+        <div class="h-12 flex items-center justify-center mb-6">
+          <img src="logos/shopee.svg" alt="Shopee" class="h-9 group-hover:scale-110 transition-transform duration-500" />
+        </div>
+        <div class="text-xs font-bold tracking-[0.25em] text-white">SHOPEE</div>
+        <div class="text-[10px] text-brand-yellow mt-2 tracking-wider font-medium">Certified</div>
+      </div>
+
+      <!-- Lazada -->
+      <div class="channel-card group bg-gradient-to-br from-white/[0.04] to-transparent border border-white/8 rounded-2xl py-10 px-4 hover:border-brand-yellow/40 hover:bg-white/[0.06] transition-all duration-500">
+        <div class="h-12 flex items-center justify-center mb-6">
+          <img src="logos/lazada.svg" alt="Lazada" class="h-10 group-hover:scale-110 transition-transform duration-500" />
+        </div>
+        <div class="text-xs font-bold tracking-[0.25em] text-white">LAZADA</div>
+        <div class="text-[10px] text-brand-yellow mt-2 tracking-wider font-medium">Certified</div>
+      </div>
+
+    </div>
+
+    <p class="text-white/30 text-xs mt-10 reveal">
+      Logos are property of their respective owners. Top Tier Group is an authorized partner of each platform.
+    </p>
+  </div>
+</section>
+
+<!-- ============ FUNNEL APPROACH ============ -->
+<section class="py-32 bg-brand-gray border-y border-white/10 relative overflow-hidden">
+  <!-- Background glow -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-brand-yellow/[0.03] blur-3xl pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 relative z-10">
+
+    <!-- ── Header ── -->
+    <div class="text-center mb-16">
+      <div class="text-brand-yellow text-sm font-semibold tracking-[0.3em] mb-6 reveal">04 · OUR APPROACH</div>
+      <div class="inline-block bg-brand-yellow/10 border border-brand-yellow/30 text-brand-yellow text-xs font-semibold tracking-[0.2em] px-4 py-1.5 rounded-full mb-6 reveal">★ OUR BIGGEST STRENGTH</div>
+      <h2 class="font-display text-4xl lg:text-7xl font-bold leading-[1.05] reveal">
+        Full-Funnel<br/><span class="text-brand-yellow italic">Thinking.</span>
+      </h2>
+      <p class="font-thai text-white/70 mt-8 max-w-3xl mx-auto reveal text-lg leading-relaxed">
+        ไม่ใช่ทุก agency จะเข้าใจ Funnel — <span class="text-white font-semibold">เราเข้าใจ</span>
+        และเลือก <span class="text-brand-yellow">กลยุทธ์</span> ·
+        <span class="text-brand-yellow">กลุ่มเป้าหมาย</span> ·
+        <span class="text-brand-yellow">เครื่องมือ</span> ·
+        <span class="text-brand-yellow">สื่อ</span>
+        ให้ตรงกับแต่ละ Stage เพื่อให้ทุกบาทของคุณทำงานเต็มประสิทธิภาพ
+      </p>
+    </div>
+
+    <!-- ── KV: Funnel Visualization ── -->
+    <div class="max-w-5xl mx-auto mb-24 reveal">
+      <svg viewBox="0 0 1000 420" class="w-full h-auto">
+        <defs>
+          <linearGradient id="upperGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#FFD230" stop-opacity="0.08"/>
+            <stop offset="50%" stop-color="#FFD230" stop-opacity="0.15"/>
+            <stop offset="100%" stop-color="#FFD230" stop-opacity="0.08"/>
+          </linearGradient>
+          <linearGradient id="midGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#FFD230" stop-opacity="0.18"/>
+            <stop offset="50%" stop-color="#FFD230" stop-opacity="0.28"/>
+            <stop offset="100%" stop-color="#FFD230" stop-opacity="0.18"/>
+          </linearGradient>
+          <linearGradient id="lowerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#FFD230" stop-opacity="0.55"/>
+            <stop offset="50%" stop-color="#FFD230" stop-opacity="0.75"/>
+            <stop offset="100%" stop-color="#FFD230" stop-opacity="0.55"/>
+          </linearGradient>
+        </defs>
+
+        <!-- Connector lines (dashed) -->
+        <path d="M 200 130 Q 220 145, 240 160" stroke="rgba(255,210,48,0.25)" stroke-width="1" stroke-dasharray="3,4" fill="none"/>
+        <path d="M 800 130 Q 780 145, 760 160" stroke="rgba(255,210,48,0.25)" stroke-width="1" stroke-dasharray="3,4" fill="none"/>
+        <path d="M 300 250 Q 330 265, 370 280" stroke="rgba(255,210,48,0.35)" stroke-width="1" stroke-dasharray="3,4" fill="none"/>
+        <path d="M 700 250 Q 670 265, 630 280" stroke="rgba(255,210,48,0.35)" stroke-width="1" stroke-dasharray="3,4" fill="none"/>
+
+        <!-- Upper Funnel Bar -->
+        <rect x="50" y="40" width="900" height="90" rx="45" fill="url(#upperGrad)" stroke="rgba(255,210,48,0.3)" stroke-width="1"/>
+        <text x="500" y="75" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="11" letter-spacing="4" font-weight="bold" font-family="'Inter', sans-serif">UPPER FUNNEL</text>
+        <text x="500" y="108" text-anchor="middle" fill="#FFD230" font-size="24" font-weight="bold" font-family="'Space Grotesk', sans-serif">Awareness &amp; Reach</text>
+
+        <!-- Mid Funnel Bar -->
+        <rect x="240" y="160" width="520" height="90" rx="45" fill="url(#midGrad)" stroke="rgba(255,210,48,0.5)" stroke-width="1"/>
+        <text x="500" y="195" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="11" letter-spacing="4" font-weight="bold" font-family="'Inter', sans-serif">MID FUNNEL</text>
+        <text x="500" y="228" text-anchor="middle" fill="#FFD230" font-size="24" font-weight="bold" font-family="'Space Grotesk', sans-serif">Consideration &amp; Engagement</text>
+
+        <!-- Lower Funnel Bar -->
+        <rect x="370" y="280" width="260" height="90" rx="45" fill="url(#lowerGrad)" stroke="rgba(255,210,48,0.9)" stroke-width="1.5"/>
+        <text x="500" y="315" text-anchor="middle" fill="rgba(10,10,10,0.7)" font-size="11" letter-spacing="4" font-weight="bold" font-family="'Inter', sans-serif">LOWER FUNNEL</text>
+        <text x="500" y="348" text-anchor="middle" fill="#0A0A0A" font-size="24" font-weight="bold" font-family="'Space Grotesk', sans-serif">Sales &amp; Conversion</text>
+
+        <!-- Audience size annotations on RIGHT -->
+        <text x="990" y="85" text-anchor="end" fill="rgba(255,210,48,0.7)" font-size="11" font-weight="bold" letter-spacing="2">10M+ REACH</text>
+        <text x="990" y="100" text-anchor="end" fill="rgba(255,255,255,0.35)" font-size="10">Broad / Cold</text>
+
+        <text x="990" y="205" text-anchor="end" fill="rgba(255,210,48,0.7)" font-size="11" font-weight="bold" letter-spacing="2">500K ENGAGED</text>
+        <text x="990" y="220" text-anchor="end" fill="rgba(255,255,255,0.35)" font-size="10">Warm</text>
+
+        <text x="990" y="325" text-anchor="end" fill="rgba(255,210,48,0.9)" font-size="11" font-weight="bold" letter-spacing="2">HIGH ROAS</text>
+        <text x="990" y="340" text-anchor="end" fill="rgba(255,255,255,0.45)" font-size="10">Hot / Buyer</text>
+
+        <!-- Left side stage indicators -->
+        <text x="10" y="85" fill="rgba(255,210,48,0.5)" font-size="13" font-weight="bold" font-family="'Space Grotesk', sans-serif">01</text>
+        <text x="10" y="205" fill="rgba(255,210,48,0.7)" font-size="13" font-weight="bold" font-family="'Space Grotesk', sans-serif">02</text>
+        <text x="10" y="325" fill="rgba(255,210,48,0.95)" font-size="13" font-weight="bold" font-family="'Space Grotesk', sans-serif">03</text>
+      </svg>
+    </div>
+
+    <!-- ── Detailed Stage Cards ── -->
+    <div class="space-y-5 max-w-6xl mx-auto">
+
+      <!-- ═══════ CARD 1: UPPER FUNNEL ═══════ -->
+      <div class="funnel-detail-card group reveal relative bg-brand-black border border-white/8 hover:border-brand-yellow/30 rounded-3xl overflow-hidden transition-all duration-500">
+        <!-- Top accent bar -->
+        <div class="h-[3px] w-1/4 bg-brand-yellow"></div>
+
+        <div class="p-8 lg:p-12">
+          <!-- Header row -->
+          <div class="flex items-start justify-between mb-8 gap-6">
+            <div class="flex-1">
+              <span class="inline-block text-[10px] font-bold tracking-[0.35em] text-brand-yellow border border-brand-yellow/40 px-3 py-1.5 rounded-full mb-5">UPPER FUNNEL</span>
+              <h3 class="font-display text-3xl lg:text-5xl font-bold leading-tight mb-3">
+                Awareness &amp; <span class="text-brand-yellow italic">Reach</span>
+              </h3>
+              <p class="font-thai text-white/70 text-base lg:text-lg leading-relaxed max-w-3xl">
+                เปิดให้คนรู้จัก ในวงกว้างที่สุด — แต่ไม่ใช่แค่ยอด Impression สวยๆ
+                คือการสร้าง <span class="text-white font-semibold">"ความจำของแบรนด์"</span> ในใจกลุ่มเป้าหมายให้เกิดจริง
+              </p>
+            </div>
+            <div class="font-display text-7xl lg:text-9xl font-bold text-white/[0.04] leading-none whitespace-nowrap">01</div>
+          </div>
+
+          <!-- 4-pillar grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 pt-8 border-t border-white/8">
+            <!-- Strategy -->
+            <div>
+              <div class="flex items-center gap-2 mb-4">
+                <svg class="w-4 h-4 text-brand-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg>
+                <div class="text-[10px] font-bold tracking-[0.3em] text-brand-yellow">STRATEGY</div>
+              </div>
+              <p class="font-thai text-white/70 text-sm leading-relaxed">
+                Maximize Reach + สร้าง Brand Memory ผ่าน Frequency ที่เหมาะสม กับ Storytelling ที่ผูกพันธ์
+              </p>
+            </div>
+            <!-- Audience -->
+            <div>
+              <div class="flex items-center gap-2 mb-4">
+                <svg class="w-4 h-4 text-brand-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                <div class="text-[10px] font-bold tracking-[0.3em] text-brand-yellow">AUDIENCE</div>
+              </div>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="text-[11px] bg-white/5 border border-white/10 rounded-md px-2 py-1 text-white/70">Cold Audience</span>
+                <span class="text-[11px] bg-white/5 border border-white/10 rounded-md px-2 py-1 text-white/70">Lookalike 1-5%</span>
+                <span class="text-[11px] bg-white/5 border border-white/10 rounded-md px-2 py-1 text-white/70">Broad Interest</span>
+                <span class="text-[11px] bg-white/5 border border-white/10 rounded-md px-2 py-1 text-white/70">Demographic</span>
+                <span class="text-[11px] bg-white/5 border border-white/10 rounded-md px-2 py-1 text-white/70">Affinity</span>
+              </div>
+            </div>
+            <!-- Tactics -->
+            <div>
+              <div class="flex items-center gap-2 mb-4">
+                <svg class="w-4 h-4 text-brand-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                <div class="text-[10px] font-bold tracking-[0.3em] text-brand-yellow">TACTICS</div>
+              </div>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="text-[11px] bg-white/5 border border-white/10 rounded-md px-2 py-1 text-white/70">Reach Campaign</span>
+                <span class="text-[11px] bg-white/5 border border-white/10 rounded-md px-2 py-1 text-white/70">Video Views</span>
+                <span class="text-[11px] bg-white/5 border border-white/10 rounded-md px-2 py-1 text-white/70">Brand Lift</span>
+                <span class="text-[11px] bg-white/5 border border-white/10 rounded-md px-2 py-1 text-white/70">Influencer (Macro)</span>
+                <span class="text-[11px] bg-white/5 border border-white/10 rounded-md px-2 py-1 text-white/70">PR</span>
+              </div>
+            </div>
+            <!-- Channels -->
+            <div>
+              <div class="flex items-center gap-2 mb-4">
+                <svg class="w-4 h-4 text-brand-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+                <div class="text-[10px] font-bold tracking-[0.3em] text-brand-yellow">CHANNELS</div>
+              </div>
+              <div class="flex flex-wrap gap-3 items-center">
+                <img src="logos/youtube.svg" alt="YouTube" class="h-6 opacity-90 hover:opacity-100 transition" title="YouTube"/>
+                <img src="logos/tiktok.svg" alt="TikTok" class="h-6 opacity-90 hover:opacity-100 transition" style="filter:invert(1)" title="TikTok"/>
+                <img src="logos/meta.svg" alt="Meta" class="h-6 opacity-90 hover:opacity-100 transition" title="Meta"/>
+                <img src="logos/instagram.svg" alt="Instagram" class="h-6 opacity-90 hover:opacity-100 transition" title="Instagram"/>
+                <img src="logos/line.svg" alt="LINE" class="h-6 opacity-90 hover:opacity-100 transition" title="LINE"/>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══════ CARD 2: MID FUNNEL ═══════ -->
+      <div class="funnel-detail-card group reveal relative bg-brand-black border border-white/8 hover:border-brand-yellow/30 rounded-3xl overflow-hidden transition-all duration-500">
+        <div class="h-[3px] w-2/4 bg-brand-yellow"></div>
+        <div class="p-8 lg:p-12">
+          <div class="flex items-start justify-between mb-8 gap-6">
+            <div class="flex-1">
+              <span class="inline-block text-[10px] font-bold tracking-[0.35em] text-brand-yellow border border-brand-yellow/40 px-3 py-1.5 rounded-full mb-5">MID FUNNEL</span>
+              <h3 class="font-display text-3xl lg:text-5xl font-bold leading-tight mb-3">
+                Consideration &amp; <span class="text-brand-yellow italic">Engagement</span>
+              </h3>
+              <p class="font-thai text-white/70 text-base lg:text-lg leading-relaxed max-w-3xl">
+                เปลี่ยน Awareness ให้กลายเป็น Interest — ผ่าน <span class="text-white font-semibold">Content ที่ใช่</span>
+                <span class="text-white font-semibold">KOL ที่เชื่อ</span> และ <span class="text-white font-semibold">Retargeting ที่ตามไม่ปล่อย</span>
+              </p>
+            </div>
+            <div class="font-display text-7xl lg:text-9xl font-bold text-white/[0.04] leading-none whitespace-nowrap">02</div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 pt-8 border-t border-white/8">
+            <div>
+              <div class="flex items-center gap-2 mb-4">
+                <svg class="w-4 h-4 text-brand-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg>
+                <div class="text-[10px] font-bold tracking-[0.3em] text-brand-yellow">STRATEGY</div>
+              </div>
+              <p class="font-thai text-white/70 text-sm leading-relaxed">
+                Build Trust + Drive Engagement + Retarget Warm Audience ด้วย Story ที่ลึกและจริงใจ
+              </p>
+            </div>
+            <div>
+              <div class="flex items-center gap-2 mb-4">
+                <svg class="w-4 h-4 text-brand-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                <div class="text-[10px] font-bold tracking-[0.3em] text-brand-yellow">AUDIENCE</div>
+              </div>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="text-[11px] bg-white/5 border border-white/10 rounded-md px-2 py-1 text-white/70">Engaged Users</span>
+                <span class="text-[11px] bg-white/5 border border-white/10 rounded-md px-2 py-1 text-white/70">Page Visitors</span>
+                <span class="text-[11px] bg-white/5 border border-white/10 rounded-md px-2 py-1 text-white/70">Video Viewers</span>
+                <span class="text-[11px] bg-white/5 border border-white/10 rounded-md px-2 py-1 text-white/70">Custom Audience</span>
+                <span class="text-[11px] bg-white/5 border border-white/10 rounded-md px-2 py-1 text-white/70">Email Subs</span>
+              </div>
+            </div>
+            <div>
+              <div class="flex items-center gap-2 mb-4">
+                <svg class="w-4 h-4 text-brand-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                <div class="text-[10px] font-bold tracking-[0.3em] text-brand-yellow">TACTICS</div>
+              </div>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="text-[11px] bg-white/5 border border-white/10 rounded-md px-2 py-1 text-white/70">Engagement Campaign</span>
+                <span class="text-[11px] bg-white/5 border border-white/10 rounded-md px-2 py-1 text-white/70">Lead Forms</span>
+                <span class="text-[11px] bg-white/5 border border-white/10 rounded-md px-2 py-1 text-white/70">Influencer Seeding</span>
+                <span class="text-[11px] bg-white/5 border border-white/10 rounded-md px-2 py-1 text-white/70">Content Marketing</span>
+                <span class="text-[11px] bg-white/5 border border-white/10 rounded-md px-2 py-1 text-white/70">Retargeting</span>
+              </div>
+            </div>
+            <div>
+              <div class="flex items-center gap-2 mb-4">
+                <svg class="w-4 h-4 text-brand-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+                <div class="text-[10px] font-bold tracking-[0.3em] text-brand-yellow">CHANNELS</div>
+              </div>
+              <div class="flex flex-wrap gap-3 items-center">
+                <img src="logos/meta.svg" alt="Meta" class="h-6 opacity-90" title="Meta"/>
+                <img src="logos/instagram.svg" alt="Instagram" class="h-6 opacity-90" title="Instagram"/>
+                <img src="logos/tiktok.svg" alt="TikTok" class="h-6 opacity-90" style="filter:invert(1)" title="TikTok"/>
+                <img src="logos/line.svg" alt="LINE" class="h-6 opacity-90" title="LINE OA"/>
+                <img src="logos/youtube.svg" alt="YouTube" class="h-6 opacity-90" title="YouTube"/>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══════ CARD 3: LOWER FUNNEL ═══════ -->
+      <div class="funnel-detail-card group reveal relative bg-gradient-to-br from-brand-yellow/[0.06] to-brand-black border border-brand-yellow/30 hover:border-brand-yellow rounded-3xl overflow-hidden transition-all duration-500">
+        <div class="h-[3px] w-full bg-brand-yellow"></div>
+        <div class="p-8 lg:p-12">
+          <div class="flex items-start justify-between mb-8 gap-6">
+            <div class="flex-1">
+              <span class="inline-block text-[10px] font-bold tracking-[0.35em] text-brand-black bg-brand-yellow px-3 py-1.5 rounded-full mb-5">LOWER FUNNEL · OUR EDGE</span>
+              <h3 class="font-display text-3xl lg:text-5xl font-bold leading-tight mb-3">
+                Sales &amp; <span class="text-brand-yellow italic">Conversion</span>
+              </h3>
+              <p class="font-thai text-white/80 text-base lg:text-lg leading-relaxed max-w-3xl">
+                ปิดดีล — แบบที่ไม่ใช่แค่ Click สวยๆ แต่คือยอด <span class="text-brand-yellow font-semibold">"จ่ายเงินจริง"</span>
+                ที่วัดได้ทุกบาท ทุก ROAS
+              </p>
+            </div>
+            <div class="font-display text-7xl lg:text-9xl font-bold text-brand-yellow/10 leading-none whitespace-nowrap">03</div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 pt-8 border-t border-brand-yellow/20">
+            <div>
+              <div class="flex items-center gap-2 mb-4">
+                <svg class="w-4 h-4 text-brand-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg>
+                <div class="text-[10px] font-bold tracking-[0.3em] text-brand-yellow">STRATEGY</div>
+              </div>
+              <p class="font-thai text-white/80 text-sm leading-relaxed">
+                Maximize ROAS + Cart Recovery + Upsell และ LTV Optimization เพื่อยอดที่โตยั่งยืน
+              </p>
+            </div>
+            <div>
+              <div class="flex items-center gap-2 mb-4">
+                <svg class="w-4 h-4 text-brand-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                <div class="text-[10px] font-bold tracking-[0.3em] text-brand-yellow">AUDIENCE</div>
+              </div>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="text-[11px] bg-brand-yellow/10 border border-brand-yellow/30 rounded-md px-2 py-1 text-white">Hot Audience</span>
+                <span class="text-[11px] bg-brand-yellow/10 border border-brand-yellow/30 rounded-md px-2 py-1 text-white">Cart Abandoners</span>
+                <span class="text-[11px] bg-brand-yellow/10 border border-brand-yellow/30 rounded-md px-2 py-1 text-white">High Intent</span>
+                <span class="text-[11px] bg-brand-yellow/10 border border-brand-yellow/30 rounded-md px-2 py-1 text-white">Past Customers</span>
+                <span class="text-[11px] bg-brand-yellow/10 border border-brand-yellow/30 rounded-md px-2 py-1 text-white">Catalog Engagers</span>
+              </div>
+            </div>
+            <div>
+              <div class="flex items-center gap-2 mb-4">
+                <svg class="w-4 h-4 text-brand-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                <div class="text-[10px] font-bold tracking-[0.3em] text-brand-yellow">TACTICS</div>
+              </div>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="text-[11px] bg-brand-yellow/10 border border-brand-yellow/30 rounded-md px-2 py-1 text-white">Conversion Campaign</span>
+                <span class="text-[11px] bg-brand-yellow/10 border border-brand-yellow/30 rounded-md px-2 py-1 text-white">Catalog Sales</span>
+                <span class="text-[11px] bg-brand-yellow/10 border border-brand-yellow/30 rounded-md px-2 py-1 text-white">Search Ads</span>
+                <span class="text-[11px] bg-brand-yellow/10 border border-brand-yellow/30 rounded-md px-2 py-1 text-white">Dynamic Retargeting</span>
+                <span class="text-[11px] bg-brand-yellow/10 border border-brand-yellow/30 rounded-md px-2 py-1 text-white">Marketplace Ads</span>
+              </div>
+            </div>
+            <div>
+              <div class="flex items-center gap-2 mb-4">
+                <svg class="w-4 h-4 text-brand-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+                <div class="text-[10px] font-bold tracking-[0.3em] text-brand-yellow">CHANNELS</div>
+              </div>
+              <div class="flex flex-wrap gap-3 items-center">
+                <img src="logos/google.svg" alt="Google" class="h-6 opacity-90" title="Google Search"/>
+                <img src="logos/meta.svg" alt="Meta" class="h-6 opacity-90" title="Meta Conversion"/>
+                <img src="logos/tiktok.svg" alt="TikTok" class="h-6 opacity-90" style="filter:invert(1)" title="TikTok Shop"/>
+                <img src="logos/shopee.svg" alt="Shopee" class="h-6 opacity-90" title="Shopee Ads"/>
+                <img src="logos/lazada.svg" alt="Lazada" class="h-6 opacity-90" title="Lazada Ads"/>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ── Closing Stat ── -->
+    <div class="mt-16 text-center max-w-3xl mx-auto reveal">
+      <p class="font-thai text-white/50 text-sm leading-relaxed">
+        ★ ทีม Top Tier มีประสบการณ์ <span class="text-brand-yellow font-semibold">3,000+ campaigns/year</span>
+        ครอบคลุมทุก Funnel — ตั้งแต่ Brand Building จนถึง Performance Marketing
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ OUR WORK / CASE STUDIES ============ -->
+<section id="work" class="py-32">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-6">
+      <div class="reveal">
+        <div class="text-brand-yellow text-sm font-semibold tracking-[0.3em] mb-6">05 · SELECTED WORK</div>
+        <h2 class="font-display text-4xl lg:text-6xl font-bold leading-tight">
+          Results that<br/><span class="text-brand-yellow italic">speak louder.</span>
+        </h2>
+      </div>
+      <a href="#" class="text-brand-yellow font-semibold inline-flex items-center gap-2 hover:gap-4 transition-all reveal">
+        View all case studies →
+      </a>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Case 1 -->
+      <div class="case-card group cursor-pointer reveal">
+        <div class="aspect-[4/5] rounded-2xl overflow-hidden bg-gradient-to-br from-pink-500 to-purple-700 relative">
+          <div class="case-img absolute inset-0 flex items-center justify-center text-white/90 text-7xl">💄</div>
+          <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
+            <div class="text-brand-yellow text-xs tracking-wider mb-1">BEAUTY · MEDIA + INFLUENCER</div>
+            <div class="font-display font-bold text-xl">Beauty Brand X</div>
+          </div>
+        </div>
+        <div class="mt-4 flex justify-between text-sm">
+          <span class="text-white/60">ROAS</span>
+          <span class="font-bold text-brand-yellow">8.2x</span>
+        </div>
+      </div>
+
+      <!-- Case 2 -->
+      <div class="case-card group cursor-pointer reveal">
+        <div class="aspect-[4/5] rounded-2xl overflow-hidden bg-gradient-to-br from-blue-600 to-cyan-500 relative">
+          <div class="case-img absolute inset-0 flex items-center justify-center text-white/90 text-7xl">🚗</div>
+          <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
+            <div class="text-brand-yellow text-xs tracking-wider mb-1">AUTOMOTIVE · FULL FUNNEL</div>
+            <div class="font-display font-bold text-xl">Auto Group Y</div>
+          </div>
+        </div>
+        <div class="mt-4 flex justify-between text-sm">
+          <span class="text-white/60">Leads / Month</span>
+          <span class="font-bold text-brand-yellow">12,400+</span>
+        </div>
+      </div>
+
+      <!-- Case 3 -->
+      <div class="case-card group cursor-pointer reveal">
+        <div class="aspect-[4/5] rounded-2xl overflow-hidden bg-gradient-to-br from-orange-500 to-red-600 relative">
+          <div class="case-img absolute inset-0 flex items-center justify-center text-white/90 text-7xl">🍜</div>
+          <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
+            <div class="text-brand-yellow text-xs tracking-wider mb-1">F&B · TIKTOK CAMPAIGN</div>
+            <div class="font-display font-bold text-xl">Food Brand Z</div>
+          </div>
+        </div>
+        <div class="mt-4 flex justify-between text-sm">
+          <span class="text-white/60">Reach</span>
+          <span class="font-bold text-brand-yellow">5.2M</span>
+        </div>
+      </div>
+
+      <!-- Case 4 -->
+      <div class="case-card group cursor-pointer reveal">
+        <div class="aspect-[4/5] rounded-2xl overflow-hidden bg-gradient-to-br from-emerald-500 to-teal-700 relative">
+          <div class="case-img absolute inset-0 flex items-center justify-center text-white/90 text-7xl">💊</div>
+          <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
+            <div class="text-brand-yellow text-xs tracking-wider mb-1">HEALTH · SEEDING + PR</div>
+            <div class="font-display font-bold text-xl">Wellness Brand</div>
+          </div>
+        </div>
+        <div class="mt-4 flex justify-between text-sm">
+          <span class="text-white/60">PR Value</span>
+          <span class="font-bold text-brand-yellow">฿8.5M</span>
+        </div>
+      </div>
+
+      <!-- Case 5 -->
+      <div class="case-card group cursor-pointer reveal">
+        <div class="aspect-[4/5] rounded-2xl overflow-hidden bg-gradient-to-br from-indigo-600 to-purple-800 relative">
+          <div class="case-img absolute inset-0 flex items-center justify-center text-white/90 text-7xl">🏦</div>
+          <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
+            <div class="text-brand-yellow text-xs tracking-wider mb-1">FINANCE · LEAD GEN</div>
+            <div class="font-display font-bold text-xl">Financial Group</div>
+          </div>
+        </div>
+        <div class="mt-4 flex justify-between text-sm">
+          <span class="text-white/60">CPL Reduction</span>
+          <span class="font-bold text-brand-yellow">-62%</span>
+        </div>
+      </div>
+
+      <!-- Case 6 -->
+      <div class="case-card group cursor-pointer reveal">
+        <div class="aspect-[4/5] rounded-2xl overflow-hidden bg-gradient-to-br from-yellow-500 to-orange-600 relative">
+          <div class="case-img absolute inset-0 flex items-center justify-center text-white/90 text-7xl">🏠</div>
+          <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
+            <div class="text-brand-yellow text-xs tracking-wider mb-1">REAL ESTATE · CAMPAIGN</div>
+            <div class="font-display font-bold text-xl">Property Developer</div>
+          </div>
+        </div>
+        <div class="mt-4 flex justify-between text-sm">
+          <span class="text-white/60">Units Sold</span>
+          <span class="font-bold text-brand-yellow">220+</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ OUR PROCESS ============ -->
+<section id="process" class="py-32 bg-brand-gray border-y border-white/10">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="text-center mb-20">
+      <div class="text-brand-yellow text-sm font-semibold tracking-[0.3em] mb-6 reveal">06 · HOW WE WORK</div>
+      <h2 class="font-display text-4xl lg:text-6xl font-bold leading-tight reveal">
+        Our <span class="text-brand-yellow">Process.</span>
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="reveal relative">
+        <div class="text-brand-yellow font-display text-8xl font-bold opacity-20 mb-4">01</div>
+        <h3 class="font-display text-2xl font-bold mb-3">Research</h3>
+        <p class="font-thai text-white/60 text-sm leading-relaxed">
+          รวบรวมข้อมูลของตลาด ผู้บริโภค คู่แข่ง และแบรนด์ของลูกค้า เพื่อหา Insight
+        </p>
+      </div>
+      <div class="reveal relative">
+        <div class="text-brand-yellow font-display text-8xl font-bold opacity-20 mb-4">02</div>
+        <h3 class="font-display text-2xl font-bold mb-3">Analysis</h3>
+        <p class="font-thai text-white/60 text-sm leading-relaxed">
+          วิเคราะห์ข้อมูลจาก DATA ในมุมมองนักการตลาดเพื่อหา Solution ที่ตอบโจทย์
+        </p>
+      </div>
+      <div class="reveal relative">
+        <div class="text-brand-yellow font-display text-8xl font-bold opacity-20 mb-4">03</div>
+        <h3 class="font-display text-2xl font-bold mb-3">Strategy</h3>
+        <p class="font-thai text-white/60 text-sm leading-relaxed">
+          กลยุทธ์และแนวทางของแบรนด์เพื่อเอาชนะคู่แข่งและครองใจ Consumer
+        </p>
+      </div>
+      <div class="reveal relative">
+        <div class="text-brand-yellow font-display text-8xl font-bold opacity-20 mb-4">04</div>
+        <h3 class="font-display text-2xl font-bold mb-3">Execute</h3>
+        <p class="font-thai text-white/60 text-sm leading-relaxed">
+          ลงมือทำ Optimize และรายงานผลแบบโปร่งใส วัดผลทุก KPI ที่สำคัญ
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLIENTS LOGO WALL ============ -->
+<section id="clients" class="py-24">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="text-center mb-16">
+      <div class="text-brand-yellow text-sm font-semibold tracking-[0.3em] mb-6 reveal">07 · OUR VALUED CLIENTS</div>
+      <h2 class="font-display text-4xl lg:text-5xl font-bold reveal">
+        Trusted by <span class="text-brand-yellow">500+</span> brands.
+      </h2>
+    </div>
+
+    <div class="marquee-container">
+      <div class="flex gap-6 marquee whitespace-nowrap">
+        <!-- duplicated for infinite loop -->
+        <template id="logo-row"></template>
+        <div class="flex gap-6 shrink-0">
+          <div class="w-44 h-24 bg-brand-gray border border-white/10 rounded-xl flex items-center justify-center text-white/70 font-semibold">Client A</div>
+          <div class="w-44 h-24 bg-brand-gray border border-white/10 rounded-xl flex items-center justify-center text-white/70 font-semibold">Brand B</div>
+          <div class="w-44 h-24 bg-brand-gray border border-white/10 rounded-xl flex items-center justify-center text-white/70 font-semibold">Company C</div>
+          <div class="w-44 h-24 bg-brand-gray border border-white/10 rounded-xl flex items-center justify-center text-white/70 font-semibold">Group D</div>
+          <div class="w-44 h-24 bg-brand-gray border border-white/10 rounded-xl flex items-center justify-center text-white/70 font-semibold">Brand E</div>
+          <div class="w-44 h-24 bg-brand-gray border border-white/10 rounded-xl flex items-center justify-center text-white/70 font-semibold">Client F</div>
+          <div class="w-44 h-24 bg-brand-gray border border-white/10 rounded-xl flex items-center justify-center text-white/70 font-semibold">Co. G</div>
+          <div class="w-44 h-24 bg-brand-gray border border-white/10 rounded-xl flex items-center justify-center text-white/70 font-semibold">Brand H</div>
+        </div>
+        <div class="flex gap-6 shrink-0">
+          <div class="w-44 h-24 bg-brand-gray border border-white/10 rounded-xl flex items-center justify-center text-white/70 font-semibold">Client A</div>
+          <div class="w-44 h-24 bg-brand-gray border border-white/10 rounded-xl flex items-center justify-center text-white/70 font-semibold">Brand B</div>
+          <div class="w-44 h-24 bg-brand-gray border border-white/10 rounded-xl flex items-center justify-center text-white/70 font-semibold">Company C</div>
+          <div class="w-44 h-24 bg-brand-gray border border-white/10 rounded-xl flex items-center justify-center text-white/70 font-semibold">Group D</div>
+          <div class="w-44 h-24 bg-brand-gray border border-white/10 rounded-xl flex items-center justify-center text-white/70 font-semibold">Brand E</div>
+          <div class="w-44 h-24 bg-brand-gray border border-white/10 rounded-xl flex items-center justify-center text-white/70 font-semibold">Client F</div>
+          <div class="w-44 h-24 bg-brand-gray border border-white/10 rounded-xl flex items-center justify-center text-white/70 font-semibold">Co. G</div>
+          <div class="w-44 h-24 bg-brand-gray border border-white/10 rounded-xl flex items-center justify-center text-white/70 font-semibold">Brand H</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-10 text-white/40 text-sm reveal">
+      * Logos shown are placeholders — actual client logos to be added from approved client list
+    </div>
+  </div>
+</section>
+
+<!-- ============ INSIGHTS / BLOG ============ -->
+<section id="insights" class="py-32 bg-brand-gray border-y border-white/10">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-6">
+      <div class="reveal">
+        <div class="text-brand-yellow text-sm font-semibold tracking-[0.3em] mb-6">08 · INSIGHTS</div>
+        <h2 class="font-display text-4xl lg:text-6xl font-bold leading-tight">
+          Marketing<br/><span class="text-brand-yellow italic">decoded.</span>
+        </h2>
+      </div>
+      <a href="#" class="text-brand-yellow font-semibold inline-flex items-center gap-2 hover:gap-4 transition-all reveal">
+        Read all articles →
+      </a>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <article class="case-card cursor-pointer reveal">
+        <div class="aspect-[16/10] rounded-2xl bg-gradient-to-br from-brand-yellow/30 to-brand-yellow/5 mb-5 flex items-center justify-center text-6xl">📈</div>
+        <div class="text-brand-yellow text-xs tracking-wider mb-2">META ADS · STRATEGY</div>
+        <h3 class="font-display font-bold text-xl mb-3 leading-snug">5 เทคนิคลด CPL บน Meta Ads แบบไม่ลดคุณภาพ Lead</h3>
+        <div class="text-sm text-white/50">12 พ.ค. 2026 · 5 min read</div>
+      </article>
+
+      <article class="case-card cursor-pointer reveal">
+        <div class="aspect-[16/10] rounded-2xl bg-gradient-to-br from-pink-500/30 to-purple-500/10 mb-5 flex items-center justify-center text-6xl">🎵</div>
+        <div class="text-brand-yellow text-xs tracking-wider mb-2">TIKTOK · CASE STUDY</div>
+        <h3 class="font-display font-bold text-xl mb-3 leading-snug">เปิด Playbook TikTok Shop ที่ดัน ROAS เกิน 10x</h3>
+        <div class="text-sm text-white/50">8 พ.ค. 2026 · 7 min read</div>
+      </article>
+
+      <article class="case-card cursor-pointer reveal">
+        <div class="aspect-[16/10] rounded-2xl bg-gradient-to-br from-blue-500/30 to-cyan-500/10 mb-5 flex items-center justify-center text-6xl">🤖</div>
+        <div class="text-brand-yellow text-xs tracking-wider mb-2">AI · TRENDS</div>
+        <h3 class="font-display font-bold text-xl mb-3 leading-snug">AI กำลังเปลี่ยน Marketing Agency อย่างไรในปี 2026</h3>
+        <div class="text-sm text-white/50">2 พ.ค. 2026 · 6 min read</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA / CONTACT ============ -->
+<section id="contact" class="py-32 relative overflow-hidden">
+  <div class="absolute inset-0 hero-bg"></div>
+  <div class="max-w-5xl mx-auto px-6 lg:px-10 relative z-10 text-center">
+    <div class="text-brand-yellow text-sm font-semibold tracking-[0.3em] mb-6 reveal">09 · LET'S TALK</div>
+    <h2 class="font-display text-5xl lg:text-8xl font-bold leading-[1.05] mb-8 reveal">
+      Best service<br/>for <span class="text-brand-yellow italic">your business.</span>
+    </h2>
+    <p class="font-thai text-white/70 text-lg lg:text-xl max-w-2xl mx-auto mb-12 reveal">
+      พร้อมยกระดับการตลาดของคุณไปอีกขั้น? เริ่มคุยกับเราวันนี้ — ปรึกษาฟรี ไม่มีค่าใช้จ่าย
+    </p>
+
+    <div class="flex flex-wrap justify-center gap-4 mb-16 reveal">
+      <a href="mailto:tk.kananithikul@gmail.com" class="bg-brand-yellow text-brand-black px-8 py-4 rounded-full font-semibold flex items-center gap-2 hover:bg-white transition btn-pill">
+        ✉️ tk.kananithikul@gmail.com
+      </a>
+      <a href="tel:0656471556" class="border border-white/20 px-8 py-4 rounded-full font-semibold hover:border-brand-yellow hover:text-brand-yellow transition">
+        📞 065-647-1556
+      </a>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6 text-left max-w-4xl mx-auto reveal">
+      <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
+        <div class="text-2xl mb-3">📍</div>
+        <div class="text-brand-yellow text-xs tracking-widest mb-2">OFFICE</div>
+        <div class="text-sm text-white/70">Bangkok, Thailand</div>
+      </div>
+      <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
+        <div class="text-2xl mb-3">⏰</div>
+        <div class="text-brand-yellow text-xs tracking-widest mb-2">HOURS</div>
+        <div class="text-sm text-white/70">จันทร์–ศุกร์ · 9:00–18:00</div>
+      </div>
+      <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
+        <div class="text-2xl mb-3">💬</div>
+        <div class="text-brand-yellow text-xs tracking-widest mb-2">LINE OA</div>
+        <div class="text-sm text-white/70">@toptiermedia</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-black border-t border-white/10 py-12">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-8">
+      <div class="flex items-center gap-3">
+        <img src="logo.png" alt="Top Tier Group" class="w-10 h-10 rounded-full object-cover" />
+        <div>
+          <div class="font-display font-bold">Top Tier Group</div>
+          <div class="text-xs text-white/40">Top Tier Group Company Limited</div>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap gap-6 text-sm text-white/60">
+        <a href="#solutions" class="hover:text-brand-yellow">Solutions</a>
+        <a href="#work" class="hover:text-brand-yellow">Work</a>
+        <a href="#insights" class="hover:text-brand-yellow">Insights</a>
+        <a href="#contact" class="hover:text-brand-yellow">Contact</a>
+        <a href="/privacy-policy" class="hover:text-brand-yellow">Privacy Policy</a>
+        <a href="/terms-of-service" class="hover:text-brand-yellow">Terms</a>
+      </div>
+
+      <div class="flex gap-3">
+        <a href="#" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-brand-yellow hover:text-brand-black transition">f</a>
+        <a href="#" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-brand-yellow hover:text-brand-black transition">in</a>
+        <a href="#" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-brand-yellow hover:text-brand-black transition">ig</a>
+        <a href="#" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-brand-yellow hover:text-brand-black transition">tt</a>
+      </div>
+    </div>
+
+    <div class="mt-10 pt-8 border-t border-white/5 text-xs text-white/30 text-center">
+      © 2026 Top Tier Group Company Limited. All rights reserved.<br/>
+      Bangkok, Thailand · Contact: <a href="mailto:tk.kananithikul@gmail.com" class="hover:text-brand-yellow">tk.kananithikul@gmail.com</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ SCRIPTS ============ -->
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('show');
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Counter animation (supports data-prefix and data-suffix)
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const target = parseInt(el.dataset.target);
+        const suffix = el.dataset.suffix !== undefined ? el.dataset.suffix : (target >= 100 ? '+' : '');
+        const prefix = el.dataset.prefix !== undefined ? el.dataset.prefix : '';
+        const duration = 2000;
+        const step = target / (duration / 16);
+        let current = 0;
+        const update = () => {
+          current += step;
+          if (current < target) {
+            el.textContent = prefix + Math.floor(current).toLocaleString() + suffix;
+            requestAnimationFrame(update);
+          } else {
+            el.textContent = prefix + target.toLocaleString() + suffix;
+          }
+        };
+        update();
+        counterObserver.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
+</script>
+
+</body>
+</html>

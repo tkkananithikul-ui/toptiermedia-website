@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Top Tier Media</title>
+<meta name="description" content="Privacy Policy for Top Tier Media — how we collect, use, and protect data when managing advertising campaigns through Google Ads API and Meta Marketing API.">
+<meta name="robots" content="index, follow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: #0A0A0A;
+    color: #fff;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+
+  /* Nav */
+  nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(10,10,10,0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .nav-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 24px; max-width: 1100px; margin: 0 auto;
+  }
+  .logo-wrap { display: flex; align-items: center; gap: 12px; text-decoration: none; color: #fff; }
+  .logo-wrap img { width: 42px; height: 42px; border-radius: 50%; }
+  .logo-text { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 16px; line-height: 1.1; }
+  .logo-sub { font-size: 10px; color: #FFD230; letter-spacing: 0.2em; font-weight: 500; }
+  .nav-links { display: flex; gap: 28px; }
+  .nav-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 14px; font-weight: 500; }
+  .nav-links a:hover { color: #FFD230; }
+
+  /* Page hero */
+  .page-hero {
+    padding: 80px 0 40px;
+    text-align: center;
+    background: radial-gradient(ellipse at top, rgba(255,210,48,0.08), transparent 70%);
+  }
+  .page-hero .label {
+    color: #FFD230;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    margin-bottom: 14px;
+  }
+  .page-hero h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(34px, 5vw, 52px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+  .page-hero h1 .accent { color: #FFD230; }
+  .page-hero .meta { color: rgba(255,255,255,0.5); font-size: 14px; }
+
+  /* Content */
+  article { padding: 60px 0 80px; }
+  article h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    margin-top: 48px;
+    margin-bottom: 16px;
+    color: #FFD230;
+    letter-spacing: -0.01em;
+  }
+  article h2:first-child { margin-top: 0; }
+  article h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 28px;
+    margin-bottom: 10px;
+    color: #fff;
+  }
+  article p { color: rgba(255,255,255,0.8); margin-bottom: 16px; font-size: 16px; }
+  article ul { margin: 0 0 20px 24px; color: rgba(255,255,255,0.8); }
+  article li { margin-bottom: 8px; font-size: 16px; }
+  article strong { color: #fff; font-weight: 600; }
+  article a { color: #FFD230; text-decoration: underline; }
+  article a:hover { color: #fff; }
+
+  .tldr-box {
+    background: linear-gradient(135deg, rgba(255,210,48,0.08), rgba(255,210,48,0.02));
+    border: 1px solid rgba(255,210,48,0.25);
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 40px;
+  }
+  .tldr-box .label {
+    color: #FFD230;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .tldr-box p { color: rgba(255,255,255,0.85); margin-bottom: 0; }
+
+  /* Footer */
+  footer {
+    background: #000;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 40px 0;
+  }
+  .footer-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+  .footer-links { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; }
+  .footer-links a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 14px; }
+  .footer-links a:hover { color: #FFD230; }
+  .copyright { color: rgba(255,255,255,0.4); font-size: 12px; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo-wrap">
+      <img src="/logo.png" alt="Top Tier Media">
+      <div>
+        <div class="logo-text">Top Tier Media</div>
+        <div class="logo-sub">DIGITAL MARKETING AGENCY</div>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/terms-of-service">Terms</a>
+      <a href="mailto:tk.kananithikul@gmail.com">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="container">
+    <div class="label">LEGAL</div>
+    <h1>Privacy <span class="accent">Policy</span></h1>
+    <div class="meta">Last updated: May 20, 2026 · Effective: May 20, 2026</div>
+  </div>
+</div>
+
+<article>
+  <div class="container">
+
+    <div class="tldr-box">
+      <div class="label">★ TL;DR</div>
+      <p>
+        Top Tier Media is a marketing agency. We connect to our clients' advertising accounts
+        (Google Ads, Meta Ads, etc.) through official APIs to manage and report on their campaigns.
+        We use this data <strong>only</strong> to provide our services. We never sell or share client
+        advertising data with third parties.
+      </p>
+    </div>
+
+    <h2>1. Introduction</h2>
+    <p>
+      This Privacy Policy describes how <strong>Top Tier Group Company Limited</strong>, operating
+      under the brand name "Top Tier Media" ("we", "us", "our", or "the Agency"), collects,
+      uses, stores, and protects information when we provide digital advertising services to
+      our clients.
+    </p>
+    <p>
+      We are a marketing agency based in Bangkok, Thailand. This policy applies to:
+    </p>
+    <ul>
+      <li>Visitors to our website</li>
+      <li>Clients who engage us to manage their advertising campaigns</li>
+      <li>Data we access through advertising platform APIs (including the Google Ads API and Meta Marketing API) on behalf of our clients</li>
+    </ul>
+
+    <h2>2. Information We Collect</h2>
+
+    <h3>2.1 Information You Provide Directly</h3>
+    <p>When you contact us or engage our services, we may collect:</p>
+    <ul>
+      <li>Name, email address, phone number, and company name</li>
+      <li>Business information relevant to your advertising campaigns</li>
+      <li>Billing and payment information (processed by third-party payment providers)</li>
+    </ul>
+
+    <h3>2.2 Information We Access Through APIs on Behalf of Clients</h3>
+    <p>
+      When you become our client and authorize us to manage your advertising accounts, we access
+      data through the official APIs of advertising platforms, including but not limited to:
+    </p>
+    <ul>
+      <li><strong>Google Ads API</strong> — campaign data, ad performance, keywords, bidding, conversion tracking, account structure</li>
+      <li><strong>Meta Marketing API</strong> — Facebook and Instagram campaign data, ad creative, audience targeting, performance metrics</li>
+      <li><strong>TikTok Marketing API</strong> — TikTok campaign data and performance</li>
+      <li><strong>LINE Ads Platform</strong> — LINE advertising data</li>
+      <li>Other platform APIs as needed to deliver agreed services</li>
+    </ul>
+    <p>
+      We <strong>only access</strong> the data necessary to manage and report on your campaigns.
+      We do not access personally identifiable information of the end-users (consumers) who interact
+      with your ads, beyond what is already provided in aggregate form by the advertising platforms.
+    </p>
+
+    <h3>2.3 Website Analytics</h3>
+    <p>
+      Our website may use standard analytics tools (such as Google Analytics) to understand how
+      visitors use our site. This data is aggregated and does not personally identify individuals.
+    </p>
+
+    <h2>3. How We Use Information</h2>
+    <p>We use the information we collect and access strictly for the following purposes:</p>
+    <ul>
+      <li><strong>Service delivery</strong> — to create, manage, optimize, and report on advertising campaigns on behalf of our clients</li>
+      <li><strong>Performance reporting</strong> — to generate periodic reports about campaign performance for the specific client who owns the data</li>
+      <li><strong>Strategic recommendations</strong> — to provide our clients with insights and recommendations to improve their advertising effectiveness</li>
+      <li><strong>Communication</strong> — to respond to inquiries, send service updates, and conduct ordinary business communication</li>
+      <li><strong>Billing and accounting</strong> — to process payments and maintain financial records as required by Thai law</li>
+      <li><strong>Compliance</strong> — to comply with our obligations under applicable law and the terms of service of advertising platforms</li>
+    </ul>
+
+    <h2>4. Google Ads API Data Usage — Specific Disclosure</h2>
+    <p>
+      In accordance with Google's API requirements, we provide the following specific disclosure
+      regarding data we access through the Google Ads API:
+    </p>
+    <ul>
+      <li>We access Google Ads data <strong>only</strong> for accounts where the account holder (our client) has explicitly granted us authorization</li>
+      <li>We use Google Ads data <strong>only</strong> to manage and optimize the client's own advertising campaigns and to provide reporting to that specific client</li>
+      <li>We <strong>do not</strong> sell, license, lease, or otherwise monetize Google Ads data accessed through the API</li>
+      <li>We <strong>do not</strong> share Google Ads data with third parties except as required to deliver our services (for example, secure cloud storage providers) or as required by law</li>
+      <li>We <strong>do not</strong> use Google Ads data to train machine learning or generative AI models that are sold or licensed to third parties</li>
+      <li>Clients may revoke our API access at any time through their Google Ads account settings, and we will stop accessing their data immediately upon revocation</li>
+    </ul>
+
+    <h2>5. Meta Marketing API Data Usage</h2>
+    <p>
+      The same principles described in Section 4 apply to data we access through the Meta Marketing
+      API (Facebook, Instagram, Messenger, Audience Network). We access this data only with client
+      authorization and only to provide agreed services.
+    </p>
+
+    <h2>6. Data Storage and Security</h2>
+    <p>
+      We take reasonable technical and organizational measures to protect the information we
+      collect and access, including:
+    </p>
+    <ul>
+      <li>Storing data in access-controlled systems</li>
+      <li>Using encrypted connections (HTTPS/TLS) for data in transit</li>
+      <li>Limiting employee access to data on a need-to-know basis</li>
+      <li>Reviewing our security practices on a regular basis</li>
+    </ul>
+    <p>
+      No method of data transmission or storage is 100% secure. While we strive to use commercially
+      acceptable means to protect data, we cannot guarantee absolute security.
+    </p>
+
+    <h2>7. Data Retention</h2>
+    <p>
+      We retain client account data and campaign data for as long as the client engagement is active,
+      and for a reasonable period thereafter to comply with legal obligations, resolve disputes, and
+      enforce our agreements. Specifically:
+    </p>
+    <ul>
+      <li>Active client data is retained for the duration of the service agreement</li>
+      <li>After service termination, campaign and reporting data may be retained for up to <strong>2 years</strong> for accounting, audit, and legal compliance purposes</li>
+      <li>Personal contact information may be retained as required under Thai accounting and tax law (typically 5–10 years)</li>
+      <li>You may request earlier deletion of personal data by contacting us, subject to legal retention requirements</li>
+    </ul>
+
+    <h2>8. Data Sharing</h2>
+    <p>We do not sell client data. We may share information only in the following limited circumstances:</p>
+    <ul>
+      <li><strong>Service providers</strong> — trusted infrastructure providers (cloud hosting, email, accounting tools) bound by confidentiality obligations and acting on our behalf</li>
+      <li><strong>Legal requirements</strong> — if required by law, court order, or regulatory authority in Thailand or another applicable jurisdiction</li>
+      <li><strong>Business transfers</strong> — in the event of a merger, acquisition, or sale of business assets, with notice to affected clients</li>
+      <li><strong>With your consent</strong> — when you explicitly authorize us to share specific information with a specific third party</li>
+    </ul>
+
+    <h2>9. Your Rights</h2>
+    <p>
+      Under the Thailand Personal Data Protection Act (PDPA) and other applicable data protection laws,
+      you have the following rights regarding your personal data:
+    </p>
+    <ul>
+      <li><strong>Right to access</strong> — request a copy of the personal data we hold about you</li>
+      <li><strong>Right to correct</strong> — request correction of inaccurate personal data</li>
+      <li><strong>Right to delete</strong> — request deletion of your personal data, subject to legal retention requirements</li>
+      <li><strong>Right to restrict processing</strong> — request that we limit how we process your data</li>
+      <li><strong>Right to withdraw consent</strong> — withdraw consent for processing where consent is the legal basis</li>
+      <li><strong>Right to revoke API authorization</strong> — clients may revoke our access to their advertising accounts at any time directly through the platform (Google, Meta, etc.)</li>
+      <li><strong>Right to lodge a complaint</strong> — file a complaint with the Personal Data Protection Committee of Thailand if you believe your rights have been violated</li>
+    </ul>
+    <p>To exercise any of these rights, contact us at <a href="mailto:tk.kananithikul@gmail.com">tk.kananithikul@gmail.com</a>.</p>
+
+    <h2>10. Cookies</h2>
+    <p>
+      Our website may use cookies and similar technologies for basic functionality and analytics.
+      You can control cookies through your browser settings. Disabling cookies may affect some
+      functionality of our website.
+    </p>
+
+    <h2>11. Children's Privacy</h2>
+    <p>
+      Our services are intended for businesses and individuals aged 18 and over. We do not
+      knowingly collect personal information from children under 18.
+    </p>
+
+    <h2>12. International Data Transfers</h2>
+    <p>
+      Advertising platform APIs (Google, Meta, etc.) and cloud service providers may process data
+      outside of Thailand. By engaging our services, you acknowledge that data may be transferred
+      to and processed in jurisdictions with different data protection laws. We require our service
+      providers to maintain appropriate safeguards for international transfers.
+    </p>
+
+    <h2>13. Changes to This Policy</h2>
+    <p>
+      We may update this Privacy Policy from time to time to reflect changes in our practices,
+      services, or legal requirements. The "Last updated" date at the top of this page will reflect
+      the most recent revision. Material changes will be communicated to active clients through
+      reasonable means (such as email).
+    </p>
+
+    <h2>14. Contact Us</h2>
+    <p>If you have questions, concerns, or requests related to this Privacy Policy or our data practices, contact us at:</p>
+    <ul>
+      <li><strong>Email:</strong> <a href="mailto:tk.kananithikul@gmail.com">tk.kananithikul@gmail.com</a></li>
+      <li><strong>Company:</strong> Top Tier Group Company Limited</li>
+      <li><strong>Location:</strong> Bangkok, Thailand</li>
+    </ul>
+
+  </div>
+</article>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/privacy-policy">Privacy Policy</a>
+        <a href="/terms-of-service">Terms of Service</a>
+        <a href="mailto:tk.kananithikul@gmail.com">Contact</a>
+      </div>
+      <div class="copyright">
+        © 2026 Top Tier Group Company Limited. All rights reserved.<br>
+        Bangkok, Thailand
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

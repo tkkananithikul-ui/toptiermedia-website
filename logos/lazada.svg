@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <defs>
+    <linearGradient id="lazL" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFB347"/>
+      <stop offset="100%" stop-color="#FF6B35"/>
+    </linearGradient>
+    <linearGradient id="lazR" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF3D7F"/>
+      <stop offset="100%" stop-color="#E91E63"/>
+    </linearGradient>
+  </defs>
+  <!-- Left wing (orange) -->
+  <path d="M 60 25 L 18 50 L 22 90 L 60 110 Z" fill="url(#lazL)"/>
+  <!-- Right wing (pink) -->
+  <path d="M 60 25 L 102 50 L 98 90 L 60 110 Z" fill="url(#lazR)"/>
+  <!-- Center fold line for 3D effect -->
+  <path d="M 60 25 L 60 110" stroke="rgba(0,0,0,0.18)" stroke-width="1.2"/>
+  <!-- Top fold highlight diamond -->
+  <path d="M 60 25 L 50 38 L 60 50 L 70 38 Z" fill="rgba(255,255,255,0.22)"/>
+</svg>
