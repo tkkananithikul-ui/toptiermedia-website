@@ -62,7 +62,37 @@
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
   }
-  .marquee { animation: marquee 30s linear infinite; }
+  @keyframes marquee-reverse {
+    from { transform: translateX(-50%); }
+    to { transform: translateX(0); }
+  }
+  .marquee { animation: marquee 40s linear infinite; }
+  .marquee-reverse { animation: marquee-reverse 45s linear infinite; }
+  .marquee-slow { animation: marquee 55s linear infinite; }
+
+  /* Logo chip — text-styled "logo" card for clients marquee */
+  .logo-chip {
+    flex-shrink: 0;
+    height: 72px;
+    min-width: 180px;
+    padding: 0 28px;
+    background: linear-gradient(180deg, #fff 0%, #f4f4f4 100%);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0A0A0A;
+    font-family: 'Space Grotesk', 'Anuphan', sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    letter-spacing: -0.01em;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.6);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .logo-chip:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 24px rgba(255,210,48,0.25), inset 0 1px 0 rgba(255,255,255,0.6);
+  }
 
   /* Scroll reveal */
   .reveal { opacity: 0; transform: translateY(40px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
@@ -666,88 +696,143 @@
   </div>
 </section>
 
-<!-- ============ OUR PROCESS ============ -->
-<section id="process" class="py-32 bg-brand-gray border-y border-white/10">
-  <div class="max-w-7xl mx-auto px-6 lg:px-10">
-    <div class="text-center mb-20">
-      <div class="text-brand-yellow text-sm font-semibold tracking-[0.3em] mb-6 reveal">06 · HOW WE WORK</div>
-      <h2 class="font-display text-4xl lg:text-6xl font-bold leading-tight reveal">
-        Our <span class="text-brand-yellow">Process.</span>
-      </h2>
-    </div>
-
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-      <div class="reveal relative">
-        <div class="text-brand-yellow font-display text-8xl font-bold opacity-20 mb-4">01</div>
-        <h3 class="font-display text-2xl font-bold mb-3">Research</h3>
-        <p class="font-thai text-white/60 text-sm leading-relaxed">
-          รวบรวมข้อมูลของตลาด ผู้บริโภค คู่แข่ง และแบรนด์ของลูกค้า เพื่อหา Insight
-        </p>
-      </div>
-      <div class="reveal relative">
-        <div class="text-brand-yellow font-display text-8xl font-bold opacity-20 mb-4">02</div>
-        <h3 class="font-display text-2xl font-bold mb-3">Analysis</h3>
-        <p class="font-thai text-white/60 text-sm leading-relaxed">
-          วิเคราะห์ข้อมูลจาก DATA ในมุมมองนักการตลาดเพื่อหา Solution ที่ตอบโจทย์
-        </p>
-      </div>
-      <div class="reveal relative">
-        <div class="text-brand-yellow font-display text-8xl font-bold opacity-20 mb-4">03</div>
-        <h3 class="font-display text-2xl font-bold mb-3">Strategy</h3>
-        <p class="font-thai text-white/60 text-sm leading-relaxed">
-          กลยุทธ์และแนวทางของแบรนด์เพื่อเอาชนะคู่แข่งและครองใจ Consumer
-        </p>
-      </div>
-      <div class="reveal relative">
-        <div class="text-brand-yellow font-display text-8xl font-bold opacity-20 mb-4">04</div>
-        <h3 class="font-display text-2xl font-bold mb-3">Execute</h3>
-        <p class="font-thai text-white/60 text-sm leading-relaxed">
-          ลงมือทำ Optimize และรายงานผลแบบโปร่งใส วัดผลทุก KPI ที่สำคัญ
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ============ CLIENTS LOGO WALL ============ -->
-<section id="clients" class="py-24">
+<section id="clients" class="py-24 bg-brand-gray border-y border-white/10">
   <div class="max-w-7xl mx-auto px-6 lg:px-10">
     <div class="text-center mb-16">
-      <div class="text-brand-yellow text-sm font-semibold tracking-[0.3em] mb-6 reveal">07 · OUR VALUED CLIENTS</div>
+      <div class="text-brand-yellow text-sm font-semibold tracking-[0.3em] mb-6 reveal">06 · OUR VALUED CLIENTS</div>
       <h2 class="font-display text-4xl lg:text-5xl font-bold reveal">
         Trusted by <span class="text-brand-yellow">500+</span> brands.
       </h2>
     </div>
 
-    <div class="marquee-container">
-      <div class="flex gap-6 marquee whitespace-nowrap">
-        <!-- duplicated for infinite loop -->
-        <template id="logo-row"></template>
-        <div class="flex gap-6 shrink-0">
-          <div class="w-44 h-24 bg-brand-gray border border-white/10 rounded-xl flex items-center justify-center text-white/70 font-semibold">Client A</div>
-          <div class="w-44 h-24 bg-brand-gray border border-white/10 rounded-xl flex items-center justify-center text-white/70 font-semibold">Brand B</div>
-          <div class="w-44 h-24 bg-brand-gray border border-white/10 rounded-xl flex items-center justify-center text-white/70 font-semibold">Company C</div>
-          <div class="w-44 h-24 bg-brand-gray border border-white/10 rounded-xl flex items-center justify-center text-white/70 font-semibold">Group D</div>
-          <div class="w-44 h-24 bg-brand-gray border border-white/10 rounded-xl flex items-center justify-center text-white/70 font-semibold">Brand E</div>
-          <div class="w-44 h-24 bg-brand-gray border border-white/10 rounded-xl flex items-center justify-center text-white/70 font-semibold">Client F</div>
-          <div class="w-44 h-24 bg-brand-gray border border-white/10 rounded-xl flex items-center justify-center text-white/70 font-semibold">Co. G</div>
-          <div class="w-44 h-24 bg-brand-gray border border-white/10 rounded-xl flex items-center justify-center text-white/70 font-semibold">Brand H</div>
-        </div>
-        <div class="flex gap-6 shrink-0">
-          <div class="w-44 h-24 bg-brand-gray border border-white/10 rounded-xl flex items-center justify-center text-white/70 font-semibold">Client A</div>
-          <div class="w-44 h-24 bg-brand-gray border border-white/10 rounded-xl flex items-center justify-center text-white/70 font-semibold">Brand B</div>
-          <div class="w-44 h-24 bg-brand-gray border border-white/10 rounded-xl flex items-center justify-center text-white/70 font-semibold">Company C</div>
-          <div class="w-44 h-24 bg-brand-gray border border-white/10 rounded-xl flex items-center justify-center text-white/70 font-semibold">Group D</div>
-          <div class="w-44 h-24 bg-brand-gray border border-white/10 rounded-xl flex items-center justify-center text-white/70 font-semibold">Brand E</div>
-          <div class="w-44 h-24 bg-brand-gray border border-white/10 rounded-xl flex items-center justify-center text-white/70 font-semibold">Client F</div>
-          <div class="w-44 h-24 bg-brand-gray border border-white/10 rounded-xl flex items-center justify-center text-white/70 font-semibold">Co. G</div>
-          <div class="w-44 h-24 bg-brand-gray border border-white/10 rounded-xl flex items-center justify-center text-white/70 font-semibold">Brand H</div>
+    <!-- 3 rows of brand-name "logos", alternating scroll direction -->
+    <div class="space-y-4 reveal">
+
+      <!-- Row 1 — scrolls left -->
+      <div class="marquee-container">
+        <div class="flex gap-4 marquee whitespace-nowrap">
+          <div class="flex gap-4 shrink-0">
+            <div class="logo-chip">JUV</div>
+            <div class="logo-chip">Mona Clinic</div>
+            <div class="logo-chip">Dr. Awie</div>
+            <div class="logo-chip">NAKIZ</div>
+            <div class="logo-chip">Jessie Mum</div>
+            <div class="logo-chip">Haewon Clinic</div>
+            <div class="logo-chip">La Bella</div>
+            <div class="logo-chip">Pawdy</div>
+            <div class="logo-chip">The Elf</div>
+            <div class="logo-chip">The Next</div>
+            <div class="logo-chip">คำหลวง</div>
+            <div class="logo-chip">Modern Outdoor</div>
+            <div class="logo-chip">Ronnapee</div>
+            <div class="logo-chip">Hone</div>
+            <div class="logo-chip">ปาล์มดี้</div>
+          </div>
+          <div class="flex gap-4 shrink-0" aria-hidden="true">
+            <div class="logo-chip">JUV</div>
+            <div class="logo-chip">Mona Clinic</div>
+            <div class="logo-chip">Dr. Awie</div>
+            <div class="logo-chip">NAKIZ</div>
+            <div class="logo-chip">Jessie Mum</div>
+            <div class="logo-chip">Haewon Clinic</div>
+            <div class="logo-chip">La Bella</div>
+            <div class="logo-chip">Pawdy</div>
+            <div class="logo-chip">The Elf</div>
+            <div class="logo-chip">The Next</div>
+            <div class="logo-chip">คำหลวง</div>
+            <div class="logo-chip">Modern Outdoor</div>
+            <div class="logo-chip">Ronnapee</div>
+            <div class="logo-chip">Hone</div>
+            <div class="logo-chip">ปาล์มดี้</div>
+          </div>
         </div>
       </div>
+
+      <!-- Row 2 — scrolls right (reverse) -->
+      <div class="marquee-container">
+        <div class="flex gap-4 marquee marquee-reverse whitespace-nowrap">
+          <div class="flex gap-4 shrink-0">
+            <div class="logo-chip">Srifa Bakery</div>
+            <div class="logo-chip">ยอดรัก</div>
+            <div class="logo-chip">NAKA</div>
+            <div class="logo-chip">BetaCal</div>
+            <div class="logo-chip">So neko</div>
+            <div class="logo-chip">Karisma</div>
+            <div class="logo-chip">BarBestro</div>
+            <div class="logo-chip">The Toy Group</div>
+            <div class="logo-chip">Axotic Cafe</div>
+            <div class="logo-chip">Eighty Two</div>
+            <div class="logo-chip">Yoo Collagen</div>
+            <div class="logo-chip">My Organic</div>
+            <div class="logo-chip">Marshal Guard</div>
+            <div class="logo-chip">Witchanya</div>
+            <div class="logo-chip">Magnolia</div>
+          </div>
+          <div class="flex gap-4 shrink-0" aria-hidden="true">
+            <div class="logo-chip">Srifa Bakery</div>
+            <div class="logo-chip">ยอดรัก</div>
+            <div class="logo-chip">NAKA</div>
+            <div class="logo-chip">BetaCal</div>
+            <div class="logo-chip">So neko</div>
+            <div class="logo-chip">Karisma</div>
+            <div class="logo-chip">BarBestro</div>
+            <div class="logo-chip">The Toy Group</div>
+            <div class="logo-chip">Axotic Cafe</div>
+            <div class="logo-chip">Eighty Two</div>
+            <div class="logo-chip">Yoo Collagen</div>
+            <div class="logo-chip">My Organic</div>
+            <div class="logo-chip">Marshal Guard</div>
+            <div class="logo-chip">Witchanya</div>
+            <div class="logo-chip">Magnolia</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Row 3 — scrolls left (slower) -->
+      <div class="marquee-container">
+        <div class="flex gap-4 marquee marquee-slow whitespace-nowrap">
+          <div class="flex gap-4 shrink-0">
+            <div class="logo-chip">ยันฮี</div>
+            <div class="logo-chip">นิยม Jeans</div>
+            <div class="logo-chip">Dr.Choice</div>
+            <div class="logo-chip">Kathy Cosmetics</div>
+            <div class="logo-chip">Rosegold</div>
+            <div class="logo-chip">Soccer Gate</div>
+            <div class="logo-chip">LYO Thai</div>
+            <div class="logo-chip">Verena</div>
+            <div class="logo-chip">Fitto</div>
+            <div class="logo-chip">Together</div>
+            <div class="logo-chip">Glam Laboratory</div>
+            <div class="logo-chip">Ecovacs</div>
+            <div class="logo-chip">DW Thailand</div>
+            <div class="logo-chip">Vera</div>
+            <div class="logo-chip">Aree Express</div>
+          </div>
+          <div class="flex gap-4 shrink-0" aria-hidden="true">
+            <div class="logo-chip">ยันฮี</div>
+            <div class="logo-chip">นิยม Jeans</div>
+            <div class="logo-chip">Dr.Choice</div>
+            <div class="logo-chip">Kathy Cosmetics</div>
+            <div class="logo-chip">Rosegold</div>
+            <div class="logo-chip">Soccer Gate</div>
+            <div class="logo-chip">LYO Thai</div>
+            <div class="logo-chip">Verena</div>
+            <div class="logo-chip">Fitto</div>
+            <div class="logo-chip">Together</div>
+            <div class="logo-chip">Glam Laboratory</div>
+            <div class="logo-chip">Ecovacs</div>
+            <div class="logo-chip">DW Thailand</div>
+            <div class="logo-chip">Vera</div>
+            <div class="logo-chip">Aree Express</div>
+          </div>
+        </div>
+      </div>
+
     </div>
 
     <div class="text-center mt-10 text-white/40 text-sm reveal">
-      * Logos shown are placeholders — actual client logos to be added from approved client list
+      ★ ลูกค้ากว่า 500+ แบรนด์ — ตั้งแต่ Local Brand, SME, จนถึง Enterprise
     </div>
   </div>
 </section>
