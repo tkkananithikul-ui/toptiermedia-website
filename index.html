@@ -70,28 +70,20 @@
   .marquee-reverse { animation: marquee-reverse 45s linear infinite; }
   .marquee-slow { animation: marquee 55s linear infinite; }
 
-  /* Logo chip — text-styled "logo" card for clients marquee */
-  .logo-chip {
+  /* Client logo strip — wide horizontal image used in marquee row */
+  .logo-strip {
     flex-shrink: 0;
-    height: 72px;
-    min-width: 180px;
-    padding: 0 28px;
-    background: linear-gradient(180deg, #fff 0%, #f4f4f4 100%);
-    border-radius: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #0A0A0A;
-    font-family: 'Space Grotesk', 'Anuphan', sans-serif;
-    font-weight: 700;
-    font-size: 17px;
-    letter-spacing: -0.01em;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.6);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100px;
+    width: auto;
+    display: block;
+    user-select: none;
+    -webkit-user-drag: none;
   }
-  .logo-chip:hover {
-    transform: translateY(-2px) scale(1.02);
-    box-shadow: 0 8px 24px rgba(255,210,48,0.25), inset 0 1px 0 rgba(255,255,255,0.6);
+  @media (min-width: 768px) {
+    .logo-strip { height: 130px; }
+  }
+  @media (min-width: 1280px) {
+    .logo-strip { height: 150px; }
   }
 
   /* Scroll reveal */
@@ -706,126 +698,30 @@
       </h2>
     </div>
 
-    <!-- 3 rows of brand-name "logos", alternating scroll direction -->
+    <!-- 3 rows of real client logos, alternating scroll direction -->
     <div class="space-y-4 reveal">
 
       <!-- Row 1 — scrolls left -->
       <div class="marquee-container">
-        <div class="flex gap-4 marquee whitespace-nowrap">
-          <div class="flex gap-4 shrink-0">
-            <div class="logo-chip">JUV</div>
-            <div class="logo-chip">Mona Clinic</div>
-            <div class="logo-chip">Dr. Awie</div>
-            <div class="logo-chip">NAKIZ</div>
-            <div class="logo-chip">Jessie Mum</div>
-            <div class="logo-chip">Haewon Clinic</div>
-            <div class="logo-chip">La Bella</div>
-            <div class="logo-chip">Pawdy</div>
-            <div class="logo-chip">The Elf</div>
-            <div class="logo-chip">The Next</div>
-            <div class="logo-chip">คำหลวง</div>
-            <div class="logo-chip">Modern Outdoor</div>
-            <div class="logo-chip">Ronnapee</div>
-            <div class="logo-chip">Hone</div>
-            <div class="logo-chip">ปาล์มดี้</div>
-          </div>
-          <div class="flex gap-4 shrink-0" aria-hidden="true">
-            <div class="logo-chip">JUV</div>
-            <div class="logo-chip">Mona Clinic</div>
-            <div class="logo-chip">Dr. Awie</div>
-            <div class="logo-chip">NAKIZ</div>
-            <div class="logo-chip">Jessie Mum</div>
-            <div class="logo-chip">Haewon Clinic</div>
-            <div class="logo-chip">La Bella</div>
-            <div class="logo-chip">Pawdy</div>
-            <div class="logo-chip">The Elf</div>
-            <div class="logo-chip">The Next</div>
-            <div class="logo-chip">คำหลวง</div>
-            <div class="logo-chip">Modern Outdoor</div>
-            <div class="logo-chip">Ronnapee</div>
-            <div class="logo-chip">Hone</div>
-            <div class="logo-chip">ปาล์มดี้</div>
-          </div>
+        <div class="flex marquee whitespace-nowrap">
+          <img src="clients/p20_row1.png" alt="Top Tier Clients — Row 1" class="logo-strip" />
+          <img src="clients/p20_row1.png" alt="" aria-hidden="true" class="logo-strip" />
         </div>
       </div>
 
       <!-- Row 2 — scrolls right (reverse) -->
       <div class="marquee-container">
-        <div class="flex gap-4 marquee marquee-reverse whitespace-nowrap">
-          <div class="flex gap-4 shrink-0">
-            <div class="logo-chip">Srifa Bakery</div>
-            <div class="logo-chip">ยอดรัก</div>
-            <div class="logo-chip">NAKA</div>
-            <div class="logo-chip">BetaCal</div>
-            <div class="logo-chip">So neko</div>
-            <div class="logo-chip">Karisma</div>
-            <div class="logo-chip">BarBestro</div>
-            <div class="logo-chip">The Toy Group</div>
-            <div class="logo-chip">Axotic Cafe</div>
-            <div class="logo-chip">Eighty Two</div>
-            <div class="logo-chip">Yoo Collagen</div>
-            <div class="logo-chip">My Organic</div>
-            <div class="logo-chip">Marshal Guard</div>
-            <div class="logo-chip">Witchanya</div>
-            <div class="logo-chip">Magnolia</div>
-          </div>
-          <div class="flex gap-4 shrink-0" aria-hidden="true">
-            <div class="logo-chip">Srifa Bakery</div>
-            <div class="logo-chip">ยอดรัก</div>
-            <div class="logo-chip">NAKA</div>
-            <div class="logo-chip">BetaCal</div>
-            <div class="logo-chip">So neko</div>
-            <div class="logo-chip">Karisma</div>
-            <div class="logo-chip">BarBestro</div>
-            <div class="logo-chip">The Toy Group</div>
-            <div class="logo-chip">Axotic Cafe</div>
-            <div class="logo-chip">Eighty Two</div>
-            <div class="logo-chip">Yoo Collagen</div>
-            <div class="logo-chip">My Organic</div>
-            <div class="logo-chip">Marshal Guard</div>
-            <div class="logo-chip">Witchanya</div>
-            <div class="logo-chip">Magnolia</div>
-          </div>
+        <div class="flex marquee marquee-reverse whitespace-nowrap">
+          <img src="clients/p20_row2.png" alt="Top Tier Clients — Row 2" class="logo-strip" />
+          <img src="clients/p20_row2.png" alt="" aria-hidden="true" class="logo-strip" />
         </div>
       </div>
 
       <!-- Row 3 — scrolls left (slower) -->
       <div class="marquee-container">
-        <div class="flex gap-4 marquee marquee-slow whitespace-nowrap">
-          <div class="flex gap-4 shrink-0">
-            <div class="logo-chip">ยันฮี</div>
-            <div class="logo-chip">นิยม Jeans</div>
-            <div class="logo-chip">Dr.Choice</div>
-            <div class="logo-chip">Kathy Cosmetics</div>
-            <div class="logo-chip">Rosegold</div>
-            <div class="logo-chip">Soccer Gate</div>
-            <div class="logo-chip">LYO Thai</div>
-            <div class="logo-chip">Verena</div>
-            <div class="logo-chip">Fitto</div>
-            <div class="logo-chip">Together</div>
-            <div class="logo-chip">Glam Laboratory</div>
-            <div class="logo-chip">Ecovacs</div>
-            <div class="logo-chip">DW Thailand</div>
-            <div class="logo-chip">Vera</div>
-            <div class="logo-chip">Aree Express</div>
-          </div>
-          <div class="flex gap-4 shrink-0" aria-hidden="true">
-            <div class="logo-chip">ยันฮี</div>
-            <div class="logo-chip">นิยม Jeans</div>
-            <div class="logo-chip">Dr.Choice</div>
-            <div class="logo-chip">Kathy Cosmetics</div>
-            <div class="logo-chip">Rosegold</div>
-            <div class="logo-chip">Soccer Gate</div>
-            <div class="logo-chip">LYO Thai</div>
-            <div class="logo-chip">Verena</div>
-            <div class="logo-chip">Fitto</div>
-            <div class="logo-chip">Together</div>
-            <div class="logo-chip">Glam Laboratory</div>
-            <div class="logo-chip">Ecovacs</div>
-            <div class="logo-chip">DW Thailand</div>
-            <div class="logo-chip">Vera</div>
-            <div class="logo-chip">Aree Express</div>
-          </div>
+        <div class="flex marquee marquee-slow whitespace-nowrap">
+          <img src="clients/p20_row3.png" alt="Top Tier Clients — Row 3" class="logo-strip" />
+          <img src="clients/p20_row3.png" alt="" aria-hidden="true" class="logo-strip" />
         </div>
       </div>
 
