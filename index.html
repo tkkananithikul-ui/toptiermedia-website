@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Top Tier Group — Full-Service Marketing Agency</title>
-<meta name="description" content="Top Tier Group — Full-service marketing agency. Strategy, Creative, Media, Influencer & PR. Trusted by 500+ brands across Thailand." />
+<meta name="description" content="Top Tier Group — Full-service marketing agency. Strategy, Creative, Media, Influencer & PR. Trusted by 200+ brands across Thailand." />
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -70,20 +70,28 @@
   .marquee-reverse { animation: marquee-reverse 45s linear infinite; }
   .marquee-slow { animation: marquee 55s linear infinite; }
 
-  /* Client logo strip — wide horizontal image used in marquee row */
-  .logo-strip {
+  /* Client logo — circular frame for individual brand logos */
+  .logo-circle {
     flex-shrink: 0;
-    height: 100px;
-    width: auto;
-    display: block;
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    background: #fff;
+    object-fit: cover;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.25), 0 0 0 1px rgba(255,255,255,0.08);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
     user-select: none;
     -webkit-user-drag: none;
   }
+  .logo-circle:hover {
+    transform: translateY(-3px) scale(1.06);
+    box-shadow: 0 8px 22px rgba(255,210,48,0.3), 0 0 0 2px rgba(255,210,48,0.5);
+  }
   @media (min-width: 768px) {
-    .logo-strip { height: 130px; }
+    .logo-circle { width: 104px; height: 104px; }
   }
   @media (min-width: 1280px) {
-    .logo-strip { height: 150px; }
+    .logo-circle { width: 120px; height: 120px; }
   }
 
   /* Scroll reveal */
@@ -694,34 +702,158 @@
     <div class="text-center mb-16">
       <div class="text-brand-yellow text-sm font-semibold tracking-[0.3em] mb-6 reveal">06 · OUR VALUED CLIENTS</div>
       <h2 class="font-display text-4xl lg:text-5xl font-bold reveal">
-        Trusted by <span class="text-brand-yellow">500+</span> brands.
+        Trusted by <span class="text-brand-yellow">200+</span> brands.
       </h2>
     </div>
 
-    <!-- 3 rows of real client logos, alternating scroll direction -->
-    <div class="space-y-4 reveal">
+    <!-- 3 rows of individual client logos in circular frames, alternating scroll -->
+    <div class="space-y-5 reveal">
 
-      <!-- Row 1 — scrolls left -->
+      <!-- Row 1 — scrolls left, normal speed -->
       <div class="marquee-container">
-        <div class="flex marquee whitespace-nowrap">
-          <img src="clients/p20_row1.png" alt="Top Tier Clients — Row 1" class="logo-strip" />
-          <img src="clients/p20_row1.png" alt="" aria-hidden="true" class="logo-strip" />
+        <div class="flex gap-5 marquee whitespace-nowrap">
+          <div class="flex gap-5 shrink-0">
+            <img src="clients/logo_01.png" alt="" class="logo-circle" />
+            <img src="clients/logo_02.png" alt="" class="logo-circle" />
+            <img src="clients/logo_03.png" alt="" class="logo-circle" />
+            <img src="clients/logo_04.png" alt="" class="logo-circle" />
+            <img src="clients/logo_05.png" alt="" class="logo-circle" />
+            <img src="clients/logo_06.png" alt="" class="logo-circle" />
+            <img src="clients/logo_07.png" alt="" class="logo-circle" />
+            <img src="clients/logo_08.png" alt="" class="logo-circle" />
+            <img src="clients/logo_09.png" alt="" class="logo-circle" />
+            <img src="clients/logo_10.png" alt="" class="logo-circle" />
+            <img src="clients/logo_11.png" alt="" class="logo-circle" />
+            <img src="clients/logo_12.png" alt="" class="logo-circle" />
+            <img src="clients/logo_13.png" alt="" class="logo-circle" />
+            <img src="clients/logo_14.png" alt="" class="logo-circle" />
+            <img src="clients/logo_15.png" alt="" class="logo-circle" />
+            <img src="clients/logo_16.png" alt="" class="logo-circle" />
+            <img src="clients/logo_17.png" alt="" class="logo-circle" />
+            <img src="clients/logo_18.png" alt="" class="logo-circle" />
+            <img src="clients/logo_19.png" alt="" class="logo-circle" />
+            <img src="clients/logo_20.png" alt="" class="logo-circle" />
+          </div>
+          <div class="flex gap-5 shrink-0" aria-hidden="true">
+            <img src="clients/logo_01.png" alt="" class="logo-circle" />
+            <img src="clients/logo_02.png" alt="" class="logo-circle" />
+            <img src="clients/logo_03.png" alt="" class="logo-circle" />
+            <img src="clients/logo_04.png" alt="" class="logo-circle" />
+            <img src="clients/logo_05.png" alt="" class="logo-circle" />
+            <img src="clients/logo_06.png" alt="" class="logo-circle" />
+            <img src="clients/logo_07.png" alt="" class="logo-circle" />
+            <img src="clients/logo_08.png" alt="" class="logo-circle" />
+            <img src="clients/logo_09.png" alt="" class="logo-circle" />
+            <img src="clients/logo_10.png" alt="" class="logo-circle" />
+            <img src="clients/logo_11.png" alt="" class="logo-circle" />
+            <img src="clients/logo_12.png" alt="" class="logo-circle" />
+            <img src="clients/logo_13.png" alt="" class="logo-circle" />
+            <img src="clients/logo_14.png" alt="" class="logo-circle" />
+            <img src="clients/logo_15.png" alt="" class="logo-circle" />
+            <img src="clients/logo_16.png" alt="" class="logo-circle" />
+            <img src="clients/logo_17.png" alt="" class="logo-circle" />
+            <img src="clients/logo_18.png" alt="" class="logo-circle" />
+            <img src="clients/logo_19.png" alt="" class="logo-circle" />
+            <img src="clients/logo_20.png" alt="" class="logo-circle" />
+          </div>
         </div>
       </div>
 
-      <!-- Row 2 — scrolls right (reverse) -->
+      <!-- Row 2 — scrolls right -->
       <div class="marquee-container">
-        <div class="flex marquee marquee-reverse whitespace-nowrap">
-          <img src="clients/p20_row2.png" alt="Top Tier Clients — Row 2" class="logo-strip" />
-          <img src="clients/p20_row2.png" alt="" aria-hidden="true" class="logo-strip" />
+        <div class="flex gap-5 marquee marquee-reverse whitespace-nowrap">
+          <div class="flex gap-5 shrink-0">
+            <img src="clients/logo_21.png" alt="" class="logo-circle" />
+            <img src="clients/logo_22.png" alt="" class="logo-circle" />
+            <img src="clients/logo_23.png" alt="" class="logo-circle" />
+            <img src="clients/logo_24.png" alt="" class="logo-circle" />
+            <img src="clients/logo_25.png" alt="" class="logo-circle" />
+            <img src="clients/logo_26.png" alt="" class="logo-circle" />
+            <img src="clients/logo_27.png" alt="" class="logo-circle" />
+            <img src="clients/logo_28.png" alt="" class="logo-circle" />
+            <img src="clients/logo_29.png" alt="" class="logo-circle" />
+            <img src="clients/logo_30.png" alt="" class="logo-circle" />
+            <img src="clients/logo_31.png" alt="" class="logo-circle" />
+            <img src="clients/logo_32.png" alt="" class="logo-circle" />
+            <img src="clients/logo_33.png" alt="" class="logo-circle" />
+            <img src="clients/logo_34.png" alt="" class="logo-circle" />
+            <img src="clients/logo_35.png" alt="" class="logo-circle" />
+            <img src="clients/logo_36.png" alt="" class="logo-circle" />
+            <img src="clients/logo_37.png" alt="" class="logo-circle" />
+            <img src="clients/logo_38.png" alt="" class="logo-circle" />
+            <img src="clients/logo_39.png" alt="" class="logo-circle" />
+            <img src="clients/logo_40.png" alt="" class="logo-circle" />
+          </div>
+          <div class="flex gap-5 shrink-0" aria-hidden="true">
+            <img src="clients/logo_21.png" alt="" class="logo-circle" />
+            <img src="clients/logo_22.png" alt="" class="logo-circle" />
+            <img src="clients/logo_23.png" alt="" class="logo-circle" />
+            <img src="clients/logo_24.png" alt="" class="logo-circle" />
+            <img src="clients/logo_25.png" alt="" class="logo-circle" />
+            <img src="clients/logo_26.png" alt="" class="logo-circle" />
+            <img src="clients/logo_27.png" alt="" class="logo-circle" />
+            <img src="clients/logo_28.png" alt="" class="logo-circle" />
+            <img src="clients/logo_29.png" alt="" class="logo-circle" />
+            <img src="clients/logo_30.png" alt="" class="logo-circle" />
+            <img src="clients/logo_31.png" alt="" class="logo-circle" />
+            <img src="clients/logo_32.png" alt="" class="logo-circle" />
+            <img src="clients/logo_33.png" alt="" class="logo-circle" />
+            <img src="clients/logo_34.png" alt="" class="logo-circle" />
+            <img src="clients/logo_35.png" alt="" class="logo-circle" />
+            <img src="clients/logo_36.png" alt="" class="logo-circle" />
+            <img src="clients/logo_37.png" alt="" class="logo-circle" />
+            <img src="clients/logo_38.png" alt="" class="logo-circle" />
+            <img src="clients/logo_39.png" alt="" class="logo-circle" />
+            <img src="clients/logo_40.png" alt="" class="logo-circle" />
+          </div>
         </div>
       </div>
 
-      <!-- Row 3 — scrolls left (slower) -->
+      <!-- Row 3 — scrolls left, slower -->
       <div class="marquee-container">
-        <div class="flex marquee marquee-slow whitespace-nowrap">
-          <img src="clients/p20_row3.png" alt="Top Tier Clients — Row 3" class="logo-strip" />
-          <img src="clients/p20_row3.png" alt="" aria-hidden="true" class="logo-strip" />
+        <div class="flex gap-5 marquee marquee-slow whitespace-nowrap">
+          <div class="flex gap-5 shrink-0">
+            <img src="clients/logo_41.png" alt="" class="logo-circle" />
+            <img src="clients/logo_42.png" alt="" class="logo-circle" />
+            <img src="clients/logo_43.png" alt="" class="logo-circle" />
+            <img src="clients/logo_44.png" alt="" class="logo-circle" />
+            <img src="clients/logo_45.png" alt="" class="logo-circle" />
+            <img src="clients/logo_46.png" alt="" class="logo-circle" />
+            <img src="clients/logo_47.png" alt="" class="logo-circle" />
+            <img src="clients/logo_48.png" alt="" class="logo-circle" />
+            <img src="clients/logo_49.png" alt="" class="logo-circle" />
+            <img src="clients/logo_50.png" alt="" class="logo-circle" />
+            <img src="clients/logo_51.png" alt="" class="logo-circle" />
+            <img src="clients/logo_52.png" alt="" class="logo-circle" />
+            <img src="clients/logo_53.png" alt="" class="logo-circle" />
+            <img src="clients/logo_54.png" alt="" class="logo-circle" />
+            <img src="clients/logo_55.png" alt="" class="logo-circle" />
+            <img src="clients/logo_56.png" alt="" class="logo-circle" />
+            <img src="clients/logo_57.png" alt="" class="logo-circle" />
+            <img src="clients/logo_58.png" alt="" class="logo-circle" />
+            <img src="clients/logo_59.png" alt="" class="logo-circle" />
+          </div>
+          <div class="flex gap-5 shrink-0" aria-hidden="true">
+            <img src="clients/logo_41.png" alt="" class="logo-circle" />
+            <img src="clients/logo_42.png" alt="" class="logo-circle" />
+            <img src="clients/logo_43.png" alt="" class="logo-circle" />
+            <img src="clients/logo_44.png" alt="" class="logo-circle" />
+            <img src="clients/logo_45.png" alt="" class="logo-circle" />
+            <img src="clients/logo_46.png" alt="" class="logo-circle" />
+            <img src="clients/logo_47.png" alt="" class="logo-circle" />
+            <img src="clients/logo_48.png" alt="" class="logo-circle" />
+            <img src="clients/logo_49.png" alt="" class="logo-circle" />
+            <img src="clients/logo_50.png" alt="" class="logo-circle" />
+            <img src="clients/logo_51.png" alt="" class="logo-circle" />
+            <img src="clients/logo_52.png" alt="" class="logo-circle" />
+            <img src="clients/logo_53.png" alt="" class="logo-circle" />
+            <img src="clients/logo_54.png" alt="" class="logo-circle" />
+            <img src="clients/logo_55.png" alt="" class="logo-circle" />
+            <img src="clients/logo_56.png" alt="" class="logo-circle" />
+            <img src="clients/logo_57.png" alt="" class="logo-circle" />
+            <img src="clients/logo_58.png" alt="" class="logo-circle" />
+            <img src="clients/logo_59.png" alt="" class="logo-circle" />
+          </div>
         </div>
       </div>
 
