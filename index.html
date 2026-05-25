@@ -79,14 +79,15 @@
     background: #fff;
     object-fit: contain;
     padding: 12px;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.25), 0 0 0 1px rgba(255,255,255,0.08);
-    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    border: 1px solid rgba(255,255,255,0.12);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    transition: transform 0.35s ease, border-color 0.35s ease;
     user-select: none;
     -webkit-user-drag: none;
   }
   .logo-circle:hover {
-    transform: translateY(-3px) scale(1.06);
-    box-shadow: 0 8px 22px rgba(255,210,48,0.3), 0 0 0 2px rgba(255,210,48,0.5);
+    transform: translateY(-2px) scale(1.04);
+    border-color: rgba(255,210,48,0.6);
   }
   @media (min-width: 768px) {
     .logo-circle { width: 112px; height: 112px; padding: 14px; }
@@ -160,21 +161,7 @@
   /* Nav backdrop */
   .nav-blur { backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); }
 
-  /* Logo placeholder */
-  .logo-circle {
-    background: radial-gradient(circle at 30% 30%, #FFD230, #F5C419);
-    border-radius: 50%;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 900;
-    color: #0A0A0A;
-    letter-spacing: -0.05em;
-    line-height: 0.85;
-    font-family: 'Space Grotesk', sans-serif;
-    text-align: center;
-    flex-direction: column;
-  }
+  /* (legacy text-logo placeholder removed — using image-based .logo-circle above) */
 
   /* Pill button */
   .btn-pill {
@@ -829,7 +816,6 @@
             <img src="clients/logo_41.png" alt="" class="logo-circle" />
             <img src="clients/logo_42.png" alt="Aree Express" class="logo-circle" />
             <img src="clients/logo_43.png" alt="" class="logo-circle" />
-            <img src="clients/logo_44.png" alt="Aura Blue" class="logo-circle" />
             <img src="clients/logo_45.png" alt="Mana Collagen" class="logo-circle" />
             <img src="clients/logo_46.png" alt="" class="logo-circle" />
             <img src="clients/logo_66.png" alt="Falcon" class="logo-circle" />
@@ -852,7 +838,6 @@
             <img src="clients/logo_41.png" alt="" class="logo-circle" />
             <img src="clients/logo_42.png" alt="" class="logo-circle" />
             <img src="clients/logo_43.png" alt="" class="logo-circle" />
-            <img src="clients/logo_44.png" alt="" class="logo-circle" />
             <img src="clients/logo_45.png" alt="" class="logo-circle" />
             <img src="clients/logo_46.png" alt="" class="logo-circle" />
             <img src="clients/logo_66.png" alt="" class="logo-circle" />
