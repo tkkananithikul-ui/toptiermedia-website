@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mobile Preview · Top Tier Media</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #1a1a1a;
+      color: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      min-height: 100vh;
+      padding: 24px;
+    }
+    .toolbar {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+      padding: 16px 20px;
+      background: #2a2a2a;
+      border-radius: 12px;
+      border: 1px solid #3a3a3a;
+    }
+    .toolbar h1 {
+      font-size: 16px;
+      color: #FFD230;
+      letter-spacing: 0.05em;
+    }
+    .toolbar h1 small {
+      color: #888;
+      font-weight: normal;
+      margin-left: 8px;
+    }
+    .device-buttons {
+      display: flex;
+      gap: 8px;
+      margin-left: auto;
+      flex-wrap: wrap;
+    }
+    .device-btn {
+      background: #3a3a3a;
+      color: #fff;
+      border: 1px solid #4a4a4a;
+      padding: 8px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 13px;
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+    .device-btn:hover { background: #4a4a4a; }
+    .device-btn.active {
+      background: #FFD230;
+      color: #000;
+      border-color: #FFD230;
+      font-weight: 600;
+    }
+    .url-input {
+      flex: 1;
+      min-width: 240px;
+      background: #1a1a1a;
+      color: #fff;
+      border: 1px solid #4a4a4a;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-family: monospace;
+      font-size: 13px;
+    }
+    .stage {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 40px;
+      flex-wrap: wrap;
+      padding: 20px 0;
+    }
+    .device {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+    .device-label {
+      font-size: 13px;
+      color: #aaa;
+      font-weight: 600;
+    }
+    .device-label strong { color: #FFD230; }
+    .device-frame {
+      background: #0a0a0a;
+      border-radius: 36px;
+      padding: 14px 10px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+      position: relative;
+    }
+    .device-frame::before {
+      content: '';
+      position: absolute;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 24px;
+      background: #0a0a0a;
+      border-radius: 0 0 14px 14px;
+      z-index: 2;
+    }
+    .device-frame iframe {
+      border: none;
+      display: block;
+      background: #000;
+      border-radius: 24px;
+    }
+    .device-frame.tablet { border-radius: 18px; padding: 16px; }
+    .device-frame.tablet::before { display: none; }
+    .device-frame.tablet iframe { border-radius: 6px; }
+    .device-frame.desktop { border-radius: 8px; padding: 6px; background: #1a1a1a; }
+    .device-frame.desktop::before { display: none; }
+    .device-frame.desktop iframe { border-radius: 4px; }
+
+    /* Device sizes — iPhone 14 Pro, iPhone SE, iPad Mini, Desktop */
+    [data-device="iphone14"] iframe { width: 393px; height: 852px; }
+    [data-device="iphonese"] iframe { width: 375px; height: 667px; }
+    [data-device="ipadmini"] iframe { width: 744px; height: 1133px; }
+    [data-device="desktop"] iframe  { width: 1280px; height: 800px; }
+
+    .hidden { display: none !important; }
+    .quick-links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+    .quick-links a {
+      color: #FFD230;
+      text-decoration: none;
+      font-size: 12px;
+      padding: 6px 10px;
+      background: #2a2a2a;
+      border: 1px solid #3a3a3a;
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+    .quick-links a:hover { background: #FFD230; color: #000; }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <h1>📱 MOBILE PREVIEW <small>· Top Tier Media</small></h1>
+    <div class="device-buttons">
+      <button class="device-btn" data-target="iphonese">iPhone SE (375)</button>
+      <button class="device-btn active" data-target="iphone14">iPhone 14 (393)</button>
+      <button class="device-btn" data-target="ipadmini">iPad Mini (744)</button>
+      <button class="device-btn" data-target="desktop">Desktop (1280)</button>
+      <button class="device-btn" data-target="all">📋 Show All</button>
+    </div>
+  </div>
+
+  <div class="toolbar" style="margin-top:-12px;">
+    <span style="color:#888;font-size:13px;">PAGE</span>
+    <input type="text" id="url-input" class="url-input" value="/" placeholder="/" />
+    <div class="quick-links">
+      <a href="#" data-page="/">Home</a>
+      <a href="#" data-page="/marketing-decoded/">Content Hub</a>
+      <a href="#" data-page="/marketing-decoded/smart-marketing-funnel/">Article: Funnel</a>
+      <a href="#" data-page="/marketing-decoded/marketing-budget-planning/">Article: Budget</a>
+      <a href="#" data-page="/privacy-policy/">Privacy</a>
+      <a href="#" data-page="/terms-of-service/">Terms</a>
+    </div>
+  </div>
+
+  <div class="stage" id="stage">
+    <div class="device" data-device="iphonese">
+      <div class="device-label"><strong>iPhone SE</strong> · 375 × 667</div>
+      <div class="device-frame"><iframe src="/" loading="lazy"></iframe></div>
+    </div>
+    <div class="device" data-device="iphone14">
+      <div class="device-label"><strong>iPhone 14 Pro</strong> · 393 × 852</div>
+      <div class="device-frame"><iframe src="/" loading="lazy"></iframe></div>
+    </div>
+    <div class="device" data-device="ipadmini">
+      <div class="device-label"><strong>iPad Mini</strong> · 744 × 1133</div>
+      <div class="device-frame tablet"><iframe src="/" loading="lazy"></iframe></div>
+    </div>
+    <div class="device" data-device="desktop">
+      <div class="device-label"><strong>Desktop</strong> · 1280 × 800</div>
+      <div class="device-frame desktop"><iframe src="/" loading="lazy"></iframe></div>
+    </div>
+  </div>
+
+  <script>
+    const buttons = document.querySelectorAll('.device-btn');
+    const devices = document.querySelectorAll('.device');
+    const urlInput = document.getElementById('url-input');
+    const quickLinks = document.querySelectorAll('.quick-links a');
+
+    function showOnly(target) {
+      buttons.forEach(b => b.classList.toggle('active', b.dataset.target === target));
+      if (target === 'all') {
+        devices.forEach(d => d.classList.remove('hidden'));
+      } else {
+        devices.forEach(d => d.classList.toggle('hidden', d.dataset.device !== target));
+      }
+    }
+
+    buttons.forEach(b => {
+      b.addEventListener('click', () => showOnly(b.dataset.target));
+    });
+
+    function loadPage(path) {
+      if (!path) path = '/';
+      urlInput.value = path;
+      document.querySelectorAll('.device iframe').forEach(f => f.src = path);
+    }
+
+    urlInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') loadPage(urlInput.value);
+    });
+
+    quickLinks.forEach(a => {
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        loadPage(a.dataset.page);
+      });
+    });
+
+    // Default: iPhone 14 only
+    showOnly('iphone14');
+  </script>
+</body>
+</html>
