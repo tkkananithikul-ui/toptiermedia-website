@@ -21,4 +21,5 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy . --project-name=toptiergroup --branch=main --commit-dirty=true
+          # Force ASCII commit message — Cloudflare API rejects some UTF-8 in commit msgs
+          command: pages deploy . --project-name=toptiergroup --branch=main --commit-dirty=true --commit-hash=${{ github.sha }} --commit-message="Auto-deploy ${{ github.sha }}"
